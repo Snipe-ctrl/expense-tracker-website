@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: center;
   background-color: var(--background-color);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -26,4 +27,4 @@ body {
   --button-blue: #2563EB;
 }
 
-/*# sourceMappingURL=bundle4178c9368cad43e1bee0.css.map*/
+/*# sourceMappingURL=bundlec6af62e429a7bf58ecd9.css.map*/
