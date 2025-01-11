@@ -1,0 +1,29 @@
+/*!**************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/style.scss ***!
+  \**************************************************************************************************************/
+.signup-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+}
+
+body {
+  font-family: "Mukta", serif;
+  background-color: var(--white);
+}
+
+:root {
+  --white: white;
+  --background-color: #F9FAFB;
+  --gray: #DBDFE2;
+  --button-blue: #2563EB;
+}
+
+/*# sourceMappingURL=bundle4178c9368cad43e1bee0.css.map*/
