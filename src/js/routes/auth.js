@@ -36,6 +36,11 @@ router.post('/signup', async (req, res) => {
 				type: 'warning',
 			})
 
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(email)) {
+			return res.status(400).json({ type: 'error', message: 'Invalid email address.' });
+		}
+
 		const passwordHash = await hash(password, 10)
 		const newUser = new User({
 			email: email,
