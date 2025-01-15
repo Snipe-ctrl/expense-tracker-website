@@ -11,20 +11,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background-color: var(--background-color);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.signup-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin: 0rem;
+  padding-bottom: 0.75rem;
+}
+.signup-container h3 {
+  color: var(--dark-gray);
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0rem;
+  margin-bottom: 2rem;
 }
 
 body {
-  font-family: "Mukta", serif;
+  font-family: "Inter", serif;
   background-color: var(--white);
 }
 
 :root {
   --white: white;
   --background-color: #F9FAFB;
-  --gray: #DBDFE2;
+  --light-gray: #DBDFE2;
+  --dark-gray: #6B7280;
   --button-blue: #2563EB;
+  --dark-text: #111827;
 }
 
-/*# sourceMappingURL=bundlec6af62e429a7bf58ecd9.css.map*/
+/*# sourceMappingURL=bundlec71cfb655be876ea06b2.css.map*/

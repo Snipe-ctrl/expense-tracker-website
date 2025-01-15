@@ -1,3 +1,4 @@
+@use '../util' as *;
 
 .signup-wrapper {
     display: flex;
@@ -12,4 +13,23 @@
     flex-direction: column;
     background-color: var(--background-color);
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: rem(16);
+    padding: rem(32);
+
+    h2 {
+        font-size: rem(24);
+        font-weight: 700;
+        color: var(--dark-text);
+        margin: rem(0);
+        padding-bottom: rem(12);
+    }
+
+    h3 {
+        color: var(--dark-gray);
+        font-size: rem(16);
+        font-weight: 400;
+        margin: rem(0);
+        margin-bottom: rem(32);
+    }
+
 }

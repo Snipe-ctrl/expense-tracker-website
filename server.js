@@ -5,7 +5,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
 
-const indexRouter = require('./src/js/routes/index')
+const indexRouter = require('./src/js/routes/otherRoutes')
 const authRouter = require('./src/js/routes/auth')
 
 const app = express();

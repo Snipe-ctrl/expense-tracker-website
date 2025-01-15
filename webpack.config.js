@@ -6,13 +6,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Import the p
 module.exports = {
     mode: 'development',
     entry: {
-        bundle: path.resolve(__dirname, 'src/js/app.js'),
+        bundle: path.resolve(__dirname, 'src/js/index.js'),
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name][contenthash].js',
         clean: true,
         assetModuleFilename: 'assets/[name][ext]',
+        publicPath: '/',
     },
     devtool: 'source-map',
     devServer: {
@@ -37,12 +38,15 @@ module.exports = {
                 ],
             },
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env'],
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-react',
+                        ],
                     },
                 },
             },
@@ -52,9 +56,12 @@ module.exports = {
             },
         ],
     },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Webpack App',
+            title: 'Expense Tracker',
             filename: 'index.html',
             template: path.resolve(__dirname, 'src/index.html'),
         }),
