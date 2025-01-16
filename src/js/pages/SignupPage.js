@@ -10,6 +10,7 @@ const SignupForm = () => {
         termsAccepted: false,
     });
 
+    
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData({
@@ -18,11 +19,13 @@ const SignupForm = () => {
         });
     };
 
+    // checks if email is a valid format
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     };    
 
+    // handles form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -53,6 +56,7 @@ const SignupForm = () => {
             password: formData.password,
         };
 
+        // sends POST request
         try {
             const signupResponse = await fetch('http://localhost:3001/auth/signup', {
                 method: 'POST',
@@ -74,6 +78,7 @@ const SignupForm = () => {
         }
     };
 
+    // generates signup form
     return (
         <div className="signup-wrapper">
             <div className="signup-container">
@@ -97,9 +102,10 @@ const SignupForm = () => {
                 <h2>Create your account</h2>
                 <h3>Start tracking your expenses today</h3>
                 <form className="create-account-container" onSubmit={handleSubmit}>
-                    <div className="full-name-container">
+                    <div className="input-container">
                         <label htmlFor="full-name-input">Full Name</label>
                         <input
+                            className="input-box"
                             id="full-name-input"
                             type="text"
                             name="fullName"
@@ -108,9 +114,10 @@ const SignupForm = () => {
                             placeholder="John Doe"
                         />
                     </div>
-                    <div className="email-container">
+                    <div className="input-container">
                         <label htmlFor="email-input">Email address</label>
                         <input
+                            className="input-box"
                             id="email-input"
                             type="text"
                             name="email"
@@ -119,26 +126,28 @@ const SignupForm = () => {
                             placeholder="john@example.com"
                         />
                     </div>
-                    <div className="password-container">
+                    <div className="input-container">
                         <label htmlFor="password-input">Password</label>
                         <input
+                            className="input-box"
                             id="password-input"
                             type="password"
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
-                            placeholder="*******"
+                            placeholder="•••••••••••••"
                         />
                     </div>
-                    <div className="confirm-password-container">
+                    <div className="input-container">
                         <label htmlFor="confirm-password-input">Confirm Password</label>
                         <input
+                            className="input-box"
                             id="confirm-password-input"
                             type="password"
                             name="confirmPassword"
                             value={formData.confirmPassword}
                             onChange={handleChange}
-                            placeholder="*******"
+                            placeholder="•••••••••••••"
                         />
                     </div>
                     <div className="terms-container">
@@ -156,7 +165,7 @@ const SignupForm = () => {
                     <button type="submit">Create Account</button>
                 </form>
                 <div className="sign-in-container">
-                    <h3>Already have an account? Sign in</h3>
+                    <p>Already have an account? Sign in</p>
                 </div>
             </div>
         </div>
