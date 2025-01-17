@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from "../utils/AuthContext";
 import '/src/scss/style.scss';
 
 const SigninForm = () => {
@@ -7,14 +8,14 @@ const SigninForm = () => {
         email: "",
         password: "",
     })
-    
+    const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData({
             ...formData,
-            [name]: type ==="checkbox" ? checked : value,
+            [name]: type === "checkbox" ? checked : value,
         });
     };
 
@@ -37,35 +38,12 @@ const SigninForm = () => {
             alert('Please enter a valid email address!');
             return;
         }
-    
-        // data for GET request
-        const payload = {
-            email: formData.email,
-            password: formData.password,
-        };
 
-        // sends GET request
-        try {
-            const signinResponse = await fetch(`http://localhost:3001/auth/signin`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                credentials: 'include',
-                body: JSON.stringify(payload)
-            });
-        
-            const data = await signinResponse.json();
-    
-            if (data.type === 'success') {
-                alert('Signed in succesfully!');
-            } else {
-                alert('Error signing in: ' + data.message);
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again.');
+        const success = await signIn(formData.email, formData.password)
+        if (success) {
+            navigate('/protected');
         }
-    };
-
+    }
     return (
         <div className="signup-wrapper">
         <div className="signup-container">
