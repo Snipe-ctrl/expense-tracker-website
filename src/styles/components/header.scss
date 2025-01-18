@@ -1,0 +1,27 @@
+@use '../util' as *;
+
+header {
+    background-color: gray;
+    height: rem(65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.right-side {
+    display: flex;
+    align-items: center;
+}
+
+.square {
+    background-color: green;
+    height: 40px;
+    width: 40px;
+}
