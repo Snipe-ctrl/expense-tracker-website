@@ -1,7 +1,7 @@
 @use '../util' as *;
 
 header {
-    background-color: gray;
+    background-color: white;
     height: rem(65);
     display: flex;
     justify-content: center;
@@ -10,18 +10,47 @@ header {
 
 .header-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: rem(65);
 }
 
 .right-side {
     display: flex;
     align-items: center;
+    margin-right: rem(90);
 }
 
 .square {
     background-color: green;
     height: 40px;
     width: 40px;
+    border-radius: 50%;
+}
+
+.left-side {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-left: rem(90);
+
+    .header-page-buttons {
+        display: flex;
+        justify-content: start;
+        gap: rem(24);
+
+        h3 {
+            font-size: rem(16);
+            font-weight: 400;
+            color: var(--text-5);
+        }
+    }
+
+    h2 {
+        font-size: rem(24);
+        font-weight: 700;
+        color: rgb(53, 102, 225);
+        margin-right: rem(32);
+    }
 }

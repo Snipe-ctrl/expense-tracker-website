@@ -1,0 +1,68 @@
+@use '../util' as *;
+
+.account-settings-container {
+    display: flex;
+    justify-content: flex-start;
+    position: fixed;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: rem(500);
+    height: rem(610);
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: rem(8);
+}
+
+.header {
+    height: rem(77);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    border-bottom: rem(1) solid var(--border-1);
+
+    h2 {
+        font-size: rem(20);
+        font-weight: 600;
+        color: var(--text-6);
+        padding: rem(24);
+    }
+
+    .x {
+        width: rem(11);
+        height: rem(11);
+        padding: rem(24);
+    }
+
+}
+
+.account-settings-line {
+    height: rem(2);
+    width: 100%;
+    background-color: gray;
+}
+
+.profile-photo-container {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    .circle {
+        width: rem(64);
+        height: rem(64);
+        border-radius: 50%;
+        background-color: gray;
+    }
+
+}
+
+.circle {
+    width: rem(64);
+    height: rem(64);
+    border-radius: 50%;
+    background-color: gray;
+}

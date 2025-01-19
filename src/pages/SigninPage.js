@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from "../context/AuthContext";
 import '/src/styles/style.scss';
 
+let userEmail = ""
+
 const SigninForm = () => {
     const [formData, setFormData] = useState({
         email: "",
@@ -42,6 +44,7 @@ const SigninForm = () => {
         const success = await signIn(formData.email, formData.password)
         if (success) {
             navigate('/protected');
+            userEmail = formData.email
         }
     }
     return (
@@ -101,4 +104,5 @@ const SigninForm = () => {
 );
 };
 
+export { userEmail }
 export default SigninForm;

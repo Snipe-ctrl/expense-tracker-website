@@ -5,6 +5,7 @@ import SigninForm from "./pages/SigninPage";
 import Dashboard from "./pages/Dashboard";
 import AuthProvider from "./context/AuthContext";
 import ProtectedRoute from "./context/ProtectedRoute";
+import AccountSettings from "./pages/AccountSettings";
 
 const App = () => {
     return (
@@ -14,7 +15,9 @@ const App = () => {
                     <Route path="/" element={<Dashboard />} />
                     <Route path="signup" element={<SignupForm />} />
                     <Route path="signin" element={<SigninForm />} />
-                    <Route path="dashboard" element={<Dashboard />} />
+                    <Route path="dashboard" element={<Dashboard />}>
+                        <Route path="account-settings" element={<AccountSettings />} />
+                    </Route>
                     <Route path="protected"
                         element={
                             <ProtectedRoute>
