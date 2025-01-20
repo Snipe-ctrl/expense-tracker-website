@@ -102,7 +102,7 @@ const SignupForm = () => {
                 <h2>Create your account</h2>
                 <h3>Start tracking your expenses today</h3>
                 <form className="create-account-container" onSubmit={handleSubmit}>
-                    <div className="input-container">
+                    <div className="signup-signin-input-container">
                         <label htmlFor="full-name-input">Full Name</label>
                         <input
                             className="input-box"
@@ -114,7 +114,7 @@ const SignupForm = () => {
                             placeholder="John Doe"
                         />
                     </div>
-                    <div className="input-container">
+                    <div className="signup-signin-input-container">
                         <label htmlFor="email-input">Email address</label>
                         <input
                             className="input-box"
@@ -126,7 +126,7 @@ const SignupForm = () => {
                             placeholder="john@example.com"
                         />
                     </div>
-                    <div className="input-container">
+                    <div className="signup-signin-input-container">
                         <label htmlFor="password-input">Password</label>
                         <input
                             className="input-box"
@@ -138,7 +138,7 @@ const SignupForm = () => {
                             placeholder="•••••••••••••"
                         />
                     </div>
-                    <div className="input-container">
+                    <div className="signup-signin-input-container">
                         <label htmlFor="confirm-password-input">Confirm Password</label>
                         <input
                             className="input-box"

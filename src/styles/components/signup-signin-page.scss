@@ -34,7 +34,7 @@
         margin-bottom: rem(32);
     }
 
-    .input-container {
+    .signup-signin-input-container {
         display: flex;
         flex-direction: column;
         justify-content: start;
@@ -50,7 +50,7 @@
         .input-box {
             height: rem(50);
             width: rem(385);
-            border: rem(1) solid var(--input-box-border);
+            border: rem(1) solid var(--input-box-border-1);
             border-radius: rem(8);
             padding-left: rem(16);
 

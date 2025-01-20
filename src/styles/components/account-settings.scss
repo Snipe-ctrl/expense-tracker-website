@@ -1,5 +1,17 @@
 @use '../util' as *;
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: flex;
+}
+
 .account-settings-container {
     display: flex;
     justify-content: flex-start;
@@ -12,57 +24,142 @@
     height: rem(610);
     background-color: white;
     box-sizing: border-box;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15);
     border-radius: rem(8);
+    z-index: 1000;
 }
 
-.header {
-    height: rem(77);
-    width: 100%;
+.account-settings-header-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    top: 0;
     border-bottom: rem(1) solid var(--border-1);
+    padding: rem(27) rem(24);
+    box-sizing: border-box;
 
-    h2 {
-        font-size: rem(20);
-        font-weight: 600;
-        color: var(--text-6);
-        padding: rem(24);
+    .account-settings-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    
+        h2 {
+            font-size: rem(20);
+            font-weight: 600;
+            color: var(--text-6);
+            margin: 0;
+        }
+    
+        .x {
+            width: rem(11);
+            height: rem(11);
+            cursor: pointer;
+        }
     }
-
-    .x {
-        width: rem(11);
-        height: rem(11);
-        padding: rem(24);
-    }
-
 }
 
-.account-settings-line {
-    height: rem(2);
-    width: 100%;
-    background-color: gray;
+.account-info-container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: rem(0) rem(24) rem(24) rem(24);
+
+    .profile-photo-container {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        padding: rem(24) rem(0) rem(24) rem(0);
+    
+        .circle {
+            width: rem(64);
+            height: rem(64);
+            border-radius: 50%;
+            background-color: gray;
+            margin-right: rem(16);
+        }
+    
+        button {
+            all: unset;
+            cursor: pointer;
+            font-size: rem(14);
+            font-weight: 400;
+            color: var(--blue-button-1);
+        }
+    }
+    
+    .account-settings-input-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: rem(16);
+    
+        label {
+            font-size: rem(14);
+            font-weight: 500;
+            color: var(--text-3);
+            padding-bottom: rem(4);
+        }
+    
+        input {
+            height: rem(40);
+            border-radius: rem(8);
+            border: rem(1) solid var(--input-box-border-2);
+            padding-left: rem(16);
+    
+            &:focus {
+                outline: none;
+            }
+        }
+    
+        select {
+            height: rem(40);
+            border-radius: rem(8);
+            border: rem(1) solid var(--input-box-border-2);
+            padding-left: rem(16);
+    
+            &:focus {
+                outline: none;
+            }
+        }
+    }
 }
 
-.profile-photo-container {
+.submit-account-settings-container {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    border-top: rem(1) solid var(--border-1);
+    border-radius: rem(0) rem(0) rem(8) rem(8);
+    height: rem(90);
+    background-color: var(--background-color);
 
-    .circle {
-        width: rem(64);
-        height: rem(64);
-        border-radius: 50%;
-        background-color: gray;
+    .submit-account-settings {
+        display: flex;
+        align-items: center;
+        gap: rem(12);
+        padding: rem(24);
+
+        .cancel-button {
+            font-size: rem(16);
+            font-weight: 400;
+            border: rem(1) solid var(--input-box-border-2);
+            height: rem(40);
+            width: rem(82);
+            border-radius: rem(8);
+            background-color: white;
+            color: var(--text-3);
+            cursor: pointer;
+        }
+
+        .save-changes-button {
+            font-size: rem(16);
+            font-weight: 400;
+            border: rem(1) solid var(--input-box-border-2);
+            height: rem(40);
+            width: rem(135);
+            border-radius: rem(8);
+            background-color: var(--blue-button-1);
+            color: white;
+            cursor: pointer;
+        }
     }
-
-}
-
-.circle {
-    width: rem(64);
-    height: rem(64);
-    border-radius: 50%;
-    background-color: gray;
 }

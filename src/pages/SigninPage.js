@@ -70,7 +70,7 @@ const SigninForm = () => {
             <h2>Welcome back</h2>
             <h3>Sign into your account</h3>
             <form className="signin-container" onSubmit={handleSubmit}>
-                <div className="input-container">
+                <div className="signup-signin-input-container">
                     <label htmlFor="email-input">Email address</label>
                     <input
                         className="input-box"
@@ -82,7 +82,7 @@ const SigninForm = () => {
                         placeholder="john@example.com"
                     />
                 </div>
-                <div className="input-container">
+                <div className="signup-signin-input-container">
                     <label htmlFor="password-input">Password</label>
                     <input
                         className="input-box"
