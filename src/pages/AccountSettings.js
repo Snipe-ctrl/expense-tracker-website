@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import '/src/styles/style.scss';
 
 const AccountSettings = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const overlayRef = useRef('flex');
 
-    const openModel = () => setIsOpen(true);
-    const closeModel = () => setIsOpen(false);
+    const openModel = () => {
+        if (overlayRef.current) {
+            overlayRef.current.style.display = 'flex';
+        }
+    };
+
+    const closeModel = () => {
+        if (overlayRef.current) {
+            overlayRef.current.style.display = 'none';
+        }
+    };
 
     return (
-        <div className="overlay">
+        <div className="overlay" ref={overlayRef}>
             <div className="account-settings-container">
                 <div className="account-settings-header-container">
                     <div className="account-settings-header">
                         <h2>Account Settings</h2>
-                        <svg width="12" height="13" className="x" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg onClick={closeModel} width="12" height="13" className="x" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M11.5445 2.79448C11.984 2.35503 11.984 1.64136 11.5445 1.2019C11.1051 0.762451 10.3914 
         0.762451 9.95197 1.2019L6.25001 4.90737L2.54454 1.20542C2.10509 0.765967 1.39142 0.765967 0.951965 
         1.20542C0.512512 1.64487 0.512512 2.35854 0.951965 2.798L4.65743 6.49995L0.955481 10.2054C0.516028 
@@ -50,7 +59,15 @@ const AccountSettings = () => {
                 </div>
                 <div className="submit-account-settings-container">
                     <div className="submit-account-settings">
-                    <button className="cancel-button">Cancel</button>
+                    <button 
+                        className="cancel-button" 
+                        onClick={(event) => {
+                            event.preventDefault();
+                            closeModel();
+                        }}
+                    >
+                        Cancel
+                    </button>
                     <button className="save-changes-button" type="submit">Save Changes</button>
                     </div>
                 </div>
