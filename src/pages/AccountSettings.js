@@ -16,6 +16,10 @@ const AccountSettings = () => {
         }
     };
 
+    try {
+        
+    }
+
     return (
         <div className="overlay" ref={overlayRef}>
             <div className="account-settings-container">
