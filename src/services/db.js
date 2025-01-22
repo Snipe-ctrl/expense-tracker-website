@@ -6,7 +6,14 @@ const pool = new Pool({
     database: process.env.POSTGRES_DB,
     password: process.env.POSTGRES_PASSWORD,
     port: process.env.POSTGRES_PORT,
+    ssl: {
+        rejectUnauthorized: false, // For self-signed certificates
+    },
 });
+
+pool.connect()
+    .then(() => console.log('Connected to PostgreSQL successfully'))
+    .catch((err) => console.error('Error connecting to PostgreSQL:', err));
 
 module.exports = {
     query: (text, params) => pool.query(text, params),

@@ -9,6 +9,7 @@
     "start": "node server.js",
     "dev:server": "nodemon server/server.js"
   },
+  "proxy": "http://localhost:3001",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -33,18 +34,25 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "buffer": "^6.0.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "crypto-browserify": "^3.12.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.12.0",
-    "mongoose": "^8.9.4",
     "nodemailer": "^6.9.16",
+    "null-loader": "^4.0.1",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
     "pg": "^8.13.1",
+    "process": "^0.11.10",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.1",
-    "redis": "^4.7.0"
+    "redis": "^4.7.0",
+    "stream-browserify": "^3.0.0",
+    "util": "^0.12.5"
   }
 }

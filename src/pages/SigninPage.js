@@ -43,7 +43,7 @@ const SigninForm = () => {
 
         const success = await signIn(formData.email, formData.password)
         if (success) {
-            navigate('/protected');
+            navigate('/dashboard/account-settings');
             userEmail = formData.email
         }
     }

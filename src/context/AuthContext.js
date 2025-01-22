@@ -7,7 +7,6 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     
     const signIn = async (email, password) => {
-
         try {
             const response = await fetch('http://localhost:3001/auth/signin', {
                 method: 'POST',

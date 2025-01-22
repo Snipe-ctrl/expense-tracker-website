@@ -1,8 +1,16 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import '/src/styles/style.scss';
 
-const AccountSettings = () => {
-    const overlayRef = useRef('flex');
+const AccountSettings = ({ userEmail }) => {
+    const overlayRef = useRef(null);
+    const { user } = useContext(AuthContext);
+    const [userData, setUserData] = useState({
+        name: '',
+        email: '',
+        password: '',
+        timezone: 'pt',
+    })
 
     const openModel = () => {
         if (overlayRef.current) {
@@ -16,9 +24,23 @@ const AccountSettings = () => {
         }
     };
 
-    try {
-        
-    }
+    useEffect(() => {
+        const fetchUserData = async () => {
+            if (user && user.id) {
+                try {
+                    const response = await fetch(`http://localhost:3001/user/${user.id}`);
+                    if (!response.ok) {
+                        console.log(`Error ${response.statusText}`);
+                    }
+                    const userInfo = await response.json();
+                    setUserData(userInfo);
+                } catch (err) {
+                    console.error('Error fetching user data: ', err);
+                }
+            }
+        }
+        fetchUserData();
+    }, [user]);
 
     return (
         <div className="overlay" ref={overlayRef}>
@@ -43,19 +65,19 @@ const AccountSettings = () => {
                         <button>Change photo</button>
                     </div>
                     <div className="account-settings-input-container">
-                        <label for="name">Full Name</label>
+                        <label htmlFor="name">Full Name</label>
                         <input type="text" placeholder="John Doe" name="name"></input>
                     </div>
                     <div className="account-settings-input-container">
-                        <label for="email">Email</label>
-                        <input type="text" placeholder="john@example.com" name="email"></input>
+                        <label htmlFor="email">Email</label>
+                        <input type="text" placeholder={userData.email} name="email"></input>
                     </div>
                     <div className="account-settings-input-container">
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <input type="text" placeholder="•••••••••••••" name="password"></input>
                     </div>
                     <div className="account-settings-input-container">
-                        <label for="timezone">Timezone</label>
+                        <label htmlFor="timezone">Timezone</label>
                         <select id="timezone" name="timezone">
                             <option value="PT">Pacific Time (PT)</option>
                         </select>

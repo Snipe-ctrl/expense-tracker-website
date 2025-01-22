@@ -1,0 +1,162 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+}
+
+.account-settings-container {
+  display: flex;
+  justify-content: flex-start;
+  position: fixed;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 31.25rem;
+  height: 38.125rem;
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+  z-index: 1000;
+}
+
+.account-settings-header-container {
+  display: flex;
+  border-bottom: 0.0625rem solid var(--border-1);
+  padding: 1.6875rem 1.5rem;
+  box-sizing: border-box;
+}
+.account-settings-header-container .account-settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.account-settings-header-container .account-settings-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-6);
+  margin: 0;
+}
+.account-settings-header-container .account-settings-header .x {
+  width: 0.6875rem;
+  height: 0.6875rem;
+  cursor: pointer;
+}
+
+.account-info-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0rem 1.5rem 1.5rem 1.5rem;
+}
+.account-info-container .profile-photo-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 1.5rem 0rem 1.5rem 0rem;
+}
+.account-info-container .profile-photo-container .circle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: gray;
+  margin-right: 1rem;
+}
+.account-info-container .profile-photo-container button {
+  all: unset;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--blue-button-1);
+}
+.account-info-container .profile-photo-container button:hover {
+  color: #09328b;
+}
+.account-info-container .account-settings-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+.account-info-container .account-settings-input-container label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-3);
+  padding-bottom: 0.25rem;
+}
+.account-info-container .account-settings-input-container input {
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid var(--input-box-border-2);
+  padding-left: 1rem;
+}
+.account-info-container .account-settings-input-container input:hover {
+  border: 0.0625rem solid rgb(155, 155, 155);
+  transition: all 0.1s;
+}
+.account-info-container .account-settings-input-container input:focus {
+  outline: none;
+  border: 0.0625rem solid rgb(9, 106, 196);
+}
+.account-info-container .account-settings-input-container select {
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid var(--input-box-border-2);
+  padding-left: 1rem;
+}
+.account-info-container .account-settings-input-container select:focus {
+  outline: none;
+}
+
+.submit-account-settings-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  border-top: 0.0625rem solid var(--border-1);
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
+  height: 5.625rem;
+  background-color: var(--background-color);
+}
+.submit-account-settings-container .submit-account-settings {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+.submit-account-settings-container .submit-account-settings .cancel-button {
+  font-size: 1rem;
+  font-weight: 400;
+  border: 0.0625rem solid var(--input-box-border-2);
+  height: 2.5rem;
+  width: 5.125rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: var(--text-3);
+  cursor: pointer;
+}
+.submit-account-settings-container .submit-account-settings .cancel-button:hover {
+  background-color: rgb(247, 247, 247);
+}
+.submit-account-settings-container .submit-account-settings .save-changes-button {
+  font-size: 1rem;
+  font-weight: 400;
+  border: 0.0625rem solid var(--input-box-border-2);
+  height: 2.5rem;
+  width: 8.4375rem;
+  border-radius: 0.5rem;
+  background-color: var(--blue-button-1);
+  color: white;
+  cursor: pointer;
+}
+.submit-account-settings-container .submit-account-settings .save-changes-button:hover {
+  background-color: var(--blue-button-2);
+}/*# sourceMappingURL=account-settings.css.map */

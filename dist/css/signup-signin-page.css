@@ -1,0 +1,97 @@
+.signup-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0px;
+}
+
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.signup-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 0rem;
+  padding-bottom: 0.75rem;
+}
+.signup-container h3 {
+  color: var(--text-2);
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0rem;
+  margin-bottom: 2rem;
+}
+.signup-container .signup-signin-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-bottom: 1rem;
+}
+.signup-container .signup-signin-input-container label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-3);
+  padding-bottom: 0.25rem;
+}
+.signup-container .signup-signin-input-container .input-box {
+  height: 3.125rem;
+  width: 24.0625rem;
+  border: 0.0625rem solid var(--input-box-border-1);
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+}
+.signup-container .signup-signin-input-container .input-box::-moz-placeholder {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-4);
+}
+.signup-container .signup-signin-input-container .input-box::placeholder {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-4);
+}
+.signup-container .signup-signin-input-container .input-box:hover {
+  border: 0.0625rem solid rgb(155, 155, 155);
+  transition: all 0.1s;
+}
+.signup-container .signup-signin-input-container .input-box:focus {
+  outline: none;
+  border: 0.0625rem solid rgb(9, 106, 196);
+}
+.signup-container .terms-container {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-3);
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+.signup-container button {
+  justify-content: center;
+  background-color: var(--blue-button-1);
+  color: white;
+  font-weight: 500;
+  width: 24.0625rem;
+  height: 2.875rem;
+  border-radius: 0.5rem;
+  border: none;
+  margin: 1.5rem 0rem;
+}
+.signup-container button:hover {
+  background-color: var(--blue-button-2);
+}
+.signup-container p {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-5);
+  margin: 0px;
+}/*# sourceMappingURL=signup-signin-page.css.map */
