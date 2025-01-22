@@ -1,13 +1,13 @@
 const db = require('./db');
 
 // Create a new user
-const createUser = async (email, password) => {
+const createUser = async (name, email, password) => {
     const query = `
-        INSERT INTO users (email, password)
-        VALUES ($1, $2)
+        INSERT INTO users (name, email, password)
+        VALUES ($1, $2, $3)
         RETURNING *;
     `;
-    const values = [email, password];
+    const values = [name, email, password];
     const result = await db.query(query, values);
     return result.rows[0];
 };
