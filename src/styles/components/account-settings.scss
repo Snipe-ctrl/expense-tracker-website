@@ -1,6 +1,6 @@
 @use '../util' as *;
 
-.overlay {
+.overlay.visible {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,6 +10,10 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
     display: flex;
+}
+
+.overlay.hidden {
+    display: none;
 }
 
 .account-settings-container {
@@ -65,17 +69,18 @@
     .profile-photo-container {
         display: flex;
         align-items: center;
-        justify-content: start;
+        justify-content: flex-start;
         padding: rem(24) rem(0) rem(24) rem(0);
     
-        .circle {
+        img {
             width: rem(64);
             height: rem(64);
             border-radius: 50%;
             background-color: gray;
             margin-right: rem(16);
+            object-fit: cover;
         }
-    
+
         button {
             all: unset;
             cursor: pointer;
@@ -85,6 +90,7 @@
 
             &:hover {
                 color: #09328b;
+                text-decoration: underline;
             }
         }
     }
@@ -118,6 +124,7 @@
                 background-color: white;
                 color: var(--blue-button-1);
                 font-size: rem(14);
+                cursor: pointer;
 
                 &:hover {
                     background-color: rgb(243, 243, 243);

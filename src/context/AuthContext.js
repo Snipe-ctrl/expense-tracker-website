@@ -5,13 +5,15 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
     const [authToken, setAuthToken] = useState(null);
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
     
     const signIn = async (email, password) => {
+
         try {
             const response = await fetch('http://localhost:3001/auth/signin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ email, password}),
             });
 
             const data = await response.json();
@@ -44,15 +46,28 @@ const AuthProvider = ({ children }) => {
             }
         } catch (error) {
             console.error('Error fetching user', error)
+        } finally {
+            setLoading(false);
         }
     };
 
     useEffect(() => {
-        if (authToken) fetchUser(authToken);
+        const devEmail = 'test@gmail.com';
+        const devPass = 'test';
+
+        if (!authToken) {
+            signIn(devEmail, devPass);
+        }
     }, [authToken]);
 
+    // useEffect(() => {
+    //     if (authToken) {
+    //         fetchUser(authToken);
+    //     }
+    // }, [authToken]);
+
     return (
-        <AuthContext.Provider value={{ authToken, user, signIn }}>
+        <AuthContext.Provider value={{ authToken, user, signIn, loading }}>
             {children}
         </AuthContext.Provider>
     )

@@ -68,6 +68,10 @@ router.post('/signup', async (req, res) => {
 // Sign in
 router.post('/signin', async (req, res) => {
     try {
+
+		// temp email for development
+		// const devEmail = 'test@gmail.com';
+
         const { email, password } = req.body;
 
         const user = await findUserByEmail(email);

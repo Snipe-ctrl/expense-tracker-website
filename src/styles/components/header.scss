@@ -20,13 +20,14 @@ header {
     display: flex;
     align-items: center;
     margin-right: rem(90);
-}
+    gap: rem(16);
 
-.square {
-    background-color: green;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
+    img {
+        border-radius: 50%;
+        width: rem(40);
+        height: rem(40);
+        object-fit: cover;
+    }
 }
 
 .left-side {

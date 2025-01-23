@@ -3,7 +3,7 @@ const db = require('./db');
 // Create a new user
 const createUser = async (name, email, password) => {
     const query = `
-        INSERT INTO users (name, email, password)
+        INSERT INTO users (full_name, email, password)
         VALUES ($1, $2, $3)
         RETURNING *;
     `;

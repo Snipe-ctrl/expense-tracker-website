@@ -43,7 +43,7 @@ const SigninForm = () => {
 
         const success = await signIn(formData.email, formData.password)
         if (success) {
-            navigate('/dashboard/account-settings');
+            navigate('/dashboard');
             userEmail = formData.email
         }
     }

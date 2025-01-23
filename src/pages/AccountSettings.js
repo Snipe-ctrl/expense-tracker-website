@@ -2,69 +2,168 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import '/src/styles/style.scss';
 
-const AccountSettings = ({ userEmail }) => {
-    const overlayRef = useRef(null);
-    const { user } = useContext(AuthContext);
+const AccountSettings = ({ onClose }) => {
+    // gets user context
+    const { user, loading } = useContext(AuthContext);
+
+    // handles setting user data
     const [userData, setUserData] = useState({
-        name: '',
+        full_name: '',
         email: '',
-        password: '',
         timezone: 'pt',
+        profile_picture_url: 'https://expense-tracker-bucket01.s3.us-east-2.amazonaws.com/profile-pictures/Default_pfp.jpg',
     })
 
-    const openModel = () => {
-        if (overlayRef.current) {
-            overlayRef.current.style.display = 'flex';
-        }
-    };
+    // handles setting overlay visible or not visible
+    const [isOverlayVisible, setIsOverlayVisible] = useState(true)
 
     const closeModel = () => {
-        if (overlayRef.current) {
-            overlayRef.current.style.display = 'none';
+        setIsOverlayVisible(false);
+        if (onClose) onClose();
+    };
+
+    // handles change profile photo logic
+    const fileInputRef = useRef(null);
+    const triggerFileInput = () => {
+        if (fileInputRef.current) {
+            fileInputRef.current.click();
         }
     };
 
-    const tempId = 3;
+    // handles changing profile photo
+    const uploadProfilePhoto = async (file) => {
 
+        if (!user) {
+            console.error('User is not logged in or user ID is missing');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('profilePicture', file);
+        formData.append('userId', user.id);
+        
+        try {
+            const response = await fetch('http://localhost:3001/api/upload-profile-picture', {
+                method: 'POST',
+                body: formData,
+            })
+
+            if (!response.ok) {
+                console.error('Failed to upload file');
+                return;
+            }
+
+            const data = await response.json();
+            console.log('File uploaded succesfully', data.url);
+
+            // updates user profile photo right away
+            setUserData((prevUserData) => ({
+                ...prevUserData,
+                profile_picture_url: data.url,
+            }));
+
+            return data.url;
+        } catch (err) {
+            console.error('Error uploading file', err);
+        }
+    }
+
+    // send account setting changes to api
+    const updateAccountSettings = async (userData) => {
+        try {
+            const response = await fetch('http://localhost:3001/api/update-account-settings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            })
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Error updating user data', errorData.message);
+                return;
+            }
+
+            const result = await response.json();
+            console.log('Account settings updated succesfully', result);
+            return result;
+        } catch (err) {
+            console.error('Error during account settings update', err);
+        }
+    };
+
+    // handles account settings form submit
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        const payload = {
+            id: user.id,
+            email: userData.email,
+            full_name: userData.full_name,
+            timezone: userData.timezone,
+            profile_picture_url: userData.profile_picture_url,
+        };
+
+        const result = await updateAccountSettings(payload);
+
+        if (result) {
+            console.log('User data updated successfully:', result);
+        }
+
+        user.full_name = result.user.full_name;
+        user.email = result.user.email;
+        user.timezone = result.user.timezone;
+        user.profile_picture_url = result.user.profile_picture_url;
+
+        closeModel();
+    }
+
+    // fetches user data
     useEffect(() => {
         const fetchUserData = async () => {
-            //if (user && user.id) {
-                try {
-                    const response = await fetch(`http://localhost:3001/user/${tempId}`);
-                    if (!response.ok) {
-                        console.log(`Error ${response.statusText}`);
-                    }
-                    const userInfo = await response.json();
-                    setUserData(userInfo);
-                } catch (err) {
-                    console.error('Error fetching user data: ', err);
-                }
-            //}
+            if (user) {
+                setUserData({
+                    full_name: user.full_name || '',
+                    email: user.email || '',
+                    timezone: user.timezone || 'pt',
+                    profile_picture_url: user.profile_picture_url || 'https://expense-tracker-bucket01.s3.us-east-2.amazonaws.com/profile-pictures/Default_pfp.jpg',
+                })
+            }
         }
         fetchUserData();
     }, [user]);
 
+    // account settings html
     return (
-        <div className="overlay" ref={overlayRef}>
+        <div className={`overlay ${isOverlayVisible ? 'visible' : 'hidden'}`}>
             <div className="account-settings-container">
                 <div className="account-settings-header-container">
                     <div className="account-settings-header">
                         <h2>Account Settings</h2>
                         <svg onClick={closeModel} width="12" height="13" className="x" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11.5445 2.79448C11.984 2.35503 11.984 1.64136 11.5445 1.2019C11.1051 0.762451 10.3914 
-        0.762451 9.95197 1.2019L6.25001 4.90737L2.54454 1.20542C2.10509 0.765967 1.39142 0.765967 0.951965 
-        1.20542C0.512512 1.64487 0.512512 2.35854 0.951965 2.798L4.65743 6.49995L0.955481 10.2054C0.516028 
-        10.6449 0.516028 11.3585 0.955481 11.798C1.39493 12.2375 2.10861 12.2375 2.54806 11.798L6.25001 
-        8.09253L9.95548 11.7945C10.3949 12.2339 11.1086 12.2339 11.5481 11.7945C11.9875 11.355 11.9875 
-        10.6414 11.5481 10.2019L7.84259 6.49995L11.5445 2.79448Z" fill="#6B7280"/>
-        </svg>
+                            <path d="M11.5445 2.79448C11.984 2.35503 11.984 1.64136 11.5445 1.2019C11.1051 0.762451 10.3914 
+                            0.762451 9.95197 1.2019L6.25001 4.90737L2.54454 1.20542C2.10509 0.765967 1.39142 0.765967 0.951965 
+                            1.20542C0.512512 1.64487 0.512512 2.35854 0.951965 2.798L4.65743 6.49995L0.955481 10.2054C0.516028 
+                            10.6449 0.516028 11.3585 0.955481 11.798C1.39493 12.2375 2.10861 12.2375 2.54806 11.798L6.25001 
+                            8.09253L9.95548 11.7945C10.3949 12.2339 11.1086 12.2339 11.5481 11.7945C11.9875 11.355 11.9875 
+                            10.6414 11.5481 10.2019L7.84259 6.49995L11.5445 2.79448Z" fill="#6B7280"/>
+                        </svg>
                     </div>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit}>
                 <div className="account-info-container">
                     <div className="profile-photo-container">
-                        <div className="circle"></div>
-                        <button>Change photo</button>
+                        <img src={userData.profile_picture_url}></img>
+                        <button type="button" onClick={triggerFileInput}>Change photo</button>
+                        <input
+                            ref={fileInputRef}
+                            type="file"
+                            name="image"
+                            accept="image/*"
+                            style={{ display: "none" }}
+                            onChange={(event) => uploadProfilePhoto(event.target.files[0])}
+                        />
                     </div>
                     <div className="account-settings-input-container">
                         <label htmlFor="name">Full Name</label>
@@ -72,6 +171,8 @@ const AccountSettings = ({ userEmail }) => {
                             type="text" 
                             placeholder="John Doe" 
                             name="name"
+                            value={userData.full_name}
+                            onChange={(e) => setUserData({ ...userData, full_name: e.target.value })}
                         />
                     </div>
                     <div className="account-settings-input-container">

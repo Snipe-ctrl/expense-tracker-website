@@ -7,7 +7,7 @@ const pool = new Pool({
     password: process.env.POSTGRES_PASSWORD,
     port: process.env.POSTGRES_PORT,
     ssl: {
-        rejectUnauthorized: false, // For self-signed certificates
+        rejectUnauthorized: false,
     },
 });
 
