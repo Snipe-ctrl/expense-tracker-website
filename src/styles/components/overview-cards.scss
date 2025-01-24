@@ -1,0 +1,80 @@
+@use '../util' as *;
+
+.overview-cards-container {
+    display: flex;
+    justify-content: center; 
+    padding: rem(24) rem(80) rem(0) rem(80);
+
+    .overview-card {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        width: rem(360);
+        height: rem(90);
+        padding: rem(25);
+        border-radius: rem(8);
+        margin: rem(0) rem(40);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        gap: rem(8);
+        overflow: hidden;
+
+        .overview-card-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: rem(27);
+
+
+            h3 {
+                margin: rem(0);
+                font-size: rem(16);
+                font-weight: 400;
+                color: #6B7280;
+            }
+
+            svg {
+                width: rem(16);
+                height: rem(16);
+            }
+        }
+
+        h2 {
+            font-size: 24;
+            font-weight: 700;
+            color: #1F2937;
+            margin: rem(0);
+        }
+
+        .overview-card-bottom {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+
+            svg {
+                width: rem(10);
+                height: rem(14);
+
+                &.red-svg {
+                    fill: #DC2626;
+                }
+            }
+
+            p {
+                font-size: rem(14);
+                font-weight: 400;
+                margin: rem(0);
+                color: #059669;
+
+                &.red-text {
+                    color: #DC2626;
+                }
+
+                &.default-text {
+                    color: #6B7280;
+                }
+    
+            }
+        }
+    }
+}
