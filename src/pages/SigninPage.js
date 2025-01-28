@@ -10,7 +10,7 @@ const SigninForm = () => {
         email: "",
         password: "",
     })
-    const { signIn } = useContext(AuthContext);
+    const { setUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -41,12 +41,28 @@ const SigninForm = () => {
             return;
         }
 
-        const success = await signIn(formData.email, formData.password)
-        if (success) {
-            navigate('/dashboard');
-            userEmail = formData.email
+        try {
+            const response = await fetch('http://localhost:3001/auth/signin', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: formData.email, password: formData.password }),
+                credentials: 'include', // Use credentials to include cookies
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.user) {
+                setUser(data.user); // Update user in AuthContext
+                navigate('/dashboard');
+            } else {
+                alert(data.message || 'Failed to sign in');
+            }
+        } catch (error) {
+            console.error('Error signing in:', error);
+            alert('An error occurred during sign-in.');
         }
-    }
+    };
+
     return (
         <div className="signup-wrapper">
         <div className="signup-container">

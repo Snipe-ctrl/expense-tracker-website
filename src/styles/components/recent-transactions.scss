@@ -1,0 +1,185 @@
+@use '../util'as *;
+
+
+.recent-transactions-container {
+    display: flex;
+    justify-content: center;
+    padding-top: rem(32);
+}
+
+.recent-transactions-card {
+    width: rem(1420);
+    height: rem(400);
+    padding: rem(25);
+    background-color: white;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: rem(8);
+
+    .recent-transactions-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            font-size: rem(20);
+            font-weight: 600;
+            color: #1F2937;
+            margin: rem(0)
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: rem(8);
+
+            .add-new-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: rem(115);
+                height: rem(36);
+                border-radius: rem(8);
+                border: none;
+                background-color: #4F46E5;
+                color: white;
+                gap: rem(8);
+            }
+
+            .filter-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: rem(90);
+                height: rem(36);
+                color: 4B5563;
+                border-radius: rem(8);
+                border: none;
+                gap: rem(8);
+            }
+        }
+    }
+
+    .transactions-table {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .recent-transactions-table-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            width: 100%;
+            margin-top: rem(24);
+            padding-left: rem(24);
+            font-size: rem(12);
+            color: #6B7280;
+            font-weight: 500;
+            background-color: #f7f7f7;
+        }
+
+        .recent-transactions-row-1 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            width: 100%;
+            padding-left: rem(24);
+            border-bottom: rem(1) solid #E5E7EB;
+
+            .recent-transactions-date {
+                font-size: rem(14);
+                font-weight: 400;
+                color: #6B7280;
+            }
+
+            .recent-transactions-description {
+                font-size: rem(14);
+                font-weight: 400;
+                color: #111827;
+            }
+
+            .food {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: rem(12);
+                font-weight: 400;
+                color: #1E40AF;
+                width: rem(45);
+                height: rem(23);
+                background-color: #DBEAFE;
+                border-radius: rem(50);
+            }
+
+            .entertainment {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: rem(12);
+                font-weight: 400;
+                color: #5B21B6;
+                width: rem(95);
+                height: rem(22);
+                background-color: #EDE9FE;
+                border-radius: rem(50);
+            }
+
+            .income {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: rem(12);
+                font-weight: 400;
+                color: #065F46;
+                width: rem(60);
+                height: rem(22);
+                background-color: #D1FAE5;
+                border-radius: rem(50);
+            }
+
+            .health {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: rem(12);
+                font-weight: 400;
+                color: #92400E;
+                width: rem(55);
+                height: rem(22);
+                background-color: #FEF3C7;
+                border-radius: rem(50);
+            }
+
+            .negative {
+                font-size: rem(14);
+                font-weight: 400;
+                color: #DC2626;
+            }
+
+            .positive {
+                font-size: rem(14);
+                font-weight: 400;
+                color: #059669;
+            }
+        }
+    }
+
+    .view-more-transactions-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: rem(36);
+            width: rem(215);
+            margin-top: rem(24);
+            font-size: rem(14);
+            font-weight: 400;
+            color: #4B5563;
+            background-color: #F3F4F6;
+            border: none;
+            border-radius: rem(8);
+        }
+    }
+}

@@ -6,6 +6,8 @@ const AWS = require('aws-sdk');
 const s3 = new AWS.S3();
 const fs = require('fs');
 
+const { protected } = require('../utils/protected');
+
 const upload = multer({ dest: 'uploads/' });
 
 router.get('/', (req, res) => {
@@ -16,21 +18,7 @@ router.get('/test', (req, res) => {
     res.send('Test route is working!');
 });
 
-router.get('/user/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-        const user = await db.query(`SELECT * FROM users WHERE id = $1`, [id]);
-        if (user.rows.length === 0) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-        res.json(user.rows[0]);
-    } catch (err) {
-        console.error("Database error:", err);
-        res.status(500).send('Server error');
-    }
-});
-
-router.post('/api/upload-profile-picture', upload.single('profilePicture'), async (req, res) => {
+router.post('/api/upload-profile-picture', protected, upload.single('profilePicture'), async (req, res) => {
 
     if (!req.file) {
         return res.status(400).send('No file uploaded.');
@@ -47,8 +35,12 @@ router.post('/api/upload-profile-picture', upload.single('profilePicture'), asyn
     try {
         const data = await s3.upload(params).promise();
 
+        fs.unlink(req.file.path, (err) => {
+            if (err) console.error('Error deleting temporary file:', err);
+        });        
+
         const imageUrl = data.Location;
-        const userId = req.body.userId;
+        const userId = req.user.id;
         const query = `UPDATE users SET profile_picture_url = $1 WHERE id = $2 RETURNING *`;
         const values = [imageUrl, userId]
 
@@ -64,10 +56,12 @@ router.post('/api/upload-profile-picture', upload.single('profilePicture'), asyn
     }
 });
 
-router.post('/api/update-account-settings', async (req, res) => {
-    const { id, full_name, email, timezone, profile_picture_url } = req.body;
+router.post('/api/update-account-settings', protected, async (req, res) => {
 
-    if (!id) {
+    const userId = req.user.id;
+    const { full_name, timezone, profile_picture_url } = req.body;
+
+    if (!userId) {
         return res.status(400).json({ message: "User ID is required" });
     }
 
@@ -75,19 +69,17 @@ router.post('/api/update-account-settings', async (req, res) => {
         UPDATE users
         SET
             full_name = $1,
-            email = $2,
-            timezone = $3,
-            profile_picture_url = $4
-        WHERE id = $5
+            timezone = $2,
+            profile_picture_url = $3
+        WHERE id = $4
         RETURNING *;
     `;
 
     const values = [
-        full_name || null,
-        email,
-        timezone || null,
-        profile_picture_url || null,
-        id,
+        full_name || user.full_name,
+        timezone || user.timezone,
+        profile_picture_url || user.profile_picture_url,
+        userId,
     ];
 
     console.log(values)
@@ -106,6 +98,34 @@ router.post('/api/update-account-settings', async (req, res) => {
     } catch (error) {
         console.error("Error updating account settings:", error);
         res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+router.get('/api/expenses', protected, async (req, res) => {
+    try {
+        const userId = req.user.id;
+
+        const limit = parseInt(req.query.limit, 10) || 10;
+        const offset = parseInt(req.query.offset, 10) || 0;
+
+        const query = `SELECT id, description, category, amount, date 
+        FROM expenses WHERE user_id = $1 LIMIT $2 OFFSET $3;`;
+        const result = await db.query(query, [userId, limit, offset]);
+
+        if (result.rowCount === 0) {
+            return res.status(404).json({
+                status: 'error',
+                message: "No expenses found for this user",
+            });
+        }
+        
+        res.status(200).json({
+            status: 'success',
+            data: result.rows,
+        });
+        } catch (err) {
+        console.error(`Error fetching expenses for user ${userId}`, err.message, err.stack);
+        res.status(500).json({ message: 'An unexpected error occurred. Please try again later.' });
     }
 });
 

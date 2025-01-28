@@ -111,10 +111,13 @@ const AccountSettings = ({ onClose }) => {
             console.log('User data updated successfully:', result);
         }
 
-        user.full_name = result.user.full_name;
-        user.email = result.user.email;
-        user.timezone = result.user.timezone;
-        user.profile_picture_url = result.user.profile_picture_url;
+        setUserData((prevUser) => ({
+            ...prevUser,
+            full_name: result.user.full_name,
+            email: result.user.email,
+            timezone: result.user.timezone,
+            profile_picture_url: result.user.profile_picture_url,
+        }));
 
         closeModel();
     }

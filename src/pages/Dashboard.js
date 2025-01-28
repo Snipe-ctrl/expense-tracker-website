@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import Header from "../components/Header";
 import OverviewCards from "../components/OverviewCards";
+import RecentTransactionsCard from "../components/RecentTransactionsCard";
 import '/src/styles/style.scss';
 
 const Dashboard = () => {
@@ -11,6 +12,7 @@ const Dashboard = () => {
         <div>
             <Header />
             <OverviewCards/>
+            <RecentTransactionsCard/>
             <Outlet />
         </div>
     )
