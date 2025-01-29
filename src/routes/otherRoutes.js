@@ -18,7 +18,7 @@ router.get('/test', (req, res) => {
     res.send('Test route is working!');
 });
 
-router.post('/api/upload-profile-picture', protected, upload.single('profilePicture'), async (req, res) => {
+router.post('/upload-profile-picture', protected, upload.single('profilePicture'), async (req, res) => {
 
     if (!req.file) {
         return res.status(400).send('No file uploaded.');
@@ -56,7 +56,7 @@ router.post('/api/upload-profile-picture', protected, upload.single('profilePict
     }
 });
 
-router.post('/api/update-account-settings', protected, async (req, res) => {
+router.post('/update-account-settings', protected, async (req, res) => {
 
     const userId = req.user.id;
     const { full_name, timezone, profile_picture_url } = req.body;
@@ -101,7 +101,7 @@ router.post('/api/update-account-settings', protected, async (req, res) => {
     }
 });
 
-router.get('/api/expenses', protected, async (req, res) => {
+router.get('/expenses', protected, async (req, res) => {
     try {
         const userId = req.user.id;
 
@@ -118,6 +118,8 @@ router.get('/api/expenses', protected, async (req, res) => {
                 message: "No expenses found for this user",
             });
         }
+
+        console.log(result.rows);
         
         res.status(200).json({
             status: 'success',

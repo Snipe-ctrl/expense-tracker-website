@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 	res.sendFile(path.resolve(__dirname, 'dist/index.html'));
 });
 	
-app.use('/', indexRouter)
+app.use('/api', indexRouter)
 app.use('/auth', authRouter)
 app.use(express.static(path.resolve(__dirname, 'dist')));
 

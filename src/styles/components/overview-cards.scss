@@ -3,13 +3,13 @@
 .overview-cards-container {
     display: flex;
     justify-content: center; 
-    padding: rem(24) rem(80) rem(0) rem(80);
+    padding: rem(24) rem(0) rem(0) rem(0);
 
     .overview-card {
         display: flex;
         flex-direction: column;
         background-color: white;
-        width: rem(400);
+        width: rem(350);
         height: rem(90);
         padding: rem(25);
         border-radius: rem(8);

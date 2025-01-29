@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext, setUser } from "../context/AuthContext";
 import '/src/styles/style.scss';
 
 const AccountSettings = ({ onClose }) => {
     // gets user context
-    const { user, loading } = useContext(AuthContext);
+    const { user, setUser, loading } = useContext(AuthContext);
+    const token = localStorage.getItem("accessToken");
 
     // handles setting user data
     const [userData, setUserData] = useState({
@@ -45,13 +46,17 @@ const AccountSettings = ({ onClose }) => {
         try {
             const response = await fetch('http://localhost:3001/api/upload-profile-picture', {
                 method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
+                },
                 body: formData,
-            })
+            });
 
             if (!response.ok) {
                 console.error('Failed to upload file');
                 return;
-            }
+            };
 
             const data = await response.json();
             console.log('File uploaded succesfully', data.url);
@@ -74,7 +79,8 @@ const AccountSettings = ({ onClose }) => {
             const response = await fetch('http://localhost:3001/api/update-account-settings', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
                 },
                 body: JSON.stringify(userData),
             })
@@ -86,7 +92,6 @@ const AccountSettings = ({ onClose }) => {
             }
 
             const result = await response.json();
-            console.log('Account settings updated succesfully', result);
             return result;
         } catch (err) {
             console.error('Error during account settings update', err);
@@ -96,6 +101,13 @@ const AccountSettings = ({ onClose }) => {
     // handles account settings form submit
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        setUserData((prevUser) => ({
+            ...prevUser,
+            full_name: userData.full_name,
+            timezone: userData.timezone,
+            profile_picture_url: userData.profile_picture_url,
+        }));
 
         const payload = {
             id: user.id,
@@ -110,6 +122,12 @@ const AccountSettings = ({ onClose }) => {
         if (result) {
             console.log('User data updated successfully:', result);
         }
+
+        setUser((prevUser) => ({
+            ...prevUser,
+            full_name: result.user.full_name,
+            profile_picture_url: result.user.profile_picture_url,
+        }));
 
         setUserData((prevUser) => ({
             ...prevUser,

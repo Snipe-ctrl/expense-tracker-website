@@ -8,8 +8,8 @@
 }
 
 .recent-transactions-card {
-    width: rem(1420);
-    height: rem(400);
+    width: rem(1270);
+    height: 100%;
     padding: rem(25);
     background-color: white;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
@@ -51,7 +51,8 @@
                 justify-content: center;
                 width: rem(90);
                 height: rem(36);
-                color: 4B5563;
+                color: #4B5563;
+                background-color: #F3F4F6;
                 border-radius: rem(8);
                 border: none;
                 gap: rem(8);
@@ -77,7 +78,7 @@
             background-color: #f7f7f7;
         }
 
-        .recent-transactions-row-1 {
+        .recent-transactions-row {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             width: 100%;
@@ -145,6 +146,19 @@
                 width: rem(55);
                 height: rem(22);
                 background-color: #FEF3C7;
+                border-radius: rem(50);
+            }
+
+            .transport {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: rem(12);
+                font-weight: 400;
+                color: #890e92;
+                width: rem(75);
+                height: rem(22);
+                background-color: #fac7fe;
                 border-radius: rem(50);
             }
 

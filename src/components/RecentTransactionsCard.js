@@ -1,6 +1,42 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { AuthContext } from "../context/AuthContext";
+import apiFetch from '../utils/apiFetch';
 
 const RecentTransactionsCard = () => {
+
+    const { user, loading } = useContext(AuthContext);
+    const [transactions, setTransactions] = useState([]);
+    const [transactionsLoading, setTransactionsLoading] = useState(true);
+
+    const formatDate = (dateString) => {
+        return new Intl.DateTimeFormat('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+        }).format(new Date(dateString));
+    };
+
+    const getRecentTransactions = async () => {
+        try {
+            setTransactionsLoading(true);
+            const response = await apiFetch('/expenses');
+            const transactionsData = response.data
+            if (Array.isArray(transactionsData )&& transactionsData.length > 0) {
+                setTransactions(transactionsData.slice(0, 5));
+            } else {
+                setTransactions([]);
+            }
+        } catch (err) {
+            console.error('Error fetching transaction data: ', err);
+        } finally {
+            setTransactionsLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        if (!loading && user)
+        getRecentTransactions();
+    },[ loading, user])
 
     return (
         <div className='recent-transactions-container'>
@@ -36,7 +72,27 @@ const RecentTransactionsCard = () => {
                         <p>Category</p>
                         <p>Amount</p>
                     </div>
-                    <div className='recent-transactions-row-1'>
+                    {transactionsLoading ? (
+                        <p>Loading...</p>
+                    ) : (
+                    transactions.length > 0 ? (
+                        transactions.map((transaction) => (
+                            <div key={transaction.id} className='recent-transactions-row'>
+                                <p className='recent-transactions-date'>{new Date(transaction.date).toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'short',
+                                    day: 'numeric',
+                                })}
+                                </p>
+                                <p className='recent-transactions-description'>{transaction.description}</p>
+                                <p className={`recent-transactions-category ${transaction.category.toLowerCase()}`}>{transaction.category}</p>
+                                <p className={`recent-transactions-amount ${transaction.amount < 0 ? 'negative' : 'positive'}`}>{transaction.amount}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No recent transactions found</p>
+                    ))
+                    /* <div className='recent-transactions-row-1'>
                         <p className='recent-transactions-date'>Jan 15, 2025</p>
                         <p className='recent-transactions-description'>Groceries</p>
                         <p className='recent-transactions-category food'>Food</p>
@@ -65,7 +121,7 @@ const RecentTransactionsCard = () => {
                         <p className='recent-transactions-description'>Restaurant Dinner</p>
                         <p className='recent-transactions-category food'>Food</p>
                         <p className='recent-transactions-amount negative'>-$85.00</p>
-                    </div>
+                    </div> */}
                 </div>
                 <div className='view-more-transactions-container'>
                     <button>
