@@ -129,4 +129,39 @@ router.get('/expenses', protected, async (req, res) => {
     }
 });
 
+router.post('/add-expense', protected, async (req, res) => {
+
+    const userId = req.user.id;
+    const { date, description, category, amount, notes } = req.body;
+
+    if (!date || !description || !category || amount === undefined || amount === null || isNaN(amount)) {
+        return res.status(400).json({ message: 'Missing required fields' });
+    }
+
+    const query = `INSERT INTO expenses (user_id, date, description, category, amount, notes)
+    VALUES ($1, $2, $3, $4, $5, $6)
+    RETURNING *;`;
+    const values = [
+        userId,
+        date,
+        description,
+        category,
+        amount,
+        notes
+    ];
+
+    try {
+        const result = await db.query(query, values);
+
+        res.status(201).json({
+            message: "Expense added successfully",
+            expense: result.rows[0],
+        });
+
+    } catch (err) {
+        console.error('Error adding expense: ', err)
+        res.status(500).json({ message: 'Internal server error' })
+    };
+});
+
 module.exports = router;

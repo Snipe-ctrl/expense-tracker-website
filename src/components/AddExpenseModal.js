@@ -1,21 +1,18 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from "../context/AuthContext";
 
-const AddExpenseModal = () => {
+const AddExpenseModal = ({ onClose }) => {
 
-    const [isOverlayVisible, setIsOverlayVisible] = useState(true)
+    const [newExpense, setNewExpense] = useState({
+        
+    })
 
-    const closeModel = () => {
-        setIsOverlayVisible(false);
-        if (onClose) onClose();
-    };
-
-    return isOverlayVisible ? (
-        <div className={`overlay ${isOverlayVisible ? 'visible' : 'hidden'}`}>
+    return (
+        <div className={`overlay`}>
             <div className='add-expense-container'>
                 <div className='add-expense-header'>
                     <h2>Add New Transaction</h2>
-                    <svg onClick={closeModel} width="12" height="13" className="x" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg onClick={onClose} width="12" height="13" className="x" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.5445 2.79448C11.984 2.35503 11.984 1.64136 11.5445 1.2019C11.1051 0.762451 10.3914 
                         0.762451 9.95197 1.2019L6.25001 4.90737L2.54454 1.20542C2.10509 0.765967 1.39142 0.765967 0.951965 
                         1.20542C0.512512 1.64487 0.512512 2.35854 0.951965 2.798L4.65743 6.49995L0.955481 10.2054C0.516028 
@@ -26,11 +23,7 @@ const AddExpenseModal = () => {
                 </div>
                 <div className="add-expense-description-container">
                     <label htmlFor="description">Description</label>
-                    <input 
-                        type="text" 
-                        name="description"
-                        value=''
-                    />
+                    <input type="text" name="description"/>
                 </div>
                 <div className='add-expense-amount-date-container'>
                     <div className='add-expense-amount-container'>
@@ -61,12 +54,12 @@ const AddExpenseModal = () => {
                     <textarea type="text" name="notes" id='notes-input'/>
                 </div>
                 <div className='add-expense-buttons-container'>
-                    <button id='cancel-transaction-button'>Cancel</button>
+                    <button id='cancel-transaction-button' onClick={onClose}>Cancel</button>
                     <button id='add-transaction-button'>Add Transaction</button>
                 </div>
             </div>
         </div>
-    ) : null;
+    )
 };
 
 export default AddExpenseModal;

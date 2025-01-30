@@ -28,7 +28,6 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="right-side">
-                    <input type='text'></input>
                     <img src={user.profile_picture_url} onClick={() => setIsAccountSettingsOpen(true)}></img>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 @use "../../util" as *;
 
-.overlay.visible {
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,10 +12,6 @@
     display: flex;
 }
 
-.overlay.hidden {
-    display: none;
-}
-
 .add-expense-container {
     display: flex;
     justify-content: flex-start;
@@ -25,7 +21,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: rem(450);
-    height: rem(520);
+    height: auto;
     padding: rem(24);
     background-color: white;
     box-sizing: border-box;
@@ -195,6 +191,7 @@
         font-size: rem(14);
         color: #2a313a;
         background-color: #e7e7e7;
+        cursor: pointer;
 
         &:hover {
             background-color: #e0e0e0;
@@ -209,6 +206,7 @@
         font-size: rem(14);
         color: white;
         background-color: #4F46E5;
+        cursor: pointer;
 
         &:hover {
             background-color: #4239e4;

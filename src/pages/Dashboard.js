@@ -9,12 +9,14 @@ import AddExpenseModal from "../components/AddExpenseModal";
 
 const Dashboard = () => {
 
+    const [isAddExpenseOpen, setIsAddExpenseOpen] = useState(false);
+
     return (
         <div>
             <Header />
             <OverviewCards/>
-            <RecentTransactionsCard/>
-            <AddExpenseModal />
+            <RecentTransactionsCard onAddExpense={() => setIsAddExpenseOpen(true)} />
+            {isAddExpenseOpen && <AddExpenseModal onClose={() => setIsAddExpenseOpen(false)} />}
             <Outlet />
         </div>
     )
