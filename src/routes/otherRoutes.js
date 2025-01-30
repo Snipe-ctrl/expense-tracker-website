@@ -119,8 +119,6 @@ router.get('/expenses', protected, async (req, res) => {
             });
         }
 
-        console.log(result.rows);
-        
         res.status(200).json({
             status: 'success',
             data: result.rows,

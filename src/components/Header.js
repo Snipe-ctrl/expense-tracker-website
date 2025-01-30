@@ -32,11 +32,9 @@ const Header = () => {
                     <img src={user.profile_picture_url} onClick={() => setIsAccountSettingsOpen(true)}></img>
                 </div>
             </div>
-            {isAccountSettingsOpen && (
-                <AccountSettings
-                    onClose={() => setIsAccountSettingsOpen(false)}
-                />
-            )}
+            {isAccountSettingsOpen ? (
+                <AccountSettings onClose={() => setIsAccountSettingsOpen(false)}/>
+            ) : null}
         </header>
     )
 

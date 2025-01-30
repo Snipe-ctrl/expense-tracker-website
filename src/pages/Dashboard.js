@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import OverviewCards from "../components/OverviewCards";
 import RecentTransactionsCard from "../components/RecentTransactionsCard";
 import '/src/styles/style.scss';
+import AddExpenseModal from "../components/AddExpenseModal";
 
 const Dashboard = () => {
 
@@ -13,6 +14,7 @@ const Dashboard = () => {
             <Header />
             <OverviewCards/>
             <RecentTransactionsCard/>
+            <AddExpenseModal />
             <Outlet />
         </div>
     )

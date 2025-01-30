@@ -78,12 +78,7 @@ const RecentTransactionsCard = () => {
                     transactions.length > 0 ? (
                         transactions.map((transaction) => (
                             <div key={transaction.id} className='recent-transactions-row'>
-                                <p className='recent-transactions-date'>{new Date(transaction.date).toLocaleDateString('en-US', {
-                                    year: 'numeric',
-                                    month: 'short',
-                                    day: 'numeric',
-                                })}
-                                </p>
+                                <p className='recent-transactions-date'>{formatDate(transaction.date)}</p>
                                 <p className='recent-transactions-description'>{transaction.description}</p>
                                 <p className={`recent-transactions-category ${transaction.category.toLowerCase()}`}>{transaction.category}</p>
                                 <p className={`recent-transactions-amount ${transaction.amount < 0 ? 'negative' : 'positive'}`}>{transaction.amount}</p>
@@ -91,37 +86,7 @@ const RecentTransactionsCard = () => {
                         ))
                     ) : (
                         <p>No recent transactions found</p>
-                    ))
-                    /* <div className='recent-transactions-row-1'>
-                        <p className='recent-transactions-date'>Jan 15, 2025</p>
-                        <p className='recent-transactions-description'>Groceries</p>
-                        <p className='recent-transactions-category food'>Food</p>
-                        <p className='recent-transactions-amount negative'>-$120.50</p>
-                    </div>
-                    <div className='recent-transactions-row-1'>
-                        <p className='recent-transactions-date'>Jan 14, 2025</p>
-                        <p className='recent-transactions-description'>Netflix Subscription</p>
-                        <p className='recent-transactions-category entertainment'>Entertainment</p>
-                        <p className='recent-transactions-amoun negative'>-$14.99</p>
-                    </div>
-                    <div className='recent-transactions-row-1'>
-                        <p className='recent-transactions-date'>Jan 13, 2025</p>
-                        <p className='recent-transactions-description'>Salary Deposit</p>
-                        <p className='recent-transactions-category income'>Income</p>
-                        <p className='recent-transactions-amount positive'>+$1,000.00</p>
-                    </div>
-                    <div className='recent-transactions-row-1'>
-                        <p className='recent-transactions-date'>Jan 12, 2025</p>
-                        <p className='recent-transactions-description'>Gym Membership</p>
-                        <p className='recent-transactions-category health'>Health</p>
-                        <p className='recent-transactions-amount negative'>-$49.99</p>
-                    </div>
-                    <div className='recent-transactions-row-1'>
-                        <p className='recent-transactions-date'>Jan 11, 2025</p>
-                        <p className='recent-transactions-description'>Restaurant Dinner</p>
-                        <p className='recent-transactions-category food'>Food</p>
-                        <p className='recent-transactions-amount negative'>-$85.00</p>
-                    </div> */}
+                    ))}
                 </div>
                 <div className='view-more-transactions-container'>
                     <button>
