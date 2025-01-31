@@ -105,7 +105,7 @@ router.get('/expenses', protected, async (req, res) => {
     try {
         const userId = req.user.id;
 
-        const limit = parseInt(req.query.limit, 10) || 10;
+        const limit = parseInt(req.query.limit, 10) || 20;
         const offset = parseInt(req.query.offset, 10) || 0;
 
         const query = `

@@ -6,7 +6,8 @@ const TransactionsContext = createContext();
 
 export const TransactionsProvider = ({ children }) => {
 
-    const { user, loading } = useContext(AuthContext);
+    // gets user data from auth context
+    const { user } = useContext(AuthContext);
 
     // states for transaction data
     const [transactions, setTransactions] = useState([]);

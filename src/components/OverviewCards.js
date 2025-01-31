@@ -1,12 +1,113 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useTransactions } from '../context/TransactionsContext';
 
 const OverviewCards = () => {
 
+    // gets transaction data from context
+    const { transactions, transactionsLoading } = useTransactions();
+
+    // sets defualt values for overview cards
     const [cardValues, setCardValues] = useState({
-        totalIncome: 0,
-        totalExpenses: 0,
+        thisMonthIncome: 0,
+        thisMonthExpenses: 0,
         remainingBalance: 0,
+        incomePercentage: 0,
+        totalExpensesPercentage: 0,
+        lastMonthIncome: 0,
+        lastMonthExpenses: 0,
     })
+
+    // handles setting overview card data
+    const calculateCardValues = () => {
+
+        // gets this months date
+        const today = new Date();
+        const currentYear = today.getFullYear();
+
+        // gets last months date
+        const lastMonthDate = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+        const lastMonthYear = lastMonthDate.getFullYear();
+
+        // handles parsing expense date
+        const parseTransactionDate = (dateString) => {
+            return new Date(dateString.includes('T') ? dateString : `${dateString}T00:00:00Z`);
+        };        
+
+        // contains this months expense data
+        const thisMonthTransactions = transactions.filter((transaction) => {
+            const transactionDate = parseTransactionDate(transaction.date);
+            return (
+                transactionDate.getFullYear() === currentYear &&
+                transactionDate.getMonth() ===  today.getMonth()
+            );
+        });
+
+        // contains last months expense data
+        const lastMonthTransactions = transactions.filter((transaction) => {
+            const transactionDate = parseTransactionDate(transaction.date);
+            return (
+                transactionDate.getFullYear() === lastMonthYear &&
+                transactionDate.getMonth() === lastMonthDate.getMonth()
+            );
+        });
+
+        // initializes expense and income variables
+        let thisMonthExpenses = 0;
+        let thisMonthIncome = 0;
+
+        // calculates this months total income and expenses
+        thisMonthTransactions.forEach((transaction) => {
+            let amount = Number(transaction.amount)
+            if (amount < 0) {
+                thisMonthExpenses += Math.abs(amount);
+            } else {
+                thisMonthIncome += amount;
+            }
+        });
+
+        // calculates this months remaining balance
+        let remainingBalance = thisMonthIncome - thisMonthExpenses;
+
+        // initializes last months income and expense variables
+        let lastMonthIncome = 0;
+        let lastMonthExpenses = 0;
+        
+        // calculates last months total expenses and income
+        lastMonthTransactions.forEach((transaction) => {
+            let amount = Number(transaction.amount)
+            if (amount < 0) {
+                lastMonthExpenses += Math.abs(amount);
+            } else {
+                lastMonthIncome += amount;
+            }
+        });
+
+        // calculates income percentage and expenses percentage
+        const incomePercentage = lastMonthIncome > 0 
+        ? Math.round(((thisMonthIncome - lastMonthIncome) / lastMonthIncome) * 100)
+        : 0;
+
+        const totalExpensesPercentage = lastMonthExpenses > 0
+        ? Math.round(((thisMonthExpenses - lastMonthExpenses) / lastMonthExpenses) * 100)
+        : 0;
+
+        // updates overview card variables
+        setCardValues({
+            thisMonthIncome,
+            thisMonthExpenses,
+            remainingBalance,
+            incomePercentage,
+            totalExpensesPercentage,
+            lastMonthIncome,
+            lastMonthExpenses,
+        });
+    };
+
+    useEffect(() => {
+        if (!transactionsLoading) {
+            calculateCardValues();
+        }
+    }, [transactions, transactionsLoading]);
 
     return (
         <div className='overview-cards-container'>
@@ -31,15 +132,23 @@ const OverviewCards = () => {
                     />
                     </svg>
                 </div>
-                <h2>$8,500.00</h2>
+                <h2>{cardValues.thisMonthIncome > 0 ? `$${cardValues.thisMonthIncome.toFixed(2)}` : '$0.00'}</h2>
                 <div className='overview-card-bottom'>
-                    <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg 
+                        className={`arrow-svg ${cardValues.incomePercentage > 0 ?
+                             'up-arrow green-arrow' :
+                            'down-arrow red-arrow'}`}
+                        width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.86794 0.882034C5.52615 0.540237 4.97107 0.540237 4.62927 0.882034L0.254272 5.25703C-0.0875244 
                         5.59883 -0.0875244 6.15391 0.254272 6.49571C0.596069 6.8375 1.15115 6.8375 1.49294 6.49571L4.37498 
                         3.61094V12C4.37498 12.484 4.76599 12.875 5.24998 12.875C5.73396 12.875 6.12498 12.484 6.12498 12V3.61094L9.00701 
                         6.49297C9.3488 6.83477 9.90388 6.83477 10.2457 6.49297C10.5875 6.15118 10.5875 5.5961 10.2457 5.2543L5.87068 0.8793L5.86794 0.882034Z" fill="#059669"/>
-                    </svg>
-                    <p className='green'>12% from last month</p>
+                    </svg> 
+                    <p 
+                        className={cardValues.incomePercentage > 0 ? 'positive-text' : 'negative-text'}>
+                        {cardValues.incomePercentage > 0 ? cardValues.incomePercentage : cardValues.incomePercentage * -1}
+                        % from last month
+                    </p>
                 </div>
             </div>
             <div className='overview-card' id='total-expenses-card-container'>
@@ -55,15 +164,21 @@ const OverviewCards = () => {
                     </svg>
 
                 </div>
-                <h2>$4,320.50</h2>
+                <h2>{cardValues.thisMonthExpenses > 0 ? `$${cardValues.thisMonthExpenses.toFixed(2)}` : '$0.00'}</h2>
                 <div className='overview-card-bottom'>
-                    <svg className='red-svg' width="11" height="13" viewBox="0 0 11 13" xmlns="http://www.w3.org/2000/svg">
+                    <svg 
+                        className={`arrow-svg ${cardValues.totalExpensesPercentage > 0 ?
+                            'up-arrow green-arrow' :
+                            'down-arrow red-arrow'}`} width="11" height="13" viewBox="0 0 11 13" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5.86794 0.882034C5.52615 0.540237 4.97107 0.540237 4.62927 0.882034L0.254272 5.25703C-0.0875244 
                         5.59883 -0.0875244 6.15391 0.254272 6.49571C0.596069 6.8375 1.15115 6.8375 1.49294 6.49571L4.37498 
                         3.61094V12C4.37498 12.484 4.76599 12.875 5.24998 12.875C5.73396 12.875 6.12498 12.484 6.12498 12V3.61094L9.00701 
                         6.49297C9.3488 6.83477 9.90388 6.83477 10.2457 6.49297C10.5875 6.15118 10.5875 5.5961 10.2457 5.2543L5.87068 0.8793L5.86794 0.882034Z"/>
                     </svg>
-                    <p className='red-text'>8% from last month</p>
+                    <p 
+                        className={cardValues.totalExpensesPercentage > 0 ? 'positive-text' : 'negative-text'}>
+                        {cardValues.totalExpensesPercentage > 0 ? cardValues.totalExpensesPercentage : cardValues.totalExpensesPercentage * -1}
+                        % from last month</p>
                 </div>
             </div>
             <div className='overview-card' id='remaining-balance-card-container'>
@@ -88,7 +203,7 @@ const OverviewCards = () => {
                         8.92098 14.7647 8.78033C14.9054 8.63968 14.9844 8.44891 14.9844 8.25Z" fill="#059669"/>
                     </svg>
                 </div>
-                <h2>$4,179.50</h2>
+                <h2>{cardValues.remainingBalance > 0 ? `$${cardValues.remainingBalance.toFixed(2)}` : '$0.00'}</h2>
                 <div className='overview-card-bottom'>
                     <p className='default-text'>Available to spend</p>
                 </div>

@@ -51,30 +51,53 @@
             justify-content: start;
             align-items: center;
 
-            svg {
+            .arrow-svg {
                 width: rem(10);
                 height: rem(14);
-
-                &.red-svg {
-                    fill: #DC2626;
-                }
             }
 
-            p {
+            .up-arrow {
+                padding-right: rem(2);
+            }
+
+            .down-arrow {
+                transform: rotate(180deg);
+                padding-left: rem(2);
+            }
+
+            .arrow-svg path {
+                fill: currentColor;
+            }
+
+            .green-arrow {
+                color: #059669;
+            }
+
+            .red-arrow {
+                color: #DC2626;
+            }
+
+            .positive-text {
                 font-size: rem(14);
                 font-weight: 400;
                 margin: rem(0);
                 color: #059669;
-
-                &.red-text {
-                    color: #DC2626;
-                }
-
-                &.default-text {
-                    color: #6B7280;
-                }
-    
             }
+
+            .negative-text {
+                font-size: rem(14);
+                font-weight: 400;
+                margin: rem(0);
+                color: #DC2626;
+            }
+
+            .default-text {
+                font-size: rem(14);
+                font-weight: 400;
+                margin: rem(0);
+                color: #6B7280;
+            }
+    
         }
     }
 }

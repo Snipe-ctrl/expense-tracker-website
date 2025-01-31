@@ -15,6 +15,8 @@ const RecentTransactionsCard = ({ onAddExpense }) => {
         }).format(new Date(dateString));
     };
 
+    const recentTransactions = transactions.slice(0, 10);
+
     useEffect(() => {
         if (!loading && user)
             getTransactions();
@@ -57,8 +59,8 @@ const RecentTransactionsCard = ({ onAddExpense }) => {
                     {transactionsLoading ? (
                         <p>Loading...</p>
                     ) : (
-                    transactions.length > 0 ? (
-                        transactions.map((transaction) => (
+                    recentTransactions.length > 0 ? (
+                        recentTransactions.map((transaction) => (
                             <div key={transaction.id} className='recent-transactions-row'>
                                 <p className='recent-transactions-date'>{formatDate(transaction.date)}</p>
                                 <p className='recent-transactions-description'>{transaction.description}</p>
