@@ -108,8 +108,13 @@ router.get('/expenses', protected, async (req, res) => {
         const limit = parseInt(req.query.limit, 10) || 10;
         const offset = parseInt(req.query.offset, 10) || 0;
 
-        const query = `SELECT id, description, category, amount, date 
-        FROM expenses WHERE user_id = $1 LIMIT $2 OFFSET $3;`;
+        const query = `
+            SELECT id, description, category, amount, date 
+            FROM expenses 
+            WHERE user_id = $1
+            ORDER BY date DESC
+            LIMIT $2 OFFSET $3;
+        `;
         const result = await db.query(query, [userId, limit, offset]);
 
         if (result.rowCount === 0) {
