@@ -2,6 +2,12 @@ import React, { useContext, useState } from 'react';
 
 const OverviewCards = () => {
 
+    const [cardValues, setCardValues] = useState({
+        totalIncome: 0,
+        totalExpenses: 0,
+        remainingBalance: 0,
+    })
+
     return (
         <div className='overview-cards-container'>
             <div className='overview-card' id='total-income-card-container'>

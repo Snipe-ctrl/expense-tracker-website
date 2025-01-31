@@ -1,12 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from "../context/AuthContext";
-import apiFetch from '../utils/apiFetch';
+import { useTransactions } from '../context/TransactionsContext';
 
 const RecentTransactionsCard = ({ onAddExpense }) => {
 
     const { user, loading } = useContext(AuthContext);
-    const [transactions, setTransactions] = useState([]);
-    const [transactionsLoading, setTransactionsLoading] = useState(true);
+    const { transactions, transactionsLoading, getTransactions } = useTransactions();
 
     const formatDate = (dateString) => {
         return new Intl.DateTimeFormat('en-US', {
@@ -16,27 +15,10 @@ const RecentTransactionsCard = ({ onAddExpense }) => {
         }).format(new Date(dateString));
     };
 
-    const getRecentTransactions = async () => {
-        try {
-            setTransactionsLoading(true);
-            const response = await apiFetch('/expenses');
-            const transactionsData = response.data
-            if (Array.isArray(transactionsData )&& transactionsData.length > 0) {
-                setTransactions(transactionsData.slice(0, 5));
-            } else {
-                setTransactions([]);
-            }
-        } catch (err) {
-            console.error('Error fetching transaction data: ', err);
-        } finally {
-            setTransactionsLoading(false);
-        }
-    };
-
     useEffect(() => {
         if (!loading && user)
-        getRecentTransactions();
-    },[loading, user])
+            getTransactions();
+    }, [loading, user])
 
     return (
         <div className='recent-transactions-container'>
@@ -53,7 +35,7 @@ const RecentTransactionsCard = ({ onAddExpense }) => {
                             </svg>
                             Filter
                         </button>
-                        <button className='add-new-button' onClick={() => onAddExpense(getRecentTransactions)}>
+                        <button className='add-new-button' onClick={() => onAddExpense(getTransactions)}>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7.09375 0.9375C7.09375 0.453516 6.70273 0.0625 6.21875 0.0625C5.73477 0.0625 5.34375 
                                 0.453516 5.34375 0.9375V4.875H1.40625C0.922266 4.875 0.53125 5.26602 0.53125 5.75C0.53125 6.23398 
