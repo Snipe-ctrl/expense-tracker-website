@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import apiFetch from '../utils/apiFetch';
 
-const AddExpenseModal = ({ onClose }) => {
+const AddExpenseModal = ({ onClose, onExpenseAdded }) => {
 
     // sets default state for new expense form
     const [newExpense, setNewExpense] = useState({
@@ -42,8 +42,9 @@ const AddExpenseModal = ({ onClose }) => {
 
         // checks if response was valid and resets new expense form
         if (response) {
-            console.log('Expense added succesfully: ', response)
-            setNewExpense({ date: '', description: '', category: 'Food', amount: '0.00', notes: '' })
+            console.log('Expense added succesfully: ', response);
+            setNewExpense({ date: '', description: '', category: 'Food', amount: '0.00', notes: '' });
+            onExpenseAdded();
             onClose();
         } else {
             console.error('Failed to add expense.')

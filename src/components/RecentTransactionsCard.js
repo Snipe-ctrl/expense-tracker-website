@@ -36,7 +36,7 @@ const RecentTransactionsCard = ({ onAddExpense }) => {
     useEffect(() => {
         if (!loading && user)
         getRecentTransactions();
-    },[ loading, user])
+    },[loading, user])
 
     return (
         <div className='recent-transactions-container'>
@@ -53,7 +53,7 @@ const RecentTransactionsCard = ({ onAddExpense }) => {
                             </svg>
                             Filter
                         </button>
-                        <button className='add-new-button' onClick={onAddExpense}>
+                        <button className='add-new-button' onClick={() => onAddExpense(getRecentTransactions)}>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7.09375 0.9375C7.09375 0.453516 6.70273 0.0625 6.21875 0.0625C5.73477 0.0625 5.34375 
                                 0.453516 5.34375 0.9375V4.875H1.40625C0.922266 4.875 0.53125 5.26602 0.53125 5.75C0.53125 6.23398 
@@ -81,7 +81,9 @@ const RecentTransactionsCard = ({ onAddExpense }) => {
                                 <p className='recent-transactions-date'>{formatDate(transaction.date)}</p>
                                 <p className='recent-transactions-description'>{transaction.description}</p>
                                 <p className={`recent-transactions-category ${transaction.category.toLowerCase()}`}>{transaction.category}</p>
-                                <p className={`recent-transactions-amount ${transaction.amount < 0 ? 'negative' : 'positive'}`}>{transaction.amount}</p>
+                                <p className={`recent-transactions-amount ${transaction.amount < 0 ? 'negative' : 'positive'}`}>
+                                    {transaction.amount >= 0 ? `+${transaction.amount}` : transaction.amount}
+                                </p>
                             </div>
                         ))
                     ) : (

@@ -112,7 +112,7 @@ router.get('/expenses', protected, async (req, res) => {
             SELECT id, description, category, amount, date 
             FROM expenses 
             WHERE user_id = $1
-            ORDER BY date DESC
+            ORDER BY date DESC, created_at DESC
             LIMIT $2 OFFSET $3;
         `;
         const result = await db.query(query, [userId, limit, offset]);
