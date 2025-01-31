@@ -1,11 +1,54 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { AuthContext } from "../context/AuthContext";
+import apiFetch from '../utils/apiFetch';
 
 const AddExpenseModal = ({ onClose }) => {
 
+    // sets default state for new expense form
     const [newExpense, setNewExpense] = useState({
-        
-    })
+        date: '',
+        description: '',
+        category: 'Food',
+        amount: '0.00',
+        notes: '',
+    });
+
+    // handles new expense form submission
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        // makes expenses negative and income positive
+        let adjustedAmount = newExpense.amount;
+
+        if (['Food', 'Transport', 'Health', 'Entertainment'].includes(newExpense.category)) {
+            adjustedAmount = Math.abs(parseFloat(newExpense.amount)) * -1;
+        } else {
+            adjustedAmount = Math.abs(parseFloat(newExpense.amount));
+        }
+
+        // expenses for API
+        const payload = {
+            date: newExpense.date,
+            description: newExpense.description,
+            category: newExpense.category,
+            amount: adjustedAmount.toFixed(2),
+            notes: newExpense.notes,
+        };
+
+        // sends data in POST request
+        const response = await apiFetch('add-expense', {
+            method: "POST",
+            body: JSON.stringify(payload),
+        });
+
+        // checks if response was valid and resets new expense form
+        if (response) {
+            console.log('Expense added succesfully: ', response)
+            setNewExpense({ date: '', description: '', category: 'Food', amount: '0.00', notes: '' })
+            onClose();
+        } else {
+            console.error('Failed to add expense.')
+        }
+    };
 
     return (
         <div className={`overlay`}>
@@ -21,42 +64,84 @@ const AddExpenseModal = ({ onClose }) => {
                         10.6414 11.5481 10.2019L7.84259 6.49995L11.5445 2.79448Z" fill="#6B7280"/>
                     </svg>
                 </div>
+            <form onSubmit={handleSubmit}>
                 <div className="add-expense-description-container">
                     <label htmlFor="description">Description</label>
-                    <input type="text" name="description"/>
+                    <input 
+                        type="text" 
+                        name="description"
+                        value={newExpense.description}
+                        onChange={(e) => setNewExpense({ ...newExpense, description: e.target.value })}
+                    />
                 </div>
                 <div className='add-expense-amount-date-container'>
                     <div className='add-expense-amount-container'>
                         <label htmlFor="amount">Amount</label>
                         <div className='amount-input-wrapper'>
                             <p className='currency-symbol'>$</p>
-                            <input type="text" name="amount" id='expense-amount'/>
+                            <input 
+                                type="number" 
+                                name="amount" 
+                                value={newExpense.amount}
+                                id='expense-amount'
+                                onChange={(e) => setNewExpense({ ...newExpense, amount: e.target.value })}
+                                step='0.05'
+                                min='0'
+                                placeholder='0.00'
+                                required
+                            />
                         </div>
                     </div>
                     <div className='add-expense-date-container'>
                         <label htmlFor="date">Date</label>
-                        <input type="date" name="date" id='expense-date'/>
+                        <input 
+                            type="date" 
+                            name="date" 
+                            id='expense-date'
+                            onChange={(e) => setNewExpense({ ...newExpense, date: e.target.value })}
+                            required
+                        />
                     </div>
                 </div>
                 <div className='add-expense-category-container'>
                     <label htmlFor="category">Category</label>
-                    <select name='category' id='category'>
-                        <option value='food'>Food</option>
-                        <option value='entertainment'>Entertainment</option>
-                        <option value='income'>Income</option>
-                        <option value='health'>Health</option>
-                        <option value='transport'>Transport</option>
-                        <option value='income'>Income</option>
+                    <select 
+                        name='category' 
+                        id='category'
+                        value={newExpense.category}
+                        onChange={(e) => setNewExpense({ ...newExpense, category: e.target.value })}
+                    >
+                        <option value='Food'>Food</option>
+                        <option value='Entertainment'>Entertainment</option>
+                        <option value='Income'>Income</option>
+                        <option value='Health'>Health</option>
+                        <option value='Transport'>Transport</option>
                     </select>
                 </div>
                 <div className='add-expense-notes-container'>
                     <label htmlFor="notes">Notes (Optional)</label>
-                    <textarea type="text" name="notes" id='notes-input'/>
+                    <textarea 
+                        type="text" 
+                        name="notes" 
+                        id='notes-input'
+                        value={newExpense.notes}
+                        onChange={(e) => setNewExpense({ ...newExpense, notes: e.target.value })}
+                    />
                 </div>
                 <div className='add-expense-buttons-container'>
-                    <button id='cancel-transaction-button' onClick={onClose}>Cancel</button>
-                    <button id='add-transaction-button'>Add Transaction</button>
+                    <button 
+                        id='cancel-transaction-button' 
+                        type='button'
+                        onClick={(e) => {
+                            e.preventDefault;
+                            onClose();
+                        }}
+                    >
+                        Cancel
+                    </button>
+                    <button type='submit' id='add-transaction-button'>Add Transaction</button>
                 </div>
+            </form>
             </div>
         </div>
     )

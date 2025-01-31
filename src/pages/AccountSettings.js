@@ -123,6 +123,7 @@ const AccountSettings = ({ onClose }) => {
             console.log('User data updated successfully:', result);
         }
 
+        // updated user context data
         setUser((prevUser) => ({
             ...prevUser,
             full_name: result.user.full_name,
