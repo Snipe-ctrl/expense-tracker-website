@@ -78,7 +78,7 @@
 
         .recent-transactions-table-header {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 5fr 5fr 5fr 5fr 8fr 1fr;
             width: 100%;
             margin-top: rem(24);
             padding-left: rem(24);
@@ -90,10 +90,35 @@
 
         .recent-transactions-row {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 5fr 5fr 5fr 5fr 8fr 1fr;
             width: 100%;
             padding-left: rem(24);
             border-bottom: rem(1) solid #E5E7EB;
+            align-items: center;
+
+            .trash-svg {
+                display: none;
+                cursor: pointer;
+                position: relative;
+
+                .trash-bg {
+                    opacity: 0;
+                }
+
+                &:hover {
+                    path {
+                        fill: rgb(231, 38, 38);
+                    }
+
+                    .trash-bg {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &:hover .trash-svg {
+                display: block;
+            }
 
             .recent-transactions-date {
                 font-size: rem(14);
@@ -182,6 +207,12 @@
                 font-size: rem(14);
                 font-weight: 400;
                 color: #059669;
+            }
+
+            .recent-transactions-notes {
+                font-size: rem(13);
+                font-weight: 400;
+                color: #111827;
             }
         }
     }

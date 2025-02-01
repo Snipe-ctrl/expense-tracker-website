@@ -55,6 +55,7 @@ const RecentTransactionsCard = ({ onAddExpense }) => {
                         <p>Description</p>
                         <p>Category</p>
                         <p>Amount</p>
+                        <p>Notes</p>
                     </div>
                     {transactionsLoading ? (
                         <p>Loading...</p>
@@ -68,6 +69,22 @@ const RecentTransactionsCard = ({ onAddExpense }) => {
                                 <p className={`recent-transactions-amount ${transaction.amount < 0 ? 'negative' : 'positive'}`}>
                                     {transaction.amount >= 0 ? `+${transaction.amount}` : transaction.amount}
                                 </p>
+                                <p className='recent-transactions-notes'>{transaction.notes ? transaction.notes : '-'}</p>
+                                <svg className='trash-svg' width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" overflow='visible'>
+                                    <circle className="trash-bg" cx="7" cy="7" r="17" fill="#F3F4F6" opacity="1" />
+                                    <g clip-path="url(#clip0_131_361)">
+                                    <path d="M4.61875 0.483984L4.42188 0.875H1.79688C1.31289 0.875 0.921875 1.26602 0.921875 
+                                    1.75C0.921875 2.23398 1.31289 2.625 1.79688 2.625H12.2969C12.7809 2.625 13.1719 2.23398 13.1719 1.75C13.1719 
+                                    1.26602 12.7809 0.875 12.2969 0.875H9.67188L9.475 0.483984C9.32734 0.185938 9.02383 0 8.69297 0H5.40078C5.06992 
+                                    0 4.76641 0.185938 4.61875 0.483984ZM12.2969 3.5H1.79688L2.37656 12.7695C2.42031 13.4613 2.99453 14 3.68633 
+                                    14H10.4074C11.0992 14 11.6734 13.4613 11.7172 12.7695L12.2969 3.5Z" fill="#9CA3AF"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath id="clip0_131_361">
+                                    <path d="M0.921875 0H13.1719V14H0.921875V0Z" fill="white"/>
+                                    </clipPath>
+                                    </defs>
+                                </svg>
                             </div>
                         ))
                     ) : (

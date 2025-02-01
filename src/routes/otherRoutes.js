@@ -109,7 +109,7 @@ router.get('/expenses', protected, async (req, res) => {
         const offset = parseInt(req.query.offset, 10) || 0;
 
         const query = `
-            SELECT id, description, category, amount, date 
+            SELECT id, description, category, amount, date, notes
             FROM expenses 
             WHERE user_id = $1
             ORDER BY date DESC, created_at DESC
