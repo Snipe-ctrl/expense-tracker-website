@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import OverviewCards from "../components/OverviewCards";
 import RecentTransactionsCard from "../components/RecentTransactionsCard";
 import AddExpenseModal from "../components/AddExpenseModal";
+import DeleteExpenseModal from "../components/DeleteExpenseModal";
 import '/src/styles/style.scss';
 
 const Dashboard = () => {
@@ -13,6 +14,8 @@ const Dashboard = () => {
     const [transactions, setTransactions] = useState([]);
     const [transactionsLoading, setTransactionsLoading] = useState(true);
 
+    const [isDeleteExpenseOpen, setIsDeleteExpenseOpen] = useState(false)
+
     // states for add expense modal
     const [isAddExpenseOpen, setIsAddExpenseOpen] = useState(false);
     const [refreshTransactions, setRefreshTransactions] = useState(() => () => {});
@@ -20,6 +23,11 @@ const Dashboard = () => {
     // handles logic for adding expense
     const handleAddExpense = (getRecentTransactions) => {
         setIsAddExpenseOpen(true);
+        setRefreshTransactions(() => getRecentTransactions);
+    };
+
+    const handleDeleteExpense = (getRecentTransactions) => {
+        setIsDeleteExpenseOpen(true);
         setRefreshTransactions(() => getRecentTransactions);
     };
 
@@ -37,11 +45,14 @@ const Dashboard = () => {
         <div>
             <Header />
             <OverviewCards/>
-            <RecentTransactionsCard onAddExpense={handleAddExpense} />
+            <RecentTransactionsCard onAddExpense={handleAddExpense} onDeleteExpense={handleDeleteExpense} />
             {isAddExpenseOpen && 
                 <AddExpenseModal 
                     onClose={() => setIsAddExpenseOpen(false)}
                     onExpenseAdded={refreshTransactions}
+                />}
+            {isDeleteExpenseOpen &&
+                <DeleteExpenseModal onClose={() => setIsDeleteExpenseOpen(false)}
                 />}
             <Outlet />
         </div>

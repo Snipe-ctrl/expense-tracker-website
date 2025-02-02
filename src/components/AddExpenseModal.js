@@ -8,7 +8,7 @@ const AddExpenseModal = ({ onClose, onExpenseAdded }) => {
         date: '',
         description: '',
         category: 'Food',
-        amount: '0.00',
+        amount: '',
         notes: '',
     });
 
@@ -19,7 +19,7 @@ const AddExpenseModal = ({ onClose, onExpenseAdded }) => {
         // makes expenses negative and income positive
         let adjustedAmount = newExpense.amount;
 
-        if (['Food', 'Transport', 'Health', 'Entertainment'].includes(newExpense.category)) {
+        if (['Food', 'Transport', 'Health', 'Entertainment', 'Education'].includes(newExpense.category)) {
             adjustedAmount = Math.abs(parseFloat(newExpense.amount)) * -1;
         } else {
             adjustedAmount = Math.abs(parseFloat(newExpense.amount));
@@ -52,7 +52,7 @@ const AddExpenseModal = ({ onClose, onExpenseAdded }) => {
     };
 
     return (
-        <div className={`overlay`}>
+        <div className='overlay'>
             <div className='add-expense-container'>
                 <div className='add-expense-header'>
                     <h2>Add New Transaction</h2>
@@ -86,7 +86,6 @@ const AddExpenseModal = ({ onClose, onExpenseAdded }) => {
                                 value={newExpense.amount}
                                 id='expense-amount'
                                 onChange={(e) => setNewExpense({ ...newExpense, amount: e.target.value })}
-                                step='0.05'
                                 min='0'
                                 placeholder='0.00'
                                 required
@@ -117,6 +116,7 @@ const AddExpenseModal = ({ onClose, onExpenseAdded }) => {
                         <option value='Income'>Income</option>
                         <option value='Health'>Health</option>
                         <option value='Transport'>Transport</option>
+                        <option value='Education'>Education</option>
                     </select>
                 </div>
                 <div className='add-expense-notes-container'>

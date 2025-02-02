@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from "../context/AuthContext";
 import { useTransactions } from '../context/TransactionsContext';
 
-const RecentTransactionsCard = ({ onAddExpense }) => {
+const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense }) => {
 
     const { user, loading } = useContext(AuthContext);
     const { transactions, transactionsLoading, getTransactions } = useTransactions();
@@ -70,7 +70,7 @@ const RecentTransactionsCard = ({ onAddExpense }) => {
                                     {transaction.amount >= 0 ? `+${transaction.amount}` : transaction.amount}
                                 </p>
                                 <p className='recent-transactions-notes'>{transaction.notes ? transaction.notes : '-'}</p>
-                                <svg className='trash-svg' width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" overflow='visible'>
+                                <svg onClick={() => onDeleteExpense(getTransactions)} className='trash-svg' width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" overflow='visible'>
                                     <circle className="trash-bg" cx="7" cy="7" r="17" fill="#F3F4F6" opacity="1" />
                                     <g clip-path="url(#clip0_131_361)">
                                     <path d="M4.61875 0.483984L4.42188 0.875H1.79688C1.31289 0.875 0.921875 1.26602 0.921875 

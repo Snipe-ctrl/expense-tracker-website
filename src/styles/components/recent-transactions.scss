@@ -1,5 +1,16 @@
 @use '../util'as *;
+@use 'sass:list';
 
+
+// Category Color Map
+$category-styles: (
+  food: (#1E40AF, #DBEAFE, 45px, 23px),
+  entertainment: (#5B21B6, #EDE9FE, 95px, 22px),
+  income: (#065F46, #D1FAE5, 60px, 22px),
+  health: (#92400E, #FEF3C7, 55px, 22px),
+  transport: (#890e92, #fac7fe, 75px, 22px),
+  education: (#3c0e92, #c8c7fe, 75px, 22px),
+);
 
 .recent-transactions-container {
     display: flex;
@@ -132,69 +143,23 @@
                 color: #111827;
             }
 
-            .food {
+            .recent-transactions-category {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 font-size: rem(12);
-                font-weight: 400;
-                color: #1E40AF;
-                width: rem(45);
-                height: rem(23);
-                background-color: #DBEAFE;
+                font-weight: rem(400);
                 border-radius: rem(50);
-            }
 
-            .entertainment {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: rem(12);
-                font-weight: 400;
-                color: #5B21B6;
-                width: rem(95);
-                height: rem(22);
-                background-color: #EDE9FE;
-                border-radius: rem(50);
-            }
-
-            .income {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: rem(12);
-                font-weight: 400;
-                color: #065F46;
-                width: rem(60);
-                height: rem(22);
-                background-color: #D1FAE5;
-                border-radius: rem(50);
-            }
-
-            .health {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: rem(12);
-                font-weight: 400;
-                color: #92400E;
-                width: rem(55);
-                height: rem(22);
-                background-color: #FEF3C7;
-                border-radius: rem(50);
-            }
-
-            .transport {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: rem(12);
-                font-weight: 400;
-                color: #890e92;
-                width: rem(75);
-                height: rem(22);
-                background-color: #fac7fe;
-                border-radius: rem(50);
+                // Dynamic Category Styles
+                @each $name, $style in $category-styles {
+                    &.#{$name} {
+                    color: list.nth($style, 1);
+                    background-color: list.nth($style, 2);
+                    width: list.nth($style, 3);
+                    height: list.nth($style, 4);
+                    }
+                }
             }
 
             .negative {
