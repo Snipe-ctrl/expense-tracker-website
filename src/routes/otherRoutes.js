@@ -169,4 +169,28 @@ router.post('/add-expense', protected, async (req, res) => {
     };
 });
 
+router.post('/delete-expense', protected, async (req, res) => {
+
+    const { expenseId } = req.body;
+
+    if (!expenseId) {
+        return res.status(400).json({ message: 'Expense Id is required' });
+    }
+
+    const query = `DELETE FROM expenses WHERE id = $1`;
+
+    try {
+        const result = await db.query(query, [expenseId]);
+
+        if (result.rowCount === 0) {
+            return res.status(404).json({ message: 'Expense not found' });
+        }
+
+        return res.status(200).json({ message: 'Expense deleted successfully' });
+    } catch (err) {
+        console.error('Error deleting expense: ', err);
+        return res.status(500).json({ message: 'Internal server error' })
+    }
+});
+
 module.exports = router;

@@ -19,7 +19,7 @@ const AddExpenseModal = ({ onClose, onExpenseAdded }) => {
         // makes expenses negative and income positive
         let adjustedAmount = newExpense.amount;
 
-        if (['Food', 'Transport', 'Health', 'Entertainment', 'Education'].includes(newExpense.category)) {
+        if (['Food', 'Transport', 'Health', 'Entertainment', 'Education', 'Programming'].includes(newExpense.category)) {
             adjustedAmount = Math.abs(parseFloat(newExpense.amount)) * -1;
         } else {
             adjustedAmount = Math.abs(parseFloat(newExpense.amount));
@@ -87,6 +87,7 @@ const AddExpenseModal = ({ onClose, onExpenseAdded }) => {
                                 id='expense-amount'
                                 onChange={(e) => setNewExpense({ ...newExpense, amount: e.target.value })}
                                 min='0'
+                                step='0.01'
                                 placeholder='0.00'
                                 required
                             />
@@ -117,6 +118,7 @@ const AddExpenseModal = ({ onClose, onExpenseAdded }) => {
                         <option value='Health'>Health</option>
                         <option value='Transport'>Transport</option>
                         <option value='Education'>Education</option>
+                        <option value='Programming'>Programming</option>
                     </select>
                 </div>
                 <div className='add-expense-notes-container'>

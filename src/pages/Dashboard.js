@@ -18,6 +18,9 @@ const Dashboard = () => {
 
     // states for add expense modal
     const [isAddExpenseOpen, setIsAddExpenseOpen] = useState(false);
+
+    const [selectedExpenseId, setSelectedExpenseId] = useState(null);
+
     const [refreshTransactions, setRefreshTransactions] = useState(() => () => {});
 
     // handles logic for adding expense
@@ -26,7 +29,8 @@ const Dashboard = () => {
         setRefreshTransactions(() => getRecentTransactions);
     };
 
-    const handleDeleteExpense = (getRecentTransactions) => {
+    const handleDeleteExpense = (expenseId, getRecentTransactions) => {
+        setSelectedExpenseId(expenseId);
         setIsDeleteExpenseOpen(true);
         setRefreshTransactions(() => getRecentTransactions);
     };
@@ -52,7 +56,13 @@ const Dashboard = () => {
                     onExpenseAdded={refreshTransactions}
                 />}
             {isDeleteExpenseOpen &&
-                <DeleteExpenseModal onClose={() => setIsDeleteExpenseOpen(false)}
+                <DeleteExpenseModal
+                    expenseId={selectedExpenseId}
+                    onClose={() => {
+                        setIsDeleteExpenseOpen(false);
+                        setSelectedExpenseId(null);
+                    }}
+                    onDeleteSuccess={refreshTransactions}
                 />}
             <Outlet />
         </div>
