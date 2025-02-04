@@ -90,7 +90,7 @@ $category-styles: (
 
         .recent-transactions-table-header {
             display: grid;
-            grid-template-columns: 5fr 5fr 5fr 5fr 8fr 1fr;
+            grid-template-columns: 1fr 7fr 7fr 7fr 7fr 12fr 1fr;
             width: 100%;
             margin-top: rem(24);
             padding-left: rem(24);
@@ -102,34 +102,31 @@ $category-styles: (
 
         .recent-transactions-row {
             display: grid;
-            grid-template-columns: 5fr 5fr 5fr 5fr 8fr 1fr;
+            grid-template-columns: 1fr 7fr 7fr 7fr 7fr 12fr 1fr;
             width: 100%;
             padding-left: rem(24);
             border-bottom: rem(1) solid #E5E7EB;
             align-items: center;
 
-            .trash-svg {
-                display: none;
+            .dots-svg {
                 cursor: pointer;
                 position: relative;
+                visibility: hidden;
 
-                .trash-bg {
+                .dots-bg {
                     opacity: 0;
+                    pointer-events: none;
+                    width: rem(24);
+                    height: rem(24);
                 }
 
-                &:hover {
-                    path {
-                        fill: rgb(231, 38, 38);
-                    }
-
-                    .trash-bg {
-                        opacity: 1;
-                    }
+                &:hover .dots-bg {
+                    opacity: 1;
                 }
             }
 
-            &:hover .trash-svg {
-                display: block;
+            &:hover .dots-svg {
+                visibility: visible;
             }
 
             .recent-transactions-date {
