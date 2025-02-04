@@ -20,8 +20,8 @@ const DeleteExpenseModal = ({ expenseId, onClose, onDeleteSuccess }) => {
             });
 
             if (response) {
-                onDeleteSuccess();
                 onClose();
+                onDeleteSuccess();
             } else {
                 console.error('Failed to delete expense:', response?.statusText || 'No response from server');
             }

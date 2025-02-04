@@ -10,6 +10,15 @@ import '/src/styles/style.scss';
 
 const Dashboard = () => {
 
+    const [modals, setModals] = useState({
+        addExpense: false,
+        deleteExpense: false,
+    });
+
+    const [selectedExpenseId, setSelectedExpenseId] = useState(null);
+
+    const [refreshTransactions, setRefreshTransactions] = useState(() => () => {});
+
     // states for transaction data
     const [transactions, setTransactions] = useState([]);
     const [transactionsLoading, setTransactionsLoading] = useState(true);
@@ -19,9 +28,6 @@ const Dashboard = () => {
     // states for add expense modal
     const [isAddExpenseOpen, setIsAddExpenseOpen] = useState(false);
 
-    const [selectedExpenseId, setSelectedExpenseId] = useState(null);
-
-    const [refreshTransactions, setRefreshTransactions] = useState(() => () => {});
 
     // handles logic for adding expense
     const handleAddExpense = (getRecentTransactions) => {
