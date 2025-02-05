@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import apiFetch from '../utils/apiFetch';
 
-const AddExpenseModal = ({ onClose, onExpenseAdded }) => {
+const AddExpenseModal = ({ onClose, onExpenseAdded, editingTransaction }) => {
 
     // sets default state for new expense form
     const [newExpense, setNewExpense] = useState({
@@ -11,6 +11,18 @@ const AddExpenseModal = ({ onClose, onExpenseAdded }) => {
         amount: '',
         notes: '',
     });
+
+    useEffect(() => {
+        if (editingTransaction) {
+            setNewExpense({
+                date: editingTransaction.date,
+                description: editingTransaction.description,
+                category: editingTransaction.category,
+                amount: editingTransaction.amount,
+                notes: editingTransaction.notes,
+            });
+        }
+    }, [editingTransaction])
 
     // handles new expense form submission
     const handleSubmit = async (event) => {

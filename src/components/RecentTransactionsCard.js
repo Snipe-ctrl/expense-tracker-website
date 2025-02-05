@@ -2,15 +2,17 @@ import React, { useContext, useState, useEffect, useRef } from 'react';
 import { AuthContext } from "../context/AuthContext";
 import { useTransactions } from '../context/TransactionsContext';
 
-const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense }) => {
+const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense, onEditExpense }) => {
 
     // states and ref for transaction dropdown menu
     const [openDropdownId, setOpenDropdownId] = useState(null);
     const dropdownRef = useRef(null);
 
+    // context for user and transactions
     const { user, loading } = useContext(AuthContext);
     const { transactions, transactionsLoading, getTransactions } = useTransactions();
 
+    // handles formatting date
     const formatDate = (dateString) => {
         return new Intl.DateTimeFormat('en-US', {
             year: 'numeric',
@@ -19,8 +21,10 @@ const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense }) => {
         }).format(new Date(dateString));
     };
 
+    // controls amount of transactions displayed
     const recentTransactions = transactions.slice(0, 10);
 
+    // allows user to click outside dropdown to close it
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -34,6 +38,7 @@ const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense }) => {
         };
     }, []);
 
+    // updates stats when user or data changes
     useEffect(() => {
         if (!loading && user)
             getTransactions();
@@ -103,7 +108,10 @@ const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense }) => {
                                         className='transaction-dropdown-container'
                                         ref={dropdownRef}
                                     >
-                                        <div className='transaction-dropdown-item edit-transaction-dropdown-item'>
+                                        <div 
+                                            className='transaction-dropdown-item edit-transaction-dropdown-item'
+                                            onClick={() => onEditExpense(transaction)}
+                                        >
                                             <svg className='edit-svg' width="15" height="14" viewBox="0 0 15 14" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M13.2547 0.593164C12.6559 -0.00566407 11.6879 -0.00566407 11.0891 0.593164L10.266 1.41348L12.943 
                                                 4.09043L13.766 3.26738C14.3648 2.66855 14.3648 1.70059 13.766 1.10176L13.2547 0.593164ZM5.07344 

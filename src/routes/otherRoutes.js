@@ -7,6 +7,7 @@ const s3 = new AWS.S3();
 const fs = require('fs');
 
 const { protected } = require('../utils/protected');
+const exp = require('constants');
 
 const upload = multer({ dest: 'uploads/' });
 
@@ -146,14 +147,7 @@ router.post('/add-expense', protected, async (req, res) => {
     const query = `INSERT INTO expenses (user_id, date, description, category, amount, notes)
     VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING *;`;
-    const values = [
-        userId,
-        date,
-        description,
-        category,
-        amount,
-        notes
-    ];
+    const values = [userId, date, description, category, amount, notes];
 
     try {
         const result = await db.query(query, values);
@@ -167,6 +161,39 @@ router.post('/add-expense', protected, async (req, res) => {
         console.error('Error adding expense: ', err)
         res.status(500).json({ message: 'Internal server error' })
     };
+});
+
+router.put('/edit-expense/:expenseId', protected, async (req, res) => {
+    const expenseId = req.params.expenseId;
+    const { date, description, category, amount, notes } = req.body;
+
+    if (!date || !description || !category || amount === undefined || amount === null || isNaN(amount)) {
+        return res.status(400).json({ message: 'Missing required fields' });
+    }
+
+    const query = `
+    UPDATE expenses
+    SET date = $1, description = $2, category = $3, amount = $4, notes = $5
+    WHERE id = $6
+    RETURNING *;
+    `;
+    const values = [date, description, category, amount, notes, expenseId];
+
+    try {
+        const result = await db.query(query, values);
+
+        if (result.rowCount === 0) {
+            return res.status(404).json({ message: 'Expense not found' });
+        }
+
+        return res.status(200).json({
+            message: "Expense updated successfully",
+            expense: result.rows[0],
+        });
+    } catch (err) {
+        console.error('Error updating expense', err);
+        return res.status(500).json({ message: 'Internal server error' })
+    }
 });
 
 router.post('/delete-expense', protected, async (req, res) => {
