@@ -11,6 +11,7 @@ $category-styles: (
   transport: (#890e92, #fac7fe, 75px, 22px),
   education: (#3c0e92, #c8c7fe, 75px, 22px),
   programming: (#920e0e, #fec7c7, 95px, 22px),
+  clothing: (#64920e, #dbfec7, 65px, 22px),
 );
 
 .recent-transactions-container {
@@ -102,31 +103,97 @@ $category-styles: (
 
         .recent-transactions-row {
             display: grid;
+            position: relative;
             grid-template-columns: 1fr 7fr 7fr 7fr 7fr 12fr 1fr;
             width: 100%;
             padding-left: rem(24);
             border-bottom: rem(1) solid #E5E7EB;
             align-items: center;
 
-            .dots-svg {
-                cursor: pointer;
+            .dots-container {
                 position: relative;
-                visibility: hidden;
+                display: inline-block;
+            
 
-                .dots-bg {
-                    opacity: 0;
-                    pointer-events: none;
-                    width: rem(24);
-                    height: rem(24);
-                }
+                .dots-svg {
+                    cursor: pointer;
+                    position: relative;
+                    visibility: hidden;
 
-                &:hover .dots-bg {
-                    opacity: 1;
+                    .dots-bg {
+                        opacity: 0;
+                        pointer-events: none;
+                        width: rem(24);
+                        height: rem(24);
+                    }
+
+                    &:hover .dots-bg {
+                        opacity: 1;
+                    }
                 }
             }
 
             &:hover .dots-svg {
                 visibility: visible;
+            }
+
+            .transaction-dropdown-container {
+                position: absolute;
+                background-color: white;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: rem(144);
+                height: auto;
+                z-index: 100;
+                border-radius: rem(8);
+                overflow: hidden;
+
+                .transaction-dropdown-item {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    padding: rem(7) rem(0) rem(7) rem(16);
+                    width: 100%;
+                    height: auto;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #f7f7f7;
+                    }
+
+                    svg {
+                        padding-right: rem(7);
+                    }
+
+                    p {
+                        margin: 0;
+                        font-size: rem(14);
+                        font-weight: 400;
+                    }
+
+                    .edit-svg {
+                        fill: #374151;
+                    }
+
+                    .edit-transaction-button {
+                        color: #374151;
+                    }
+
+                    .trash-svg {
+                        fill: #DC2626;
+                    }
+
+                    .delete-transaction-button {
+                        color: #DC2626;
+                    }
+                }
+
+                .edit-transaction-dropdown-item {
+                    padding: rem(12) rem(0) rem(6) rem(16);
+                }
+
+                .delete-transaction-dropdown-item {
+                    padding: rem(6) rem(0) rem(12) rem(16);
+                }
             }
 
             .recent-transactions-date {
