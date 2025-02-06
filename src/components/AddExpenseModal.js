@@ -14,11 +14,18 @@ const AddExpenseModal = ({ onClose, onExpenseAdded, editingTransaction }) => {
 
     useEffect(() => {
         if (editingTransaction) {
+
+            const formattedAmount = Math.abs(editingTransaction.amount);
+
+            const formattedDate = new Date(editingTransaction.date)
+            .toISOString()
+            .split('T')[0];
+
             setNewExpense({
-                date: editingTransaction.date,
+                date: formattedDate,
                 description: editingTransaction.description,
                 category: editingTransaction.category,
-                amount: editingTransaction.amount,
+                amount: formattedAmount,
                 notes: editingTransaction.notes,
             });
         }
@@ -46,20 +53,31 @@ const AddExpenseModal = ({ onClose, onExpenseAdded, editingTransaction }) => {
             notes: newExpense.notes,
         };
 
-        // sends data in POST request
-        const response = await apiFetch('add-expense', {
-            method: "POST",
-            body: JSON.stringify(payload),
-        });
-
-        // checks if response was valid and resets new expense form
-        if (response) {
-            console.log('Expense added succesfully: ', response);
-            setNewExpense({ date: '', description: '', category: 'Food', amount: '0.00', notes: '' });
-            onExpenseAdded();
-            onClose();
-        } else {
-            console.error('Failed to add expense.')
+        let response;
+        try {
+            if (editingTransaction) {
+                response = await apiFetch(`edit-expense/${editingTransaction.id}`, {
+                    method: "PUT",
+                    body: JSON.stringify(payload),
+                });
+            } else {
+                response = await apiFetch('add-expense', {
+                    method: "POST",
+                    body: JSON.stringify(payload),
+                });
+            }
+            
+                    // checks if response was valid and resets new expense form
+            if (response) {
+                console.log(`${editingTransaction ? 'Expense updated' : 'Expense added'} succesfully:`, response);
+                onClose();
+                setNewExpense({ date: '', description: '', category: 'Food', amount: '0.00', notes: '' });
+                onExpenseAdded();
+            } else {
+                console.error(`Failed to ${editingTransaction ? 'update expense' : 'add expense'}`);
+            }
+        } catch (err) {
+            console.error('An error occurred: ', err);
         }
     };
 
@@ -67,7 +85,7 @@ const AddExpenseModal = ({ onClose, onExpenseAdded, editingTransaction }) => {
         <div className='overlay'>
             <div className='add-expense-container'>
                 <div className='add-expense-header'>
-                    <h2>Add New Transaction</h2>
+                    <h2>{editingTransaction ? 'Edit Transaction' : 'Add New Transaction'}</h2>
                     <svg onClick={onClose} width="12" height="13" className="x" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.5445 2.79448C11.984 2.35503 11.984 1.64136 11.5445 1.2019C11.1051 0.762451 10.3914 
                         0.762451 9.95197 1.2019L6.25001 4.90737L2.54454 1.20542C2.10509 0.765967 1.39142 0.765967 0.951965 
@@ -110,6 +128,7 @@ const AddExpenseModal = ({ onClose, onExpenseAdded, editingTransaction }) => {
                         <input 
                             type="date" 
                             name="date" 
+                            value={newExpense.date}
                             id='expense-date'
                             onChange={(e) => setNewExpense({ ...newExpense, date: e.target.value })}
                             required
@@ -155,7 +174,7 @@ const AddExpenseModal = ({ onClose, onExpenseAdded, editingTransaction }) => {
                     >
                         Cancel
                     </button>
-                    <button type='submit' id='add-transaction-button'>Add Transaction</button>
+                    <button type='submit' id='add-transaction-button'>{editingTransaction ? 'Update Transaction' : 'Add Transaction'}</button>
                 </div>
             </form>
             </div>

@@ -199,10 +199,11 @@
     }
 
     #add-transaction-button {
-        width: rem(135);
+        width: auto;
         height: rem(36);
         border-radius: rem(8);
         border: none;
+        padding: rem(0) rem(15);
         font-size: rem(14);
         color: white;
         background-color: #4F46E5;

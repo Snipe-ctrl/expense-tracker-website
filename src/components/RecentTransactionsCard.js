@@ -132,7 +132,7 @@ const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense, onEditExpense }
                                             onClick={() => onDeleteExpense(transaction.id, getTransactions)}
                                         >
                                             <svg className='trash-svg' width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
-                                                <g clip-path="url(#clip0_131_361)">
+                                                <g clipPath="url(#clip0_131_361)">
                                                 <path d="M4.61875 0.483984L4.42188 0.875H1.79688C1.31289 0.875 0.921875 1.26602 0.921875 
                                                 1.75C0.921875 2.23398 1.31289 2.625 1.79688 2.625H12.2969C12.7809 2.625 13.1719 2.23398 13.1719 1.75C13.1719 
                                                 1.26602 12.7809 0.875 12.2969 0.875H9.67188L9.475 0.483984C9.32734 0.185938 9.02383 0 8.69297 0H5.40078C5.06992 
@@ -167,7 +167,7 @@ const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense, onEditExpense }
                     <button>
                         View More Transactions
                         <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_107_372)">
+                            <g clipPath="url(#clip0_107_372)">
                             <path d="M8.68057 6.38213C9.02236 6.72393 9.02236 7.279 8.68057 7.6208L3.43057 12.8708C3.08877 13.2126 
                             2.53369 13.2126 2.19189 12.8708C1.8501 12.529 1.8501 11.9739 2.19189 11.6321L6.82393 7.0001L2.19463 
                             2.36807C1.85283 2.02627 1.85283 1.47119 2.19463 1.12939C2.53643 0.787598 3.0915 0.787598 3.4333 
