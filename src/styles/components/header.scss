@@ -39,12 +39,20 @@ header {
     .header-page-buttons {
         display: flex;
         justify-content: start;
-        gap: rem(24);
+        gap: rem(10);
 
         h3 {
             font-size: rem(16);
             font-weight: 400;
             color: var(--text-5);
+            cursor: pointer;
+            padding: rem(5) rem(8);
+            border-radius: rem(50);
+
+            &:hover {
+                color: white;
+                background-color: rgb(53, 102, 225);
+            }
         }
     }
 
@@ -53,5 +61,6 @@ header {
         font-weight: 700;
         color: rgb(53, 102, 225);
         margin-right: rem(32);
+        cursor: pointer;
     }
 }
