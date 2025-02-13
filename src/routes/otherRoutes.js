@@ -6,7 +6,7 @@ const AWS = require('aws-sdk');
 const s3 = new AWS.S3();
 const fs = require('fs');
 
-const { protected } = require('../utils/protected');
+const { protected } = require('../utils/auth-util/protected');
 const exp = require('constants');
 
 const upload = multer({ dest: 'uploads/' });
@@ -106,17 +106,18 @@ router.get('/expenses', protected, async (req, res) => {
     try {
         const userId = req.user.id;
 
-        const limit = parseInt(req.query.limit, 10) || 20;
-        const offset = parseInt(req.query.offset, 10) || 0;
+        const date = req.query.date;
+        const limit = req.query.limit;
 
         const query = `
             SELECT id, description, category, amount, date, notes
-            FROM expenses 
+            FROM expenses
             WHERE user_id = $1
-            ORDER BY date DESC, created_at DESC
-            LIMIT $2 OFFSET $3;
+            AND date >= DATE_TRUNC('month', $2::DATE)
+            AND date < DATE_TRUNC('month', $2::DATE) + INTERVAL '1 month'
+            ORDER BY date DESC, created_at DESC;
         `;
-        const result = await db.query(query, [userId, limit, offset]);
+        const result = await db.query(query, [userId, date]);
 
         if (result.rowCount === 0) {
             return res.status(404).json({
@@ -130,7 +131,7 @@ router.get('/expenses', protected, async (req, res) => {
             data: result.rows,
         });
         } catch (err) {
-        console.error(`Error fetching expenses for user ${userId}`, err.message, err.stack);
+        console.error(`Error fetching expenses`, err.message, err.stack);
         res.status(500).json({ message: 'An unexpected error occurred. Please try again later.' });
     }
 });

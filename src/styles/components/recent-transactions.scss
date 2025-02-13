@@ -4,14 +4,16 @@
 
 // Category Color Map
 $category-styles: (
-  food: (#1E40AF, #DBEAFE, 45px, 23px),
-  entertainment: (#5B21B6, #EDE9FE, 95px, 22px),
-  income: (#065F46, #D1FAE5, 60px, 22px),
-  health: (#92400E, #FEF3C7, 55px, 22px),
-  transport: (#890e92, #fac7fe, 75px, 22px),
-  education: (#3c0e92, #c8c7fe, 75px, 22px),
-  programming: (#920e0e, #fec7c7, 95px, 22px),
-  clothing: (#64920e, #dbfec7, 65px, 22px),
+  food: (#003366, #D4E4FF, 45px, 23px),
+  entertainment: (#A00050, #FAD4E3, 95px, 22px),
+  income: (#105C20, #CFF2D3, 60px, 22px),
+  health: (#9B2A20, #FFCEC2, 55px, 22px),
+  transport: (#333333, #E0E0E0, 75px, 22px),
+  education: (#4B0082, #D4C7FF, 75px, 22px),
+  programming: (#004B73, #C4F1F9, 95px, 22px),
+  clothing: (#6B4E15, #FAF3C8, 65px, 22px),
+  investment: (#1A3D5D, #CDE2F0, 78px, 22px),
+  gambling: (#006666, #B6E3B6, 70px, 22px),
 );
 
 .recent-transactions-container {

@@ -1,12 +1,32 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import Header from "../components/Header";
-import OverviewCards from "../components/OverviewCards";
-import RecentTransactionsCard from "../components/RecentTransactionsCard";
-import AddExpenseModal from "../components/AddExpenseModal";
-import DeleteExpenseModal from "../components/DeleteExpenseModal";
+import OverviewCards from "../components/dashboard-components/OverviewCards";
+import TransactionsCard from "../components/dashboard-components/RecentTransactionsCard";
+import AddExpenseModal from "../components/dashboard-components/AddExpenseModal";
+import DeleteExpenseModal from "../components/dashboard-components/DeleteExpenseModal";
 import '/src/styles/style.scss';
+
+    // handles logic for adding expense
+    export const handleAddExpense = (getRecentTransactions) => {
+        setEditingTransaction(null);
+        setIsAddExpenseOpen(true);
+        setRefreshTransactions(() => getRecentTransactions);
+    };
+
+    // handles logic for editing expense
+    export const handleEditExpense = (transaction) => {
+        setEditingTransaction(transaction);
+        setIsAddExpenseOpen(true);
+    }
+
+    // handles logic for deleting expense
+    export const handleDeleteExpense = (expenseId, getRecentTransactions) => {
+        setSelectedExpenseId(expenseId);
+        setIsDeleteExpenseOpen(true);
+        setRefreshTransactions(() => getRecentTransactions);
+    };
+
 
 const Dashboard = () => {
     // editing transaction states
@@ -28,31 +48,12 @@ const Dashboard = () => {
     // states for delete expense modal
     const [isDeleteExpenseOpen, setIsDeleteExpenseOpen] = useState(false);
 
-    // handles logic for adding expense
-    const handleAddExpense = (getRecentTransactions) => {
-        setEditingTransaction(null);
-        setIsAddExpenseOpen(true);
-        setRefreshTransactions(() => getRecentTransactions);
-    };
-
-    // handles logic for editing expense
-    const handleEditExpense = (transaction) => {
-        setEditingTransaction(transaction);
-        setIsAddExpenseOpen(true);
-    }
-
-    // handles logic for deleting expense
-    const handleDeleteExpense = (expenseId, getRecentTransactions) => {
-        setSelectedExpenseId(expenseId);
-        setIsDeleteExpenseOpen(true);
-        setRefreshTransactions(() => getRecentTransactions);
-    };
-
     return (
         <div>
             <Header />
             <OverviewCards/>
-            <RecentTransactionsCard 
+            <TransactionsCard 
+                isDashboard={true}
                 onAddExpense={handleAddExpense} 
                 onEditExpense={handleEditExpense}
                 onDeleteExpense={handleDeleteExpense} 

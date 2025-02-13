@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import apiFetch from '../utils/apiFetch';
+import apiFetch from '../../utils/apiFetch';
 
 const AddExpenseModal = ({ onClose, onExpenseAdded, editingTransaction }) => {
 
@@ -38,7 +38,7 @@ const AddExpenseModal = ({ onClose, onExpenseAdded, editingTransaction }) => {
         // makes expenses negative and income positive
         let adjustedAmount = newExpense.amount;
 
-        if (['Food', 'Transport', 'Health', 'Entertainment', 'Education', 'Programming', 'Clothing'].includes(newExpense.category)) {
+        if (['Food', 'Transport', 'Health', 'Entertainment', 'Education', 'Programming', 'Clothing', 'Investment', 'Gambling'].includes(newExpense.category)) {
             adjustedAmount = Math.abs(parseFloat(newExpense.amount)) * -1;
         } else {
             adjustedAmount = Math.abs(parseFloat(newExpense.amount));
@@ -151,6 +151,8 @@ const AddExpenseModal = ({ onClose, onExpenseAdded, editingTransaction }) => {
                         <option value='Education'>Education</option>
                         <option value='Programming'>Programming</option>
                         <option value='Clothing'>Clothing</option>
+                        <option value='Investment'>Investment</option>
+                        <option value='Gambling'>Gambling</option>
                     </select>
                 </div>
                 <div className='add-expense-notes-container'>

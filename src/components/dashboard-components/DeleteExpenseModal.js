@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import apiFetch from '../utils/apiFetch';
+import apiFetch from '../../utils/apiFetch';
 
 const DeleteExpenseModal = ({ expenseId, onClose, onDeleteSuccess }) => {
 

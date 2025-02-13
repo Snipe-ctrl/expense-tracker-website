@@ -7,14 +7,14 @@ const {
     sendAccessToken,
     sendRefreshToken,
     createPasswordResetToken,
-} = require('../utils/tokens');
+} = require('../utils/auth-util/tokens');
 const {
     transporter,
     createPasswordResetUrl,
     passwordResetTemplate,
     passwordResetConfirmationTemplate,
-} = require('../utils/email');
-const { protected } = require('../utils/protected');
+} = require('../utils/auth-util/email');
+const { protected } = require('../utils/auth-util/protected');
 const {
     createUser,
     findUserByEmail,

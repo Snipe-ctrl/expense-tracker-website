@@ -5,7 +5,9 @@ import AccountSettings from '../pages/AccountSettings';
 import userEmail from "../pages/SigninPage";
 import '/src/styles/style.scss';
 
+
 const Header = () => {
+    const navigate = useNavigate();
 
     const { user, loading } = useContext(AuthContext)
     const [isAccountSettingsOpen, setIsAccountSettingsOpen] = useState(false);
@@ -22,8 +24,8 @@ const Header = () => {
                 <div className='left-side'>
                     <h2>CashCompass</h2>
                     <div className='header-page-buttons'>
-                    <h3>Dashboard</h3>
-                    <h3>Transactions</h3>
+                    <h3 onClick={() => navigate('/dashboard')}>Dashboard</h3>
+                    <h3 onClick={() => navigate('/transactions')}>Transactions</h3>
                     <h3>Reports</h3>
                     </div>
                 </div>

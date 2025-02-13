@@ -1,16 +1,30 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
-import { AuthContext } from "../context/AuthContext";
-import { useTransactions } from '../context/TransactionsContext';
+import { AuthContext } from "../../context/AuthContext";
+import { useTransactions } from '../../context/TransactionsContext';
 
-const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense, onEditExpense }) => {
-
-    // states and ref for transaction dropdown menu
-    const [openDropdownId, setOpenDropdownId] = useState(null);
-    const dropdownRef = useRef(null);
+const TransactionsCard = ({
+    isDashboard = true,
+    onAddExpense, 
+    onDeleteExpense, 
+    onEditExpense 
+}) => {
 
     // context for user and transactions
     const { user, loading } = useContext(AuthContext);
     const { transactions, transactionsLoading, getTransactions } = useTransactions();
+
+    // current month
+    const today = new Date();
+    const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1)
+    .toISOString()
+    .split('T')[0];
+
+    // handles amount of transactions displayed
+    const displayedTransactions = isDashboard ? transactions.slice(0, 10) : transactions;
+
+    // states and ref for transaction dropdown menu
+    const [openDropdownId, setOpenDropdownId] = useState(null);
+    const dropdownRef = useRef(null);
 
     // handles formatting date
     const formatDate = (dateString) => {
@@ -20,9 +34,6 @@ const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense, onEditExpense }
             day: 'numeric',
         }).format(new Date(dateString));
     };
-
-    // controls amount of transactions displayed
-    const recentTransactions = transactions.slice(0, 10);
 
     // allows user to click outside dropdown to close it
     useEffect(() => {
@@ -40,9 +51,14 @@ const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense, onEditExpense }
 
     // updates stats when user or data changes
     useEffect(() => {
-        if (!loading && user)
-            getTransactions();
-    }, [loading, user])
+        if (!loading && user) {
+            if (isDashboard) {
+                getTransactions(firstDayOfMonth);
+            } else {
+                getTransactions(firstDayOfMonth);
+            }
+        }
+    }, [loading, user, isDashboard]);
 
     return (
         <div className='recent-transactions-container'>
@@ -83,8 +99,8 @@ const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense, onEditExpense }
                     {transactionsLoading ? (
                         <p>Loading...</p>
                     ) : (
-                    recentTransactions.length > 0 ? (
-                        recentTransactions.map((transaction) => (
+                    displayedTransactions.length > 0 ? (
+                        displayedTransactions.map((transaction) => (
                             <div key={transaction.id} className='recent-transactions-row'>
                                 <div className='dots-container'>
                                     <svg className='dots-svg' width="12" height="12" viewBox="0 0 4 12" fill="none" xmlns="http://www.w3.org/2000/svg" overflow='visible'
@@ -163,6 +179,7 @@ const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense, onEditExpense }
                         <p>No recent transactions found</p>
                     ))}
                 </div>
+                {isDashboard ? (
                 <div className='view-more-transactions-container'>
                     <button>
                         View More Transactions
@@ -181,9 +198,12 @@ const RecentTransactionsCard = ({ onAddExpense, onDeleteExpense, onEditExpense }
                         </svg>
                     </button>
                 </div>
+                ) : (
+                    <div>Filler</div>
+                )}
             </div>
         </div>
     )
 }
 
-export default RecentTransactionsCard;
+export default TransactionsCard;

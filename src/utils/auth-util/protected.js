@@ -1,5 +1,5 @@
 const { verify } = require('jsonwebtoken');
-const { findUserById } = require('../services/userService');
+const { findUserById } = require('../../services/userService');
 
 const protected = async (req, res, next) => {
 
