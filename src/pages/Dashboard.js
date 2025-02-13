@@ -5,48 +5,25 @@ import OverviewCards from "../components/dashboard-components/OverviewCards";
 import TransactionsCard from "../components/dashboard-components/RecentTransactionsCard";
 import AddExpenseModal from "../components/dashboard-components/AddExpenseModal";
 import DeleteExpenseModal from "../components/dashboard-components/DeleteExpenseModal";
+import { useTransactions } from '../context/TransactionsContext';
 import '/src/styles/style.scss';
 
-    // handles logic for adding expense
-    export const handleAddExpense = (getRecentTransactions) => {
-        setEditingTransaction(null);
-        setIsAddExpenseOpen(true);
-        setRefreshTransactions(() => getRecentTransactions);
-    };
-
-    // handles logic for editing expense
-    export const handleEditExpense = (transaction) => {
-        setEditingTransaction(transaction);
-        setIsAddExpenseOpen(true);
-    }
-
-    // handles logic for deleting expense
-    export const handleDeleteExpense = (expenseId, getRecentTransactions) => {
-        setSelectedExpenseId(expenseId);
-        setIsDeleteExpenseOpen(true);
-        setRefreshTransactions(() => getRecentTransactions);
-    };
-
-
 const Dashboard = () => {
-    // editing transaction states
-    const [editingTransaction, setEditingTransaction] = useState(null);
-
-    // slected expense id states
-    const [selectedExpenseId, setSelectedExpenseId] = useState(null);
-
-    // states for refreshing transactions
-    const [refreshTransactions, setRefreshTransactions] = useState(() => () => {});
-
-    // states for transaction data
-    const [transaction, setTransactions] = useState([]);
-    const [transactionsLoading, setTransactionsLoading] = useState(true);
-
-    // states for add expense modal
-    const [isAddExpenseOpen, setIsAddExpenseOpen] = useState(false);
-
-    // states for delete expense modal
-    const [isDeleteExpenseOpen, setIsDeleteExpenseOpen] = useState(false);
+    const {
+        transactions,
+        transactionsLoading,
+        getTransactions,
+        editingTransaction,
+        setEditingTransaction,
+        selectedExpenseId,
+        setSelectedExpenseId,
+        refreshTransactions,
+        setRefreshTransactions,
+        isAddExpenseOpen,
+        setIsAddExpenseOpen,
+        isDeleteExpenseOpen,
+        setIsDeleteExpenseOpen,
+    } = useTransactions();
 
     return (
         <div>
@@ -54,9 +31,15 @@ const Dashboard = () => {
             <OverviewCards/>
             <TransactionsCard 
                 isDashboard={true}
-                onAddExpense={handleAddExpense} 
-                onEditExpense={handleEditExpense}
-                onDeleteExpense={handleDeleteExpense} 
+                onAddExpense={() => setIsAddExpenseOpen(true)} 
+                onEditExpense={(transaction) => {
+                    setEditingTransaction(transaction);
+                    setIsAddExpenseOpen(true);
+                }}
+                onDeleteExpense={(expenseId) => {
+                    setSelectedExpenseId(expenseId);
+                    setIsDeleteExpenseOpen(true);
+                }}
             />
             {isAddExpenseOpen && 
                 <AddExpenseModal 
