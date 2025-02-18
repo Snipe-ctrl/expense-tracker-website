@@ -170,7 +170,9 @@ const TransactionsCard = ({
                         <p>Notes</p>
                     </div>
                     {transactionsLoading ? (
-                        <p>Loading...</p>
+                        <div className='spinner-container'>
+                            <div className='spinner'></div>
+                        </div>
                     ) : (
                     displayedTransactions.length > 0 ? (
                         displayedTransactions.map((transaction) => (
