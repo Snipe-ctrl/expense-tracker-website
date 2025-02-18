@@ -27,19 +27,20 @@ export const TransactionsProvider = ({ children }) => {
     const [isDeleteExpenseOpen, setIsDeleteExpenseOpen] = useState(false);
 
     const today = new Date();
-    const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1)
-    .toISOString()
-    .split('T')[0];
+    const currentMonth = today.getMonth() + 1;
+    const currentYear = today.getFullYear();
 
     // gets expense data
-    const getTransactions = useCallback(async (date = firstDayOfMonth, limit) => {
+    const getTransactions = useCallback(async (month = currentMonth, year = currentYear) => {
         if (!user) return;
 
         try {
             setTransactionsLoading(true);
-            const response = await apiFetch(`expenses?date=${date}&limit=${limit}`);
-            if (response?.data && Array.isArray(response.data ) && response.data.length > 0) {
+            const response = await apiFetch(`expenses?year=${year}&month=${month}`);
+            if (response?.data && Array.isArray(response.data)) {
                 setTransactions(response.data);
+            } else {
+                setTransactions([])
             }
         } catch (err) {
             console.error('Error fetching transaction data: ', err);

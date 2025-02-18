@@ -20,7 +20,7 @@ const TransactionsCard = ({
     const months = ['January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
-    const years = Array.from({ length: currentYear - 2019 }, (_, i) => 2020 + i);
+    const years = Array.from({ length: currentYear - 2019 }, (_, i) => 2020 + i).reverse();
 
     const [selectedMonth, setSelectedMonth] = useState(today.getMonth());
     const [selectedYear, setSelectedYear] = useState(today.getFullYear());
@@ -88,13 +88,9 @@ const TransactionsCard = ({
     // updates stats when user or data changes
     useEffect(() => {
         if (!loading && user) {
-            if (isDashboard) {
-                getTransactions(firstDayOfMonth);
-            } else {
-                getTransactions(firstDayOfMonth);
-            }
+            getTransactions(selectedMonth + 1, selectedYear);
         }
-    }, [loading, user, isDashboard]);
+    }, [loading, user, selectedMonth, selectedYear]);
 
     return (
         <div className='recent-transactions-container'>
@@ -253,7 +249,7 @@ const TransactionsCard = ({
                             </div>
                         ))
                     ) : (
-                        <p>No recent transactions found</p>
+                        <p>No transactions found</p>
                     ))}
                 </div>
                 {isDashboard ? (

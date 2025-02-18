@@ -106,23 +106,35 @@ router.get('/expenses', protected, async (req, res) => {
     try {
         const userId = req.user.id;
 
-        const date = req.query.date;
-        const limit = req.query.limit;
+        const year = parseInt(req.query.year);
+        const month = parseInt(req.query.month);
+
+        if (!month || !year) {
+            return res.status(400).json({ 
+                status: 'error', 
+                message: "Month and year are required." 
+            });
+        }
+
+        const firstDay = `${year}-${month.toString().padStart(2, '0')}-01`; 
+        const queryParams = [userId, firstDay];
 
         const query = `
             SELECT id, description, category, amount, date, notes
             FROM expenses
             WHERE user_id = $1
-            AND date >= DATE_TRUNC('month', $2::DATE)
-            AND date < DATE_TRUNC('month', $2::DATE) + INTERVAL '1 month'
+            AND date >= $2::DATE
+            AND date < ($2::DATE + INTERVAL '1 month')
             ORDER BY date DESC, created_at DESC;
         `;
-        const result = await db.query(query, [userId, date]);
+
+        const result = await db.query(query, queryParams);
 
         if (result.rowCount === 0) {
-            return res.status(404).json({
-                status: 'error',
-                message: "No expenses found for this user",
+            return res.status(200).json({
+                status: 'success',
+                data: [],
+                message: "No expenses found for this month.",
             });
         }
 
