@@ -42,7 +42,10 @@ const Dashboard = () => {
             <OverviewCards/>
             <TransactionsCard 
                 isDashboard={true}
-                onAddExpense={() => setIsAddExpenseOpen(true)} 
+                onAddExpense={() => {
+                    setEditingTransaction(null)
+                    setIsAddExpenseOpen(true)}
+                }
                 onEditExpense={(transaction) => {
                     setEditingTransaction(transaction);
                     setIsAddExpenseOpen(true);
