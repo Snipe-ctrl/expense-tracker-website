@@ -15,16 +15,40 @@ const TransactionsCard = ({
 
     // current month
     const today = new Date();
-    const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1)
+    const currentYear = today.getFullYear();
+
+    const months = ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    const years = Array.from({ length: currentYear - 2019 }, (_, i) => 2020 + i);
+
+    const [selectedMonth, setSelectedMonth] = useState(today.getMonth());
+    const [selectedYear, setSelectedYear] = useState(today.getFullYear());
+
+    const [isMonthDropdownOpen, setIsMonthDropdownOpen] = useState(false);
+    const [isYearDropdownOpen, setIsYearDropdownOpen] = useState(false);
+    const monthDropdownRef = useRef(null);
+    const yearDropdownRef = useRef(null);
+
+    const firstDayOfMonth = new Date(selectedYear, selectedMonth, 1)
     .toISOString()
     .split('T')[0];
 
+    const handleMonthSelect = (index) => {
+        setSelectedMonth(index);
+        setTimeout(() => setIsMonthDropdownOpen(false), 0);
+    };
+    const handleYearSelect = (year) => {
+        setSelectedYear(year);
+        setTimeout(() => setIsYearDropdownOpen(false), 0);
+    };
+    
     // handles amount of transactions displayed
     const displayedTransactions = isDashboard ? transactions.slice(0, 10) : transactions;
 
     // states and ref for transaction dropdown menu
     const [openDropdownId, setOpenDropdownId] = useState(null);
-    const dropdownRef = useRef(null);
+    const transactionDropdownRef = useRef(null);
 
     // handles formatting date
     const formatDate = (dateString) => {
@@ -38,8 +62,20 @@ const TransactionsCard = ({
     // allows user to click outside dropdown to close it
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            if (transactionDropdownRef.current && !transactionDropdownRef.current.contains(event.target)) {
                 setOpenDropdownId(null);
+            }
+            if (
+                monthDropdownRef.current &&
+                !monthDropdownRef.current.contains(event.target)
+            ) {
+                setIsMonthDropdownOpen(false);
+            }
+            if (
+                yearDropdownRef.current &&
+                !yearDropdownRef.current.contains(event.target)
+            ) {
+                setIsYearDropdownOpen(false);
             }
         };
 
@@ -66,15 +102,56 @@ const TransactionsCard = ({
                 <div className='recent-transactions-header'>
                     <h2>Recent Transactions</h2>
                     <div className='actions'>
-                        <button className='filter-button'>
-                            <svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.05974 1.25117C1.24021 0.868359 1.62303 0.625 2.04685 0.625H13.8594C14.2832 0.625 
-                                14.666 0.868359 14.8465 1.25117C15.0269 1.63398 14.9722 2.08516 14.7043 2.41328L9.7031 8.52461V12C9.7031 
-                                12.3309 9.51717 12.6344 9.21912 12.782C8.92107 12.9297 8.56834 12.8996 8.3031 12.7L6.5531 11.3875C6.33162 
-                                11.2234 6.2031 10.9637 6.2031 10.6875V8.52461L1.1992 2.41055C0.933964 2.08516 0.876542 1.63125 1.05974 1.25117Z" fill="#4B5563"/>
+                        <div className='date-dropdown month-dropdown' ref={monthDropdownRef} onClick={() => setIsMonthDropdownOpen(prev => !prev)}>
+                            <p className='date-text'>{months[selectedMonth]}</p>
+                            <svg className='date-arrow-svg' width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.31951 7.11807C6.6613 7.45986 7.21638 7.45986 7.55818 7.11807L12.8082 1.86807C13.15 
+                                1.52627 13.15 0.971191 12.8082 0.629395C12.4664 0.287598 11.9113 0.287598 11.5695 0.629395L6.93748 
+                                5.26143L2.30544 0.632129C1.96365 0.290332 1.40857 0.290332 1.06677 0.632129C0.724976 0.973925 
+                                0.724976 1.529 1.06677 1.8708L6.31677 7.1208L6.31951 7.11807Z" fill="#374151"/>
                             </svg>
-                            Filter
-                        </button>
+                            {isMonthDropdownOpen && (
+                                <div className='date-dropdown-item-container month-dropdown-item-container'>
+                                    {months.map((month, index) => (
+                                        <div className='date-dropdown-item' key={index} onClick={() => handleMonthSelect(index)}>
+                                        {index === selectedMonth && (
+                                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12.9306 0.881836C13.2724 1.22363 13.2724 1.77871 12.9306 2.12051L5.93057 9.12051C5.58877 
+                                                9.46231 5.03369 9.46231 4.69189 9.12051L1.19189 5.62051C0.850098 5.27871 0.850098 4.72363 1.19189 
+                                                4.38184C1.53369 4.04004 2.08877 4.04004 2.43057 4.38184L5.3126 7.26113L11.6946 0.881836C12.0364 
+                                                0.540039 12.5915 0.540039 12.9333 0.881836H12.9306Z" fill="#6B7280"/>
+                                            </svg>)}
+                                        <p>{month}</p>
+                                    </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                        <div className='date-dropdown year-dropdown' ref={yearDropdownRef} onClick={() => setIsYearDropdownOpen(prev => !prev)}>
+                            <p className='date-text'>{selectedYear}</p>
+                            <svg className='date-arrow-svg' width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.31951 7.11807C6.6613 7.45986 7.21638 7.45986 7.55818 7.11807L12.8082 1.86807C13.15 
+                                1.52627 13.15 0.971191 12.8082 0.629395C12.4664 0.287598 11.9113 0.287598 11.5695 0.629395L6.93748 
+                                5.26143L2.30544 0.632129C1.96365 0.290332 1.40857 0.290332 1.06677 0.632129C0.724976 0.973925 
+                                0.724976 1.529 1.06677 1.8708L6.31677 7.1208L6.31951 7.11807Z" fill="#374151"/>
+                            </svg>
+                            {isYearDropdownOpen && (
+                                <div className='date-dropdown-item-container year-dropdown-item-container'>
+                                    {years.map((year, index) => (
+                                        <div className='date-dropdown-item' key={index} onClick={() => handleYearSelect(year)}>
+                                            {year === selectedYear && (
+                                                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12.9306 0.881836C13.2724 1.22363 13.2724 1.77871 12.9306 2.12051L5.93057 9.12051C5.58877 
+                                                    9.46231 5.03369 9.46231 4.69189 9.12051L1.19189 5.62051C0.850098 5.27871 0.850098 4.72363 1.19189 
+                                                    4.38184C1.53369 4.04004 2.08877 4.04004 2.43057 4.38184L5.3126 7.26113L11.6946 0.881836C12.0364 
+                                                    0.540039 12.5915 0.540039 12.9333 0.881836H12.9306Z" fill="#6B7280"/>
+                                                </svg>)}
+                                            <p>{year}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                         <button className='add-new-button' onClick={onAddExpense}>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7.09375 0.9375C7.09375 0.453516 6.70273 0.0625 6.21875 0.0625C5.73477 0.0625 5.34375 
@@ -122,7 +199,7 @@ const TransactionsCard = ({
                                     {openDropdownId === transaction.id && (
                                     <div 
                                         className='transaction-dropdown-container'
-                                        ref={dropdownRef}
+                                        ref={transactionDropdownRef}
                                     >
                                         <div 
                                             className='transaction-dropdown-item edit-transaction-dropdown-item'

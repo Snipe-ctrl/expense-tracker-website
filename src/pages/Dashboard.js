@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Outlet } from 'react-router-dom';
 import Header from "../components/Header";
 import OverviewCards from "../components/dashboard-components/OverviewCards";
-import TransactionsCard from "../components/dashboard-components/RecentTransactionsCard";
+import TransactionsCard from "../components/dashboard-components/TransactionsModal";
 import AddExpenseModal from "../components/dashboard-components/AddExpenseModal";
 import DeleteExpenseModal from "../components/dashboard-components/DeleteExpenseModal";
 import { useTransactions } from '../context/TransactionsContext';

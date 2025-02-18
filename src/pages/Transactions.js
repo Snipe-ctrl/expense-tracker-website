@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import AddExpenseModal from "../components/dashboard-components/AddExpenseModal";
 import DeleteExpenseModal from "../components/dashboard-components/DeleteExpenseModal";
-import TransactionsCard from "../components/dashboard-components/RecentTransactionsCard";
+import TransactionsCard from "../components/dashboard-components/TransactionsModal";
 import { useTransactions } from '../context/TransactionsContext';
 
 const TransactionsPage = () => {
