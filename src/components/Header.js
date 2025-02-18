@@ -9,14 +9,8 @@ import '/src/styles/style.scss';
 const Header = () => {
     const navigate = useNavigate();
 
-    const { user, loading } = useContext(AuthContext)
+    const { user, userLoading } = useContext(AuthContext);
     const [isAccountSettingsOpen, setIsAccountSettingsOpen] = useState(false);
-
-    if (loading) {
-        return (
-            <div>Loading...</div>
-        )
-    }
 
     return (
         <header>

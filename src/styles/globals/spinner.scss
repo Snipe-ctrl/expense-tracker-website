@@ -1,0 +1,33 @@
+@use '../util' as *;
+
+.main-spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.transactions-spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    margin: rem(10) rem(0);
+    width: rem(30);
+    height: rem(30);
+    border: rem(3) solid rgba(0, 0, 0, 0.1);
+    border-left-color: rgb(98, 98, 98);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

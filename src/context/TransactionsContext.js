@@ -53,7 +53,7 @@ export const TransactionsProvider = ({ children }) => {
         if (user) {
             getTransactions();
         }
-    }, [getTransactions]);
+    }, []);
 
     return (
         <TransactionsContext.Provider

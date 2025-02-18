@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 // AuthProvider Component
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null); // User state
-    const [loading, setLoading] = useState(true); // Loading state
+    const [userLoading, setUserLoading] = useState(true); // Loading state
 
     // Helper function to get the stored access token
     const getStoredToken = () => localStorage.getItem('accessToken');
@@ -18,7 +18,7 @@ const AuthProvider = ({ children }) => {
         if (!token) {
             console.warn('No token found in localStorage.');
             setUser(null);
-            setLoading(false);
+            setUserLoading(false);
             return;
         }
 
@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
         } catch (error) {
             console.error('Error fetching user:', error);
         } finally {
-            setLoading(false); // Set loading to false
+            setUserLoading(false); // Set loading to false
         }
     };
 
@@ -87,7 +87,7 @@ const AuthProvider = ({ children }) => {
     const contextValue = {
         user,
         setUser,
-        loading,
+        userLoading,
     };
 
     return (

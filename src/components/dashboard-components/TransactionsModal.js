@@ -90,7 +90,7 @@ const TransactionsCard = ({
         if (!loading && user) {
             getTransactions(selectedMonth + 1, selectedYear);
         }
-    }, [loading, user, selectedMonth, selectedYear]);
+    }, [user, selectedMonth, selectedYear]);
 
     return (
         <div className='recent-transactions-container'>
@@ -170,7 +170,7 @@ const TransactionsCard = ({
                         <p>Notes</p>
                     </div>
                     {transactionsLoading ? (
-                        <div className='spinner-container'>
+                        <div className='transactions-spinner-container'>
                             <div className='spinner'></div>
                         </div>
                     ) : (
