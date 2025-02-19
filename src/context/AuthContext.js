@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 const API_BASE_URL =
   typeof process !== "undefined" && process.env.REACT_APP_API_BASE_URL
     ? process.env.REACT_APP_API_BASE_URL
-    : "https://budgeting-app-backend01.herokuapp.com/api";
+    : "https://budgeting-app-backend01-239942873d43.herokuapp.com";
 
 // AuthProvider Component
 const AuthProvider = ({ children }) => {
