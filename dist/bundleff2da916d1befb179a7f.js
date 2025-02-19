@@ -1068,7 +1068,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 // Create the AuthContext
 var AuthContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();
-var API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:3001/api";
+var API_BASE_URL = typeof process !== "undefined" && process.env.REACT_APP_API_BASE_URL ? process.env.REACT_APP_API_BASE_URL : "https://budgeting-app-backend01.herokuapp.com/api";
 
 // AuthProvider Component
 var AuthProvider = function AuthProvider(_ref) {
@@ -40533,4 +40533,4 @@ root.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElem
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle0508f8e9efa3b8419cd6.js.map
+//# sourceMappingURL=bundleff2da916d1befb179a7f.js.map
