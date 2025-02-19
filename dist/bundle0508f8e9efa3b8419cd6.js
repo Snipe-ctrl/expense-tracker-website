@@ -1164,7 +1164,7 @@ var AuthProvider = function AuthProvider(_ref) {
               password: 'test'
             };
             _context2.next = 4;
-            return fetch('http://localhost:3001/auth/signin', {
+            return fetch("".concat(API_BASE_URL, "/auth/signin"), {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -40533,4 +40533,4 @@ root.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElem
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlef2254d5e5f9cb052ba4f.js.map
+//# sourceMappingURL=bundle0508f8e9efa3b8419cd6.js.map

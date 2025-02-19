@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
     const devSignIn = async () => {
         try {
             const devCredentials = { email: 'test@gmail.com', password: 'test' };
-            const response = await fetch('http://localhost:3001/auth/signin', {
+            const response = await fetch(`${API_BASE_URL}/auth/signin`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(devCredentials),
