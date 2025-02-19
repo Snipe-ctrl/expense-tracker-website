@@ -58,7 +58,7 @@ const Dashboard = () => {
             {isAddExpenseOpen && 
                 <AddExpenseModal 
                     onClose={() => setIsAddExpenseOpen(false)}
-                    onExpenseAdded={refreshTransactions}
+                    onExpenseAdded={getTransactions}
                     editingTransaction={editingTransaction}
                 />}
             {isDeleteExpenseOpen &&

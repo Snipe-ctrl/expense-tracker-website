@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from "../../context/AuthContext";
 import { useTransactions } from '../../context/TransactionsContext';
 
@@ -6,8 +7,9 @@ const TransactionsCard = ({
     isDashboard,
     onAddExpense, 
     onDeleteExpense, 
-    onEditExpense 
+    onEditExpense,
 }) => {
+    const navigate = useNavigate();
 
     // context for user and transactions
     const { user, loading } = useContext(AuthContext);
@@ -59,6 +61,10 @@ const TransactionsCard = ({
         }).format(new Date(dateString));
     };
 
+    const refreshTransactions = () => {
+        getTransactions(selectedMonth + 1, selectedYear);
+    }
+
     // allows user to click outside dropdown to close it
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -96,7 +102,7 @@ const TransactionsCard = ({
         <div className='recent-transactions-container'>
             <div className='recent-transactions-card'>
                 <div className='recent-transactions-header'>
-                    <h2>Recent Transactions</h2>
+                    <h2>Transactions</h2>
                     <div className='actions'>
                         <div className='date-dropdown month-dropdown' ref={monthDropdownRef} onClick={() => setIsMonthDropdownOpen(prev => !prev)}>
                             <p className='date-text'>{months[selectedMonth]}</p>
@@ -148,7 +154,7 @@ const TransactionsCard = ({
                                 </div>
                             )}
                         </div>
-                        <button className='add-new-button' onClick={onAddExpense}>
+                        <button className='add-new-button' onClick={(onAddExpense)}>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7.09375 0.9375C7.09375 0.453516 6.70273 0.0625 6.21875 0.0625C5.73477 0.0625 5.34375 
                                 0.453516 5.34375 0.9375V4.875H1.40625C0.922266 4.875 0.53125 5.26602 0.53125 5.75C0.53125 6.23398 
@@ -256,7 +262,7 @@ const TransactionsCard = ({
                 </div>
                 {isDashboard ? (
                 <div className='view-more-transactions-container'>
-                    <button>
+                    <button onClick={() => navigate('/transactions')}>
                         View More Transactions
                         <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_107_372)">
@@ -273,9 +279,7 @@ const TransactionsCard = ({
                         </svg>
                     </button>
                 </div>
-                ) : (
-                    <div>Filler</div>
-                )}
+                ) : (null)}
             </div>
         </div>
     )
