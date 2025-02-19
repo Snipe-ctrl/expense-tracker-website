@@ -1,4 +1,7 @@
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:3001/api"
+const API_BASE_URL =
+  typeof process !== "undefined" && process.env.REACT_APP_API_BASE_URL
+    ? process.env.REACT_APP_API_BASE_URL
+    : "https://budgeting-app-backend01.herokuapp.com/api";
 
 const apiFetch = async (endpoint, options = {}) => {
     const token = localStorage.getItem("accessToken");
