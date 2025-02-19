@@ -14,12 +14,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/development/chunk-K6AXKMTT.mjs");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/development/chunk-K6AXKMTT.mjs");
 /* harmony import */ var _pages_SignupPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/SignupPage */ "./src/pages/SignupPage.js");
 /* harmony import */ var _pages_SigninPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/SigninPage */ "./src/pages/SigninPage.js");
 /* harmony import */ var _pages_Dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Dashboard */ "./src/pages/Dashboard.js");
-/* harmony import */ var _context_AuthContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./context/AuthContext */ "./src/context/AuthContext.js");
-/* harmony import */ var _utils_ProtectedRoute__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils/ProtectedRoute */ "./src/utils/ProtectedRoute.js");
+/* harmony import */ var _context_ProtectedRoute__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./context/ProtectedRoute */ "./src/context/ProtectedRoute.js");
+/* harmony import */ var _pages_Transactions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/Transactions */ "./src/pages/Transactions.js");
+/* harmony import */ var _context_AuthContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./context/AuthContext */ "./src/context/AuthContext.js");
+/* harmony import */ var _context_TransactionsContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./context/TransactionsContext */ "./src/context/TransactionsContext.js");
+
+
 
 
 
@@ -28,22 +32,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_context_AuthContext__WEBPACK_IMPORTED_MODULE_4__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_context_AuthContext__WEBPACK_IMPORTED_MODULE_6__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_context_TransactionsContext__WEBPACK_IMPORTED_MODULE_7__.TransactionsProvider, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "/",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"], null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "signup",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages_SignupPage__WEBPACK_IMPORTED_MODULE_1__["default"], null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "signin",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages_SigninPage__WEBPACK_IMPORTED_MODULE_2__["default"], null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "dashboard",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"], null)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+    path: "transactions",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages_Transactions__WEBPACK_IMPORTED_MODULE_5__["default"], null)
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "protected",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_utils_ProtectedRoute__WEBPACK_IMPORTED_MODULE_5__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"], null))
-  }))));
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_context_ProtectedRoute__WEBPACK_IMPORTED_MODULE_4__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"], null))
+  })))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
@@ -61,21 +68,976 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../src/styles/style.scss */ "./src/styles/style.scss");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/development/chunk-K6AXKMTT.mjs");
+/* harmony import */ var _context_AuthContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../context/AuthContext */ "./src/context/AuthContext.js");
+/* harmony import */ var _pages_AccountSettings__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/AccountSettings */ "./src/pages/AccountSettings.js");
+/* harmony import */ var _pages_SigninPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/SigninPage */ "./src/pages/SigninPage.js");
+/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../src/styles/style.scss */ "./src/styles/style.scss");
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+
+
 
 
 var Header = function Header() {
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_AuthContext__WEBPACK_IMPORTED_MODULE_1__.AuthContext),
+    user = _useContext.user,
+    userLoading = _useContext.userLoading;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    isAccountSettingsOpen = _useState2[0],
+    setIsAccountSettingsOpen = _useState2[1];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "header-container"
+    className: "main-header-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "left-side"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "CashCompass"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "header-page-buttons"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    onClick: function onClick() {
+      return navigate('/dashboard');
+    }
+  }, "Dashboard"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    onClick: function onClick() {
+      return navigate('/transactions');
+    }
+  }, "Transactions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Reports"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "right-side"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "square"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    type: "text"
-  }))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: user.profile_picture_url,
+    onClick: function onClick() {
+      return setIsAccountSettingsOpen(true);
+    }
+  }))), isAccountSettingsOpen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages_AccountSettings__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    onClose: function onClose() {
+      return setIsAccountSettingsOpen(false);
+    }
+  }) : null);
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
+
+/***/ }),
+
+/***/ "./src/components/dashboard-components/AddExpenseModal.js":
+/*!****************************************************************!*\
+  !*** ./src/components/dashboard-components/AddExpenseModal.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_apiFetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/apiFetch */ "./src/utils/apiFetch.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+var AddExpenseModal = function AddExpenseModal(_ref) {
+  var onClose = _ref.onClose,
+    onExpenseAdded = _ref.onExpenseAdded,
+    editingTransaction = _ref.editingTransaction;
+  // sets default state for new expense form
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      date: '',
+      description: '',
+      category: 'Food',
+      amount: '',
+      notes: ''
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    newExpense = _useState2[0],
+    setNewExpense = _useState2[1];
+
+  // handles new expense form submission
+  var handleSubmit = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(event) {
+      var adjustedAmount, payload, response;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            event.preventDefault();
+
+            // makes expenses negative and income positive
+            adjustedAmount = newExpense.amount;
+            if (['Food', 'Transport', 'Health', 'Entertainment', 'Education', 'Programming', 'Clothing', 'Investment', 'Gambling'].includes(newExpense.category)) {
+              adjustedAmount = Math.abs(parseFloat(newExpense.amount)) * -1;
+            } else {
+              adjustedAmount = Math.abs(parseFloat(newExpense.amount));
+            }
+
+            // expenses for API
+            payload = {
+              date: newExpense.date,
+              description: newExpense.description,
+              category: newExpense.category,
+              amount: adjustedAmount.toFixed(2),
+              notes: newExpense.notes
+            };
+            _context.prev = 4;
+            if (!editingTransaction) {
+              _context.next = 11;
+              break;
+            }
+            _context.next = 8;
+            return (0,_utils_apiFetch__WEBPACK_IMPORTED_MODULE_1__["default"])("edit-expense/".concat(editingTransaction.id), {
+              method: "PUT",
+              body: JSON.stringify(payload)
+            });
+          case 8:
+            response = _context.sent;
+            _context.next = 14;
+            break;
+          case 11:
+            _context.next = 13;
+            return (0,_utils_apiFetch__WEBPACK_IMPORTED_MODULE_1__["default"])('add-expense', {
+              method: "POST",
+              body: JSON.stringify(payload)
+            });
+          case 13:
+            response = _context.sent;
+          case 14:
+            // checks if response was valid and resets new expense form
+            if (response) {
+              console.log("".concat(editingTransaction ? 'Expense updated' : 'Expense added', " succesfully:"), response);
+              onClose();
+              setNewExpense({
+                date: '',
+                description: '',
+                category: 'Food',
+                amount: '0.00',
+                notes: ''
+              });
+              onExpenseAdded();
+            } else {
+              console.error("Failed to ".concat(editingTransaction ? 'update expense' : 'add expense'));
+            }
+            _context.next = 20;
+            break;
+          case 17:
+            _context.prev = 17;
+            _context.t0 = _context["catch"](4);
+            console.error('An error occurred: ', _context.t0);
+          case 20:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee, null, [[4, 17]]);
+    }));
+    return function handleSubmit(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  // handles modal close
+  var handleClose = function handleClose() {
+    setNewExpense({
+      date: '',
+      description: '',
+      category: 'Food',
+      amount: '',
+      notes: ''
+    });
+    onClose();
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (editingTransaction) {
+      var formattedAmount = Math.abs(editingTransaction.amount);
+      var formattedDate = new Date(editingTransaction.date).toISOString().split('T')[0];
+      setNewExpense({
+        date: formattedDate,
+        description: editingTransaction.description,
+        category: editingTransaction.category,
+        amount: formattedAmount,
+        notes: editingTransaction.notes
+      });
+    } else {
+      setNewExpense({
+        date: '',
+        description: '',
+        category: 'Food',
+        amount: '0.00',
+        notes: ''
+      });
+    }
+  }, [editingTransaction]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overlay"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "add-expense-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "add-expense-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, editingTransaction ? 'Edit Transaction' : 'Add New Transaction'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    onClick: handleClose,
+    width: "12",
+    height: "13",
+    className: "x",
+    viewBox: "0 0 12 13",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M11.5445 2.79448C11.984 2.35503 11.984 1.64136 11.5445 1.2019C11.1051 0.762451 10.3914  0.762451 9.95197 1.2019L6.25001 4.90737L2.54454 1.20542C2.10509 0.765967 1.39142 0.765967 0.951965  1.20542C0.512512 1.64487 0.512512 2.35854 0.951965 2.798L4.65743 6.49995L0.955481 10.2054C0.516028  10.6449 0.516028 11.3585 0.955481 11.798C1.39493 12.2375 2.10861 12.2375 2.54806 11.798L6.25001  8.09253L9.95548 11.7945C10.3949 12.2339 11.1086 12.2339 11.5481 11.7945C11.9875 11.355 11.9875  10.6414 11.5481 10.2019L7.84259 6.49995L11.5445 2.79448Z",
+    fill: "#6B7280"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "add-expense-description-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "description"
+  }, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "text",
+    name: "description",
+    value: newExpense.description,
+    onChange: function onChange(e) {
+      return setNewExpense(_objectSpread(_objectSpread({}, newExpense), {}, {
+        description: e.target.value
+      }));
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "add-expense-amount-date-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "add-expense-amount-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "amount"
+  }, "Amount"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "amount-input-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "currency-symbol"
+  }, "$"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "number",
+    name: "amount",
+    value: newExpense.amount,
+    id: "expense-amount",
+    onChange: function onChange(e) {
+      return setNewExpense(_objectSpread(_objectSpread({}, newExpense), {}, {
+        amount: e.target.value
+      }));
+    },
+    min: "0",
+    step: "0.01",
+    placeholder: "0.00",
+    required: true
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "add-expense-date-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "date"
+  }, "Date"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "date",
+    name: "date",
+    value: newExpense.date,
+    id: "expense-date",
+    onChange: function onChange(e) {
+      return setNewExpense(_objectSpread(_objectSpread({}, newExpense), {}, {
+        date: e.target.value
+      }));
+    },
+    required: true
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "add-expense-category-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "category"
+  }, "Category"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", {
+    name: "category",
+    id: "category",
+    value: newExpense.category,
+    onChange: function onChange(e) {
+      return setNewExpense(_objectSpread(_objectSpread({}, newExpense), {}, {
+        category: e.target.value
+      }));
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Food"
+  }, "Food"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Entertainment"
+  }, "Entertainment"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Income"
+  }, "Income"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Health"
+  }, "Health"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Transport"
+  }, "Transport"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Education"
+  }, "Education"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Programming"
+  }, "Programming"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Clothing"
+  }, "Clothing"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Investment"
+  }, "Investment"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Gambling"
+  }, "Gambling"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "add-expense-notes-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "notes"
+  }, "Notes (Optional)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("textarea", {
+    type: "text",
+    name: "notes",
+    id: "notes-input",
+    value: newExpense.notes,
+    onChange: function onChange(e) {
+      return setNewExpense(_objectSpread(_objectSpread({}, newExpense), {}, {
+        notes: e.target.value
+      }));
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "add-expense-buttons-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    id: "cancel-transaction-button",
+    type: "button",
+    onClick: function onClick(e) {
+      e.preventDefault;
+      handleClose();
+    }
+  }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    type: "submit",
+    id: "add-transaction-button"
+  }, editingTransaction ? 'Update Transaction' : 'Add Transaction')))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddExpenseModal);
+
+/***/ }),
+
+/***/ "./src/components/dashboard-components/DeleteExpenseModal.js":
+/*!*******************************************************************!*\
+  !*** ./src/components/dashboard-components/DeleteExpenseModal.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_apiFetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/apiFetch */ "./src/utils/apiFetch.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+
+var DeleteExpenseModal = function DeleteExpenseModal(_ref) {
+  var expenseId = _ref.expenseId,
+    onClose = _ref.onClose,
+    onDeleteSuccess = _ref.onDeleteSuccess;
+  var handleDelete = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(event) {
+      var payload, response;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            event.preventDefault();
+            payload = {
+              expenseId: expenseId
+            };
+            console.log(expenseId);
+            _context.prev = 3;
+            _context.next = 6;
+            return (0,_utils_apiFetch__WEBPACK_IMPORTED_MODULE_1__["default"])('delete-expense', {
+              method: "POST",
+              body: JSON.stringify(payload)
+            });
+          case 6:
+            response = _context.sent;
+            if (response) {
+              onClose();
+              onDeleteSuccess();
+            } else {
+              console.error('Failed to delete expense:', (response === null || response === void 0 ? void 0 : response.statusText) || 'No response from server');
+            }
+            _context.next = 13;
+            break;
+          case 10:
+            _context.prev = 10;
+            _context.t0 = _context["catch"](3);
+            console.error('Error: ', _context.t0);
+          case 13:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee, null, [[3, 10]]);
+    }));
+    return function handleDelete(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overlay"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "delete-expense-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Delete Expense"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Are you sure you want to delete this expense? This action cannot be undone."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "delete-expense-buttons"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    onClick: onClose,
+    id: "delete-expense-cancel-button"
+  }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    onClick: handleDelete,
+    id: "delete-expense-delete-button"
+  }, "Delete"))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DeleteExpenseModal);
+
+/***/ }),
+
+/***/ "./src/components/dashboard-components/OverviewCards.js":
+/*!**************************************************************!*\
+  !*** ./src/components/dashboard-components/OverviewCards.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _context_TransactionsContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/TransactionsContext */ "./src/context/TransactionsContext.js");
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+var OverviewCards = function OverviewCards() {
+  // gets transaction data from context
+  var _useTransactions = (0,_context_TransactionsContext__WEBPACK_IMPORTED_MODULE_1__.useTransactions)(),
+    transactions = _useTransactions.transactions,
+    transactionsLoading = _useTransactions.transactionsLoading;
+
+  // sets defualt values for overview cards
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      thisMonthIncome: 0,
+      thisMonthExpenses: 0,
+      remainingBalance: 0,
+      incomePercentage: 0,
+      totalExpensesPercentage: 0,
+      lastMonthIncome: 0,
+      lastMonthExpenses: 0
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    cardValues = _useState2[0],
+    setCardValues = _useState2[1];
+
+  // handles setting overview card data
+  var calculateCardValues = function calculateCardValues() {
+    // gets this months date
+    var today = new Date();
+    var currentYear = today.getFullYear();
+
+    // gets last months date
+    var lastMonthDate = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+    var lastMonthYear = lastMonthDate.getFullYear();
+
+    // handles parsing expense date
+    var parseTransactionDate = function parseTransactionDate(dateString) {
+      return new Date(dateString.includes('T') ? dateString : "".concat(dateString, "T00:00:00Z"));
+    };
+
+    // contains this months expense data
+    var thisMonthTransactions = transactions.filter(function (transaction) {
+      var transactionDate = parseTransactionDate(transaction.date);
+      return transactionDate.getFullYear() === currentYear && transactionDate.getMonth() === today.getMonth();
+    });
+
+    // contains last months expense data
+    var lastMonthTransactions = transactions.filter(function (transaction) {
+      var transactionDate = parseTransactionDate(transaction.date);
+      return transactionDate.getFullYear() === lastMonthYear && transactionDate.getMonth() === lastMonthDate.getMonth();
+    });
+
+    // initializes expense and income variables
+    var thisMonthExpenses = 0;
+    var thisMonthIncome = 0;
+
+    // calculates this months total income and expenses
+    thisMonthTransactions.forEach(function (transaction) {
+      var amount = Number(transaction.amount);
+      if (amount < 0) {
+        thisMonthExpenses += Math.abs(amount);
+      } else {
+        thisMonthIncome += amount;
+      }
+    });
+
+    // calculates this months remaining balance
+    var remainingBalance = thisMonthIncome - thisMonthExpenses;
+
+    // initializes last months income and expense variables
+    var lastMonthIncome = 0;
+    var lastMonthExpenses = 0;
+
+    // calculates last months total expenses and income
+    lastMonthTransactions.forEach(function (transaction) {
+      var amount = Number(transaction.amount);
+      if (amount < 0) {
+        lastMonthExpenses += Math.abs(amount);
+      } else {
+        lastMonthIncome += amount;
+      }
+    });
+
+    // calculates income percentage and expenses percentage
+    var incomePercentage = lastMonthIncome > 0 ? Math.round((thisMonthIncome - lastMonthIncome) / lastMonthIncome * 100) : 0;
+    var totalExpensesPercentage = lastMonthExpenses > 0 ? Math.round((thisMonthExpenses - lastMonthExpenses) / lastMonthExpenses * 100) : 0;
+
+    // updates overview card variables
+    setCardValues({
+      thisMonthIncome: thisMonthIncome,
+      thisMonthExpenses: thisMonthExpenses,
+      remainingBalance: remainingBalance,
+      incomePercentage: incomePercentage,
+      totalExpensesPercentage: totalExpensesPercentage,
+      lastMonthIncome: lastMonthIncome,
+      lastMonthExpenses: lastMonthExpenses
+    });
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!transactionsLoading) {
+      calculateCardValues();
+    }
+  }, [transactions, transactionsLoading]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overview-cards-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overview-card",
+    id: "total-income-card-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overview-card-heading"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Total Income"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    width: "36",
+    height: "32",
+    viewBox: "0 0 36 32",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M4.5 0.25C2.01797 0.25 0 2.26797 0 4.75V27.25C0 29.732 2.01797 31.75 4.5 31.75H31.5C33.982  31.75 36 29.732 36 27.25V11.5C36 9.01797 33.982 7 31.5 7H5.625C5.00625 7 4.5 6.49375 4.5 5.875C4.5 5.25625  5.00625 4.75 5.625 4.75H31.5C32.7445 4.75 33.75 3.74453 33.75 2.5C33.75 1.25547 32.7445 0.25 31.5 0.25H4.5ZM29.25  17.125C29.8467 17.125 30.419 17.3621 30.841 17.784C31.2629 18.206 31.5 18.7783 31.5 19.375C31.5 19.9717 31.2629 20.544  30.841 20.966C30.419 21.3879 29.8467 21.625 29.25 21.625C28.6533 21.625 28.081 21.3879 27.659 20.966C27.2371 20.544 27  19.9717 27 19.375C27 18.7783 27.2371 18.206 27.659 17.784C28.081 17.3621 28.6533 17.125 29.25 17.125Z",
+    fill: "#2563EB"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, cardValues.thisMonthIncome > 0 ? "$".concat(cardValues.thisMonthIncome.toFixed(2)) : '$0.00'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overview-card-bottom"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    className: "arrow-svg ".concat(cardValues.incomePercentage > 0 ? 'up-arrow green-arrow' : 'down-arrow red-arrow'),
+    width: "11",
+    height: "13",
+    viewBox: "0 0 11 13",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M5.86794 0.882034C5.52615 0.540237 4.97107 0.540237 4.62927 0.882034L0.254272 5.25703C-0.0875244  5.59883 -0.0875244 6.15391 0.254272 6.49571C0.596069 6.8375 1.15115 6.8375 1.49294 6.49571L4.37498  3.61094V12C4.37498 12.484 4.76599 12.875 5.24998 12.875C5.73396 12.875 6.12498 12.484 6.12498 12V3.61094L9.00701  6.49297C9.3488 6.83477 9.90388 6.83477 10.2457 6.49297C10.5875 6.15118 10.5875 5.5961 10.2457 5.2543L5.87068 0.8793L5.86794 0.882034Z",
+    fill: "#059669"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: cardValues.incomePercentage > 0 ? 'positive-text' : 'negative-text'
+  }, cardValues.incomePercentage > 0 ? cardValues.incomePercentage : cardValues.incomePercentage * -1, "% from last month"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overview-card",
+    id: "total-expenses-card-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overview-card-heading"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Total Expenses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    width: "19",
+    height: "14",
+    viewBox: "0 0 19 14",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M2.32812 0C1.225 0 0.328125 0.896875 0.328125 2V3H18.3281V2C18.3281 0.896875 17.4312 0  16.3281 0H2.32812ZM18.3281 6H0.328125V12C0.328125 13.1031 1.225 14 2.32812 14H16.3281C17.4312 14  18.3281 13.1031 18.3281 12V6ZM3.82812 10H5.82812C6.10313 10 6.32812 10.225 6.32812 10.5C6.32812  10.775 6.10313 11 5.82812 11H3.82812C3.55312 11 3.32812 10.775 3.32812 10.5C3.32812 10.225 3.55312  10 3.82812 10ZM7.32812 10.5C7.32812 10.225 7.55312 10 7.82812 10H11.8281C12.1031 10 12.3281 10.225 12.3281 10.5C12.3281 10.775 12.1031 11 11.8281 11H7.82812C7.55312 11 7.32812 10.775 7.32812 10.5Z",
+    fill: "#DC2626"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, cardValues.thisMonthExpenses > 0 ? "$".concat(cardValues.thisMonthExpenses.toFixed(2)) : '$0.00'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overview-card-bottom"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    className: "arrow-svg ".concat(cardValues.totalExpensesPercentage > 0 ? 'up-arrow green-arrow' : 'down-arrow red-arrow'),
+    width: "11",
+    height: "13",
+    viewBox: "0 0 11 13",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M5.86794 0.882034C5.52615 0.540237 4.97107 0.540237 4.62927 0.882034L0.254272 5.25703C-0.0875244  5.59883 -0.0875244 6.15391 0.254272 6.49571C0.596069 6.8375 1.15115 6.8375 1.49294 6.49571L4.37498  3.61094V12C4.37498 12.484 4.76599 12.875 5.24998 12.875C5.73396 12.875 6.12498 12.484 6.12498 12V3.61094L9.00701  6.49297C9.3488 6.83477 9.90388 6.83477 10.2457 6.49297C10.5875 6.15118 10.5875 5.5961 10.2457 5.2543L5.87068 0.8793L5.86794 0.882034Z"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: cardValues.totalExpensesPercentage > 0 ? 'positive-text' : 'negative-text'
+  }, cardValues.totalExpensesPercentage > 0 ? cardValues.totalExpensesPercentage : cardValues.totalExpensesPercentage * -1, "% from last month"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overview-card",
+    id: "remaining-balance-card-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overview-card-heading"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Remaining Balance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    width: "19",
+    height: "16",
+    viewBox: "0 0 19 16",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M13.4844 3V3.02187C13.3188 3.00937 13.1531 3 12.9844 3H8.98438C8.46875 3 7.96875 3.06562  7.49062 3.1875C7.4875 3.125 7.48438 3.0625 7.48438 3C7.48438 1.34375 8.82812 0 10.4844 0C12.1406  0 13.4844 1.34375 13.4844 3ZM12.9844 4C13.0938 4 13.2031 4.00313 13.3094 4.00938C13.4406 4.01875  13.5719 4.03125 13.7031 4.05C14.2531 3.40938 15.0719 3 15.9844 3H16.3438C16.6687 3 16.9062 3.30625  16.8281 3.62188L16.3969 5.34688C16.8906 5.80938 17.2938 6.37187 17.5688 7H17.9844C18.5375 7 18.9844  7.44688 18.9844 8V11C18.9844 11.5531 18.5375 12 17.9844 12H16.9844C16.7 12.3781 16.3625 12.7156  15.9844 13V15C15.9844 15.5531 15.5375 16 14.9844 16H13.9844C13.4312 16 12.9844 15.5531 12.9844  15V14H8.98438V15C8.98438 15.5531 8.5375 16 7.98438 16H6.98438C6.43125 16 5.98438 15.5531 5.98438  15V13C4.89375 12.1812 4.15 10.9281 4.00938 9.5H3.10938C1.93438 9.5 0.984375 8.55 0.984375 7.375C0.984375  6.2 1.93438 5.25 3.10938 5.25H3.23438C3.65 5.25 3.98438 5.58437 3.98438 6C3.98438 6.41563 3.65 6.75  3.23438 6.75H3.10938C2.76562 6.75 2.48438 7.03125 2.48438 7.375C2.48438 7.71875 2.76562 8 3.10938  8H4.08437C4.4625 6.13125 5.8875 4.64062 7.71875 4.1625C8.12187 4.05625 8.54688 4 8.98438  4H12.9844ZM14.9844 8.25C14.9844 8.05109 14.9054 7.86032 14.7647 7.71967C14.6241 7.57902 14.4333  7.5 14.2344 7.5C14.0355 7.5 13.8447 7.57902 13.704 7.71967C13.5634 7.86032 13.4844 8.05109 13.4844  8.25C13.4844 8.44891 13.5634 8.63968 13.704 8.78033C13.8447 8.92098 14.0355 9 14.2344 9C14.4333 9 14.6241  8.92098 14.7647 8.78033C14.9054 8.63968 14.9844 8.44891 14.9844 8.25Z",
+    fill: "#059669"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, cardValues.remainingBalance > 0 ? "$".concat(cardValues.remainingBalance.toFixed(2)) : '$0.00'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overview-card-bottom"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "default-text"
+  }, "Available to spend"))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OverviewCards);
+
+/***/ }),
+
+/***/ "./src/components/dashboard-components/TransactionsModal.js":
+/*!******************************************************************!*\
+  !*** ./src/components/dashboard-components/TransactionsModal.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/development/chunk-K6AXKMTT.mjs");
+/* harmony import */ var _context_AuthContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/AuthContext */ "./src/context/AuthContext.js");
+/* harmony import */ var _context_TransactionsContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../context/TransactionsContext */ "./src/context/TransactionsContext.js");
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+
+
+var TransactionsCard = function TransactionsCard(_ref) {
+  var isDashboard = _ref.isDashboard,
+    onAddExpense = _ref.onAddExpense,
+    onDeleteExpense = _ref.onDeleteExpense,
+    onEditExpense = _ref.onEditExpense;
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
+
+  // context for user and transactions
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_AuthContext__WEBPACK_IMPORTED_MODULE_1__.AuthContext),
+    user = _useContext.user,
+    loading = _useContext.loading;
+  var _useTransactions = (0,_context_TransactionsContext__WEBPACK_IMPORTED_MODULE_2__.useTransactions)(),
+    transactions = _useTransactions.transactions,
+    transactionsLoading = _useTransactions.transactionsLoading,
+    getTransactions = _useTransactions.getTransactions;
+
+  // current month
+  var today = new Date();
+  var currentYear = today.getFullYear();
+  var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var years = Array.from({
+    length: currentYear - 2019
+  }, function (_, i) {
+    return 2020 + i;
+  }).reverse();
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(today.getMonth()),
+    _useState2 = _slicedToArray(_useState, 2),
+    selectedMonth = _useState2[0],
+    setSelectedMonth = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(today.getFullYear()),
+    _useState4 = _slicedToArray(_useState3, 2),
+    selectedYear = _useState4[0],
+    setSelectedYear = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    isMonthDropdownOpen = _useState6[0],
+    setIsMonthDropdownOpen = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    isYearDropdownOpen = _useState8[0],
+    setIsYearDropdownOpen = _useState8[1];
+  var monthDropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var yearDropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var firstDayOfMonth = new Date(selectedYear, selectedMonth, 1).toISOString().split('T')[0];
+  var handleMonthSelect = function handleMonthSelect(index) {
+    setSelectedMonth(index);
+    setTimeout(function () {
+      return setIsMonthDropdownOpen(false);
+    }, 0);
+  };
+  var handleYearSelect = function handleYearSelect(year) {
+    setSelectedYear(year);
+    setTimeout(function () {
+      return setIsYearDropdownOpen(false);
+    }, 0);
+  };
+
+  // handles amount of transactions displayed
+  var displayedTransactions = isDashboard ? transactions.slice(0, 10) : transactions;
+
+  // states and ref for transaction dropdown menu
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState10 = _slicedToArray(_useState9, 2),
+    openDropdownId = _useState10[0],
+    setOpenDropdownId = _useState10[1];
+  var transactionDropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  // handles formatting date
+  var formatDate = function formatDate(dateString) {
+    return new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    }).format(new Date(dateString));
+  };
+  var refreshTransactions = function refreshTransactions() {
+    getTransactions(selectedMonth + 1, selectedYear);
+  };
+
+  // allows user to click outside dropdown to close it
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var handleClickOutside = function handleClickOutside(event) {
+      if (transactionDropdownRef.current && !transactionDropdownRef.current.contains(event.target)) {
+        setOpenDropdownId(null);
+      }
+      if (monthDropdownRef.current && !monthDropdownRef.current.contains(event.target)) {
+        setIsMonthDropdownOpen(false);
+      }
+      if (yearDropdownRef.current && !yearDropdownRef.current.contains(event.target)) {
+        setIsYearDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return function () {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // updates stats when user or data changes
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!loading && user) {
+      getTransactions(selectedMonth + 1, selectedYear);
+    }
+  }, [user, selectedMonth, selectedYear]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "recent-transactions-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "recent-transactions-card"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "recent-transactions-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Transactions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "actions"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "date-dropdown month-dropdown",
+    ref: monthDropdownRef,
+    onClick: function onClick() {
+      return setIsMonthDropdownOpen(function (prev) {
+        return !prev;
+      });
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "date-text"
+  }, months[selectedMonth]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    className: "date-arrow-svg",
+    width: "14",
+    height: "8",
+    viewBox: "0 0 14 8",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M6.31951 7.11807C6.6613 7.45986 7.21638 7.45986 7.55818 7.11807L12.8082 1.86807C13.15  1.52627 13.15 0.971191 12.8082 0.629395C12.4664 0.287598 11.9113 0.287598 11.5695 0.629395L6.93748  5.26143L2.30544 0.632129C1.96365 0.290332 1.40857 0.290332 1.06677 0.632129C0.724976 0.973925  0.724976 1.529 1.06677 1.8708L6.31677 7.1208L6.31951 7.11807Z",
+    fill: "#374151"
+  })), isMonthDropdownOpen && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "date-dropdown-item-container month-dropdown-item-container"
+  }, months.map(function (month, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "date-dropdown-item",
+      key: index,
+      onClick: function onClick() {
+        return handleMonthSelect(index);
+      }
+    }, index === selectedMonth && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+      width: "14",
+      height: "10",
+      viewBox: "0 0 14 10",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+      d: "M12.9306 0.881836C13.2724 1.22363 13.2724 1.77871 12.9306 2.12051L5.93057 9.12051C5.58877  9.46231 5.03369 9.46231 4.69189 9.12051L1.19189 5.62051C0.850098 5.27871 0.850098 4.72363 1.19189  4.38184C1.53369 4.04004 2.08877 4.04004 2.43057 4.38184L5.3126 7.26113L11.6946 0.881836C12.0364  0.540039 12.5915 0.540039 12.9333 0.881836H12.9306Z",
+      fill: "#6B7280"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, month));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "date-dropdown year-dropdown",
+    ref: yearDropdownRef,
+    onClick: function onClick() {
+      return setIsYearDropdownOpen(function (prev) {
+        return !prev;
+      });
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "date-text"
+  }, selectedYear), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    className: "date-arrow-svg",
+    width: "14",
+    height: "8",
+    viewBox: "0 0 14 8",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M6.31951 7.11807C6.6613 7.45986 7.21638 7.45986 7.55818 7.11807L12.8082 1.86807C13.15  1.52627 13.15 0.971191 12.8082 0.629395C12.4664 0.287598 11.9113 0.287598 11.5695 0.629395L6.93748  5.26143L2.30544 0.632129C1.96365 0.290332 1.40857 0.290332 1.06677 0.632129C0.724976 0.973925  0.724976 1.529 1.06677 1.8708L6.31677 7.1208L6.31951 7.11807Z",
+    fill: "#374151"
+  })), isYearDropdownOpen && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "date-dropdown-item-container year-dropdown-item-container"
+  }, years.map(function (year, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "date-dropdown-item",
+      key: index,
+      onClick: function onClick() {
+        return handleYearSelect(year);
+      }
+    }, year === selectedYear && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+      width: "14",
+      height: "10",
+      viewBox: "0 0 14 10",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+      d: "M12.9306 0.881836C13.2724 1.22363 13.2724 1.77871 12.9306 2.12051L5.93057 9.12051C5.58877  9.46231 5.03369 9.46231 4.69189 9.12051L1.19189 5.62051C0.850098 5.27871 0.850098 4.72363 1.19189  4.38184C1.53369 4.04004 2.08877 4.04004 2.43057 4.38184L5.3126 7.26113L11.6946 0.881836C12.0364  0.540039 12.5915 0.540039 12.9333 0.881836H12.9306Z",
+      fill: "#6B7280"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, year));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "add-new-button",
+    onClick: onAddExpense
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    width: "12",
+    height: "12",
+    viewBox: "0 0 12 12",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M7.09375 0.9375C7.09375 0.453516 6.70273 0.0625 6.21875 0.0625C5.73477 0.0625 5.34375  0.453516 5.34375 0.9375V4.875H1.40625C0.922266 4.875 0.53125 5.26602 0.53125 5.75C0.53125 6.23398  0.922266 6.625 1.40625 6.625H5.34375V10.5625C5.34375 11.0465 5.73477 11.4375 6.21875 11.4375C6.70273  11.4375 7.09375 11.0465 7.09375 10.5625V6.625H11.0312C11.5152 6.625 11.9062 6.23398 11.9062 5.75C11.9062  5.26602 11.5152 4.875 11.0312 4.875H7.09375V0.9375Z",
+    fill: "white"
+  })), "Add New"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "transactions-table"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "recent-transactions-table-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Date"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Category"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Amount"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Notes")), transactionsLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "transactions-spinner-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "spinner"
+  })) : displayedTransactions.length > 0 ? displayedTransactions.map(function (transaction) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      key: transaction.id,
+      className: "recent-transactions-row"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "dots-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+      className: "dots-svg",
+      width: "12",
+      height: "12",
+      viewBox: "0 0 4 12",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      overflow: "visible",
+      onClick: function onClick() {
+        return setOpenDropdownId(openDropdownId === transaction.id ? null : transaction.id);
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("circle", {
+      className: "dots-bg",
+      cx: "2",
+      cy: "6",
+      r: "15",
+      fill: "#F3F4F6",
+      opacity: "0"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+      d: "M1.71875 8.84375C1.31264 8.84375 0.923158 9.00508 0.635993 9.29224C0.348828 9.57941  0.1875 9.96889 0.1875 10.375C0.1875 10.7811 0.348828 11.1706 0.635993 11.4578C0.923158 11.7449  1.31264 11.9062 1.71875 11.9062C2.12486 11.9063 2.51434 11.7449 2.80151 11.4578C3.08867 11.1706  3.25 10.7811 3.25 10.375C3.25 9.96889 3.08867 9.57941 2.80151 9.29224C2.51434 9.00508 2.12486  8.84375 1.71875 8.84375ZM1.71875 4.46875C1.31264 4.46875 0.923158 4.63008 0.635993 4.91724C0.348828  5.20441 0.1875 5.59389 0.1875 6C0.1875 6.40611 0.348828 6.79559 0.635993 7.08276C0.923158 7.36992  1.31264 7.53125 1.71875 7.53125C2.12486 7.53125 2.51434 7.36992 2.80151 7.08276C3.08867 6.79559 3.25  6.40611 3.25 6C3.25 5.59389 3.08867 5.20441 2.80151 4.91724C2.51434 4.63008 2.12486 4.46875 1.71875  4.46875ZM3.25 1.625C3.25 1.21889 3.08867 0.829408 2.80151 0.542243C2.51434 0.255078 2.12486 0.09375  1.71875 0.09375C1.31264 0.09375 0.923158 0.255078 0.635993 0.542243C0.348828 0.829408 0.1875 1.21889  0.1875 1.625C0.1875 2.03111 0.348828 2.42059 0.635993 2.70776C0.923158 2.99492 1.31264 3.15625 1.71875  3.15625C2.12486 3.15625 2.51434 2.99492 2.80151 2.70776C3.08867 2.42059 3.25 2.03111 3.25 1.625Z",
+      fill: "#9CA3AF"
+    })), openDropdownId === transaction.id && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "transaction-dropdown-container",
+      ref: transactionDropdownRef
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "transaction-dropdown-item edit-transaction-dropdown-item",
+      onClick: function onClick() {
+        return onEditExpense(transaction);
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+      className: "edit-svg",
+      width: "15",
+      height: "14",
+      viewBox: "0 0 15 14",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+      d: "M13.2547 0.593164C12.6559 -0.00566407 11.6879 -0.00566407 11.0891 0.593164L10.266 1.41348L12.943  4.09043L13.766 3.26738C14.3648 2.66855 14.3648 1.70059 13.766 1.10176L13.2547 0.593164ZM5.07344  6.60879C4.90664 6.77559 4.77812 6.98066 4.7043 7.20762L3.89492 9.63574C3.81562 9.8709 3.87852  10.1307 4.05352 10.3084C4.22852 10.4861 4.48828 10.5463 4.72617 10.467L7.1543 9.65762C7.37852  9.58379 7.58359 9.45527 7.75312 9.28848L12.3277 4.71113L9.64805 2.03145L5.07344 6.60879ZM2.98437  1.7498C1.53516 1.7498 0.359375 2.92559 0.359375 4.3748V11.3748C0.359375 12.824 1.53516 13.9998  2.98437 13.9998H9.98437C11.4336 13.9998 12.6094 12.824 12.6094 11.3748V8.7498C12.6094 8.26582  12.2184 7.8748 11.7344 7.8748C11.2504 7.8748 10.8594 8.26582 10.8594 8.7498V11.3748C10.8594  11.8588 10.4684 12.2498 9.98437 12.2498H2.98437C2.50039 12.2498 2.10937 11.8588 2.10937  11.3748V4.3748C2.10937 3.89082 2.50039 3.4998 2.98437 3.4998H5.60937C6.09336 3.4998 6.48437  3.10879 6.48437 2.6248C6.48437 2.14082 6.09336 1.7498 5.60937 1.7498H2.98437Z"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+      className: "edit-transaction-button"
+    }, "Edit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "transaction-dropdown-item delete-transaction-dropdown-item",
+      onClick: function onClick() {
+        return onDeleteExpense(transaction.id);
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+      className: "trash-svg",
+      width: "14",
+      height: "14",
+      viewBox: "0 0 14 14",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("g", {
+      clipPath: "url(#clip0_131_361)"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+      d: "M4.61875 0.483984L4.42188 0.875H1.79688C1.31289 0.875 0.921875 1.26602 0.921875  1.75C0.921875 2.23398 1.31289 2.625 1.79688 2.625H12.2969C12.7809 2.625 13.1719 2.23398 13.1719 1.75C13.1719  1.26602 12.7809 0.875 12.2969 0.875H9.67188L9.475 0.483984C9.32734 0.185938 9.02383 0 8.69297 0H5.40078C5.06992  0 4.76641 0.185938 4.61875 0.483984ZM12.2969 3.5H1.79688L2.37656 12.7695C2.42031 13.4613 2.99453 14 3.68633  14H10.4074C11.0992 14 11.6734 13.4613 11.7172 12.7695L12.2969 3.5Z"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("defs", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("clipPath", {
+      id: "clip0_131_361"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+      d: "M0.921875 0H13.1719V14H0.921875V0Z",
+      fill: "white"
+    })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+      className: "delete-transaction-button"
+    }, "Delete")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+      className: "recent-transactions-date"
+    }, formatDate(transaction.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+      className: "recent-transactions-description"
+    }, transaction.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+      className: "recent-transactions-category ".concat(transaction.category.toLowerCase())
+    }, transaction.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+      className: "recent-transactions-amount ".concat(transaction.amount < 0 ? 'negative' : 'positive')
+    }, transaction.amount >= 0 ? "+".concat(transaction.amount) : transaction.amount), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+      className: "recent-transactions-notes"
+    }, transaction.notes ? transaction.notes : '-'));
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "No transactions found")), isDashboard ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "view-more-transactions-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    onClick: function onClick() {
+      return navigate('/transactions');
+    }
+  }, "View More Transactions", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    width: "9",
+    height: "14",
+    viewBox: "0 0 9 14",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("g", {
+    clipPath: "url(#clip0_107_372)"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M8.68057 6.38213C9.02236 6.72393 9.02236 7.279 8.68057 7.6208L3.43057 12.8708C3.08877 13.2126  2.53369 13.2126 2.19189 12.8708C1.8501 12.529 1.8501 11.9739 2.19189 11.6321L6.82393 7.0001L2.19463  2.36807C1.85283 2.02627 1.85283 1.47119 2.19463 1.12939C2.53643 0.787598 3.0915 0.787598 3.4333  1.12939L8.6833 6.3794L8.68057 6.38213Z",
+    fill: "#4B5563"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("defs", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("clipPath", {
+    id: "clip0_107_372"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M0.1875 0H8.9375V14H0.1875V0Z",
+    fill: "white"
+  })))))) : null));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TransactionsCard);
 
 /***/ }),
 
@@ -103,129 +1065,752 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
+
+// Create the AuthContext
 var AuthContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();
+
+// AuthProvider Component
 var AuthProvider = function AuthProvider(_ref) {
   var children = _ref.children;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState2 = _slicedToArray(_useState, 2),
-    authToken = _useState2[0],
-    setAuthToken = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    user = _useState2[0],
+    setUser = _useState2[1]; // User state
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
     _useState4 = _slicedToArray(_useState3, 2),
-    user = _useState4[0],
-    setUser = _useState4[1];
-  var signIn = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(email, password) {
-      var response, data;
+    userLoading = _useState4[0],
+    setUserLoading = _useState4[1]; // Loading state
+
+  // Helper function to get the stored access token
+  var getStoredToken = function getStoredToken() {
+    return localStorage.getItem('accessToken');
+  };
+
+  // Fetch the authenticated user
+  var fetchUser = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      var token, response, data;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
-            _context.prev = 0;
-            _context.next = 3;
+            token = getStoredToken(); // Retrieve token
+            if (token) {
+              _context.next = 6;
+              break;
+            }
+            console.warn('No token found in localStorage.');
+            setUser(null);
+            setUserLoading(false);
+            return _context.abrupt("return");
+          case 6:
+            _context.prev = 6;
+            _context.next = 9;
+            return fetch('http://localhost:3001/auth/protected', {
+              method: 'GET',
+              headers: {
+                Authorization: "Bearer ".concat(token),
+                'Content-Type': 'application/json'
+              }
+            });
+          case 9:
+            response = _context.sent;
+            if (!response.ok) {
+              _context.next = 17;
+              break;
+            }
+            _context.next = 13;
+            return response.json();
+          case 13:
+            data = _context.sent;
+            setUser(data.user); // Update user state
+            _context.next = 19;
+            break;
+          case 17:
+            console.warn('Failed to fetch user. Status:', response.status);
+            setUser(null);
+          case 19:
+            _context.next = 24;
+            break;
+          case 21:
+            _context.prev = 21;
+            _context.t0 = _context["catch"](6);
+            console.error('Error fetching user:', _context.t0);
+          case 24:
+            _context.prev = 24;
+            setUserLoading(false); // Set loading to false
+            return _context.finish(24);
+          case 27:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee, null, [[6, 21, 24, 27]]);
+    }));
+    return function fetchUser() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  // Sign in using development credentials
+  var devSignIn = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      var devCredentials, response, data;
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.prev = 0;
+            devCredentials = {
+              email: 'test@gmail.com',
+              password: 'test'
+            };
+            _context2.next = 4;
             return fetch('http://localhost:3001/auth/signin', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify({
-                email: email,
-                password: password
-              })
+              body: JSON.stringify(devCredentials),
+              credentials: 'include' // Use cookies for persistent sessions
             });
-          case 3:
-            response = _context.sent;
-            _context.next = 6;
-            return response.json();
-          case 6:
-            data = _context.sent;
-            if (!data.accesstoken) {
-              _context.next = 14;
+          case 4:
+            response = _context2.sent;
+            if (!response.ok) {
+              _context2.next = 15;
               break;
             }
-            setAuthToken(data.accesstoken);
-            _context.next = 11;
-            return fetchUser(data.accesstoken);
-          case 11:
-            return _context.abrupt("return", true);
-          case 14:
-            alert(data.message);
-            return _context.abrupt("return", false);
+            _context2.next = 8;
+            return response.json();
+          case 8:
+            data = _context2.sent;
+            // Parse JSON response
+            localStorage.setItem('accessToken', data.accesstoken); // Store token
+            console.log('Dev Sign-In Token Stored:', data.accesstoken);
+            _context2.next = 13;
+            return fetchUser();
+          case 13:
+            _context2.next = 16;
+            break;
+          case 15:
+            console.error('Dev Sign-In failed. Status:', response.status);
           case 16:
-            _context.next = 22;
+            _context2.next = 21;
             break;
           case 18:
-            _context.prev = 18;
-            _context.t0 = _context["catch"](0);
-            console.error('Error signing in', _context.t0);
-            return _context.abrupt("return", false);
+            _context2.prev = 18;
+            _context2.t0 = _context2["catch"](0);
+            console.error('Error during dev sign-in:', _context2.t0);
+          case 21:
+          case "end":
+            return _context2.stop();
+        }
+      }, _callee2, null, [[0, 18]]);
+    }));
+    return function devSignIn() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
+  // Check authentication and sign in during development
+  var initializeAuth = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.next = 2;
+            return fetchUser();
+          case 2:
+            if (user) {
+              _context3.next = 6;
+              break;
+            }
+            console.log('No user found. Attempting dev sign-in...');
+            _context3.next = 6;
+            return devSignIn();
+          case 6:
+          case "end":
+            return _context3.stop();
+        }
+      }, _callee3);
+    }));
+    return function initializeAuth() {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+
+  // Run on component mount
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    initializeAuth();
+  }, []); // Empty dependency array ensures this runs once
+
+  // Context value
+  var contextValue = {
+    user: user,
+    setUser: setUser,
+    userLoading: userLoading
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(AuthContext.Provider, {
+    value: contextValue
+  }, children);
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AuthProvider);
+
+/***/ }),
+
+/***/ "./src/context/ProtectedRoute.js":
+/*!***************************************!*\
+  !*** ./src/context/ProtectedRoute.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/development/chunk-K6AXKMTT.mjs");
+/* harmony import */ var _AuthContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuthContext */ "./src/context/AuthContext.js");
+
+
+
+var ProtectedRoute = function ProtectedRoute(_ref) {
+  var children = _ref.children;
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_AuthContext__WEBPACK_IMPORTED_MODULE_1__.AuthContext),
+    authToken = _useContext.authToken;
+  if (!authToken) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+      to: "/signin",
+      replace: true
+    });
+  }
+  return children;
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProtectedRoute);
+
+/***/ }),
+
+/***/ "./src/context/TransactionsContext.js":
+/*!********************************************!*\
+  !*** ./src/context/TransactionsContext.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TransactionsProvider: () => (/* binding */ TransactionsProvider),
+/* harmony export */   useTransactions: () => (/* binding */ useTransactions)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_apiFetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/apiFetch */ "./src/utils/apiFetch.js");
+/* harmony import */ var _context_AuthContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../context/AuthContext */ "./src/context/AuthContext.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+
+var TransactionsContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();
+var TransactionsProvider = function TransactionsProvider(_ref) {
+  var children = _ref.children;
+  // gets user data from auth context
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_AuthContext__WEBPACK_IMPORTED_MODULE_2__.AuthContext),
+    user = _useContext.user;
+
+  // states for transaction data
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    transactions = _useState2[0],
+    setTransactions = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    transactionsLoading = _useState4[0],
+    setTransactionsLoading = _useState4[1];
+
+  // Editing transaction state
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState6 = _slicedToArray(_useState5, 2),
+    editingTransaction = _useState6[0],
+    setEditingTransaction = _useState6[1];
+
+  // Selected expense ID state
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState8 = _slicedToArray(_useState7, 2),
+    selectedExpenseId = _useState8[0],
+    setSelectedExpenseId = _useState8[1];
+
+  // States for modals
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState10 = _slicedToArray(_useState9, 2),
+    isAddExpenseOpen = _useState10[0],
+    setIsAddExpenseOpen = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState12 = _slicedToArray(_useState11, 2),
+    isDeleteExpenseOpen = _useState12[0],
+    setIsDeleteExpenseOpen = _useState12[1];
+  var today = new Date();
+  var currentMonth = today.getMonth() + 1;
+  var currentYear = today.getFullYear();
+
+  // gets expense data
+  var getTransactions = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+    var month,
+      year,
+      response,
+      _args = arguments;
+    return _regeneratorRuntime().wrap(function _callee$(_context) {
+      while (1) switch (_context.prev = _context.next) {
+        case 0:
+          month = _args.length > 0 && _args[0] !== undefined ? _args[0] : currentMonth;
+          year = _args.length > 1 && _args[1] !== undefined ? _args[1] : currentYear;
+          if (user) {
+            _context.next = 4;
+            break;
+          }
+          return _context.abrupt("return");
+        case 4:
+          _context.prev = 4;
+          setTransactionsLoading(true);
+          _context.next = 8;
+          return (0,_utils_apiFetch__WEBPACK_IMPORTED_MODULE_1__["default"])("expenses?year=".concat(year, "&month=").concat(month));
+        case 8:
+          response = _context.sent;
+          if (response !== null && response !== void 0 && response.data && Array.isArray(response.data)) {
+            setTransactions(response.data);
+          } else {
+            setTransactions([]);
+          }
+          _context.next = 15;
+          break;
+        case 12:
+          _context.prev = 12;
+          _context.t0 = _context["catch"](4);
+          console.error('Error fetching transaction data: ', _context.t0);
+        case 15:
+          _context.prev = 15;
+          setTransactionsLoading(false);
+          return _context.finish(15);
+        case 18:
+        case "end":
+          return _context.stop();
+      }
+    }, _callee, null, [[4, 12, 15, 18]]);
+  })), [user]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (user) {
+      getTransactions();
+    }
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(TransactionsContext.Provider, {
+    value: {
+      transactions: transactions,
+      setTransactions: setTransactions,
+      transactionsLoading: transactionsLoading,
+      getTransactions: getTransactions,
+      editingTransaction: editingTransaction,
+      setEditingTransaction: setEditingTransaction,
+      selectedExpenseId: selectedExpenseId,
+      setSelectedExpenseId: setSelectedExpenseId,
+      isAddExpenseOpen: isAddExpenseOpen,
+      setIsAddExpenseOpen: setIsAddExpenseOpen,
+      isDeleteExpenseOpen: isDeleteExpenseOpen,
+      setIsDeleteExpenseOpen: setIsDeleteExpenseOpen
+    }
+  }, children);
+};
+var useTransactions = function useTransactions() {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(TransactionsContext);
+};
+
+/***/ }),
+
+/***/ "./src/pages/AccountSettings.js":
+/*!**************************************!*\
+  !*** ./src/pages/AccountSettings.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _context_AuthContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../context/AuthContext */ "./src/context/AuthContext.js");
+/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../src/styles/style.scss */ "./src/styles/style.scss");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+
+var AccountSettings = function AccountSettings(_ref) {
+  var onClose = _ref.onClose;
+  // gets user context
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_AuthContext__WEBPACK_IMPORTED_MODULE_1__.AuthContext),
+    user = _useContext.user,
+    setUser = _useContext.setUser,
+    loading = _useContext.loading;
+  var token = localStorage.getItem("accessToken");
+
+  // handles setting user data
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      full_name: '',
+      email: '',
+      timezone: 'pt',
+      profile_picture_url: 'https://expense-tracker-bucket01.s3.us-east-2.amazonaws.com/profile-pictures/Default_pfp.jpg'
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    userData = _useState2[0],
+    setUserData = _useState2[1];
+
+  // handles setting overlay visible or not visible
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState4 = _slicedToArray(_useState3, 2),
+    isOverlayVisible = _useState4[0],
+    setIsOverlayVisible = _useState4[1];
+  var closeModel = function closeModel() {
+    setIsOverlayVisible(false);
+    if (onClose) onClose();
+  };
+
+  // handles change profile photo logic
+  var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var triggerFileInput = function triggerFileInput() {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  // handles changing profile photo
+  var uploadProfilePhoto = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(file) {
+      var formData, response, data;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            if (user) {
+              _context.next = 3;
+              break;
+            }
+            console.error('User is not logged in or user ID is missing');
+            return _context.abrupt("return");
+          case 3:
+            formData = new FormData();
+            formData.append('profilePicture', file);
+            formData.append('userId', user.id);
+            _context.prev = 6;
+            _context.next = 9;
+            return fetch('http://localhost:3001/api/upload-profile-picture', {
+              method: 'POST',
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer ".concat(token)
+              },
+              body: formData
+            });
+          case 9:
+            response = _context.sent;
+            if (response.ok) {
+              _context.next = 13;
+              break;
+            }
+            console.error('Failed to upload file');
+            return _context.abrupt("return");
+          case 13:
+            ;
+            _context.next = 16;
+            return response.json();
+          case 16:
+            data = _context.sent;
+            console.log('File uploaded succesfully', data.url);
+
+            // updates user profile photo right away
+            setUserData(function (prevUserData) {
+              return _objectSpread(_objectSpread({}, prevUserData), {}, {
+                profile_picture_url: data.url
+              });
+            });
+            return _context.abrupt("return", data.url);
           case 22:
+            _context.prev = 22;
+            _context.t0 = _context["catch"](6);
+            console.error('Error uploading file', _context.t0);
+          case 25:
           case "end":
             return _context.stop();
         }
-      }, _callee, null, [[0, 18]]);
+      }, _callee, null, [[6, 22]]);
     }));
-    return function signIn(_x, _x2) {
+    return function uploadProfilePhoto(_x) {
       return _ref2.apply(this, arguments);
     };
   }();
-  var fetchUser = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2(token) {
-      var response, data;
+
+  // send account setting changes to api
+  var updateAccountSettings = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2(userData) {
+      var response, errorData, result;
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
             _context2.prev = 0;
             _context2.next = 3;
-            return fetch('http://localhost:3001/auth/protected', {
+            return fetch('http://localhost:3001/api/update-account-settings', {
+              method: 'POST',
               headers: {
-                Authorization: "Bearer ".concat(token)
-              }
+                "Content-Type": "application/json",
+                "Authorization": "Bearer ".concat(token)
+              },
+              body: JSON.stringify(userData)
             });
           case 3:
             response = _context2.sent;
-            if (!response.ok) {
-              _context2.next = 11;
+            if (response.ok) {
+              _context2.next = 10;
               break;
             }
             _context2.next = 7;
             return response.json();
           case 7:
-            data = _context2.sent;
-            setUser(data.user);
-            _context2.next = 13;
-            break;
-          case 11:
-            setAuthToken(null);
-            setUser(null);
-          case 13:
-            _context2.next = 18;
-            break;
-          case 15:
-            _context2.prev = 15;
+            errorData = _context2.sent;
+            console.error('Error updating user data', errorData.message);
+            return _context2.abrupt("return");
+          case 10:
+            _context2.next = 12;
+            return response.json();
+          case 12:
+            result = _context2.sent;
+            return _context2.abrupt("return", result);
+          case 16:
+            _context2.prev = 16;
             _context2.t0 = _context2["catch"](0);
-            console.error('Error fetching user', _context2.t0);
-          case 18:
+            console.error('Error during account settings update', _context2.t0);
+          case 19:
           case "end":
             return _context2.stop();
         }
-      }, _callee2, null, [[0, 15]]);
+      }, _callee2, null, [[0, 16]]);
     }));
-    return function fetchUser(_x3) {
+    return function updateAccountSettings(_x2) {
       return _ref3.apply(this, arguments);
     };
   }();
+
+  // handles account settings form submit
+  var handleSubmit = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee3(event) {
+      var payload, result;
+      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            event.preventDefault();
+            setUserData(function (prevUser) {
+              return _objectSpread(_objectSpread({}, prevUser), {}, {
+                full_name: userData.full_name,
+                timezone: userData.timezone,
+                profile_picture_url: userData.profile_picture_url
+              });
+            });
+            payload = {
+              id: user.id,
+              email: userData.email,
+              full_name: userData.full_name,
+              timezone: userData.timezone,
+              profile_picture_url: userData.profile_picture_url
+            };
+            _context3.next = 5;
+            return updateAccountSettings(payload);
+          case 5:
+            result = _context3.sent;
+            if (result) {
+              console.log('User data updated successfully:', result);
+            }
+
+            // updated user context data
+            setUser(function (prevUser) {
+              return _objectSpread(_objectSpread({}, prevUser), {}, {
+                full_name: result.user.full_name,
+                profile_picture_url: result.user.profile_picture_url
+              });
+            });
+            setUserData(function (prevUser) {
+              return _objectSpread(_objectSpread({}, prevUser), {}, {
+                full_name: result.user.full_name,
+                email: result.user.email,
+                timezone: result.user.timezone,
+                profile_picture_url: result.user.profile_picture_url
+              });
+            });
+            closeModel();
+          case 10:
+          case "end":
+            return _context3.stop();
+        }
+      }, _callee3);
+    }));
+    return function handleSubmit(_x3) {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+
+  // fetches user data
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (authToken) fetchUser(authToken);
-  }, [authToken]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(AuthContext.Provider, {
-    value: {
-      authToken: authToken,
-      user: user,
-      signIn: signIn
+    var fetchUserData = /*#__PURE__*/function () {
+      var _ref5 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          while (1) switch (_context4.prev = _context4.next) {
+            case 0:
+              if (user) {
+                setUserData({
+                  full_name: user.full_name || '',
+                  email: user.email || '',
+                  timezone: user.timezone || 'pt',
+                  profile_picture_url: user.profile_picture_url || 'https://expense-tracker-bucket01.s3.us-east-2.amazonaws.com/profile-pictures/Default_pfp.jpg'
+                });
+              }
+            case 1:
+            case "end":
+              return _context4.stop();
+          }
+        }, _callee4);
+      }));
+      return function fetchUserData() {
+        return _ref5.apply(this, arguments);
+      };
+    }();
+    fetchUserData();
+  }, [user]);
+
+  // account settings html
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "overlay ".concat(isOverlayVisible ? 'visible' : 'hidden')
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "account-settings-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "account-settings-header-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "account-settings-header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Account Settings"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    onClick: closeModel,
+    width: "12",
+    height: "13",
+    className: "x",
+    viewBox: "0 0 12 13",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M11.5445 2.79448C11.984 2.35503 11.984 1.64136 11.5445 1.2019C11.1051 0.762451 10.3914  0.762451 9.95197 1.2019L6.25001 4.90737L2.54454 1.20542C2.10509 0.765967 1.39142 0.765967 0.951965  1.20542C0.512512 1.64487 0.512512 2.35854 0.951965 2.798L4.65743 6.49995L0.955481 10.2054C0.516028  10.6449 0.516028 11.3585 0.955481 11.798C1.39493 12.2375 2.10861 12.2375 2.54806 11.798L6.25001  8.09253L9.95548 11.7945C10.3949 12.2339 11.1086 12.2339 11.5481 11.7945C11.9875 11.355 11.9875  10.6414 11.5481 10.2019L7.84259 6.49995L11.5445 2.79448Z",
+    fill: "#6B7280"
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "account-info-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "profile-photo-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: userData.profile_picture_url
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    type: "button",
+    onClick: triggerFileInput
+  }, "Change photo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    ref: fileInputRef,
+    type: "file",
+    name: "image",
+    accept: "image/*",
+    style: {
+      display: "none"
+    },
+    onChange: function onChange(event) {
+      return uploadProfilePhoto(event.target.files[0]);
     }
-  }, children);
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "account-settings-input-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "name"
+  }, "Full Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "text",
+    placeholder: "John Doe",
+    name: "name",
+    value: userData.full_name,
+    onChange: function onChange(e) {
+      return setUserData(_objectSpread(_objectSpread({}, userData), {}, {
+        full_name: e.target.value
+      }));
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "account-settings-input-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "email"
+  }, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    className: "account-settings-email-input",
+    type: "text",
+    value: userData.email,
+    name: "email",
+    disabled: true
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "account-settings-input-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "password"
+  }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "account-settings-password-reset-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "text",
+    placeholder: "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022",
+    name: "password",
+    disabled: true
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    width: "15",
+    height: "15",
+    viewBox: "0 0 15 15",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M9.60938 10.125C12.2672 10.125 14.4219 7.97031 14.4219 5.3125C14.4219 2.65469  12.2672 0.5 9.60938 0.5C6.95156 0.5 4.79688 2.65469 4.79688 5.3125C4.79688 5.82383  4.87617 6.31875 5.02383 6.78086L0.613281 11.1914C0.490234 11.3145 0.421875 11.4812  0.421875 11.6562V13.8438C0.421875 14.2074 0.714453 14.5 1.07812 14.5H3.26562C3.6293  14.5 3.92188 14.2074 3.92188 13.8438V12.75H5.01562C5.3793 12.75 5.67188 12.4574 5.67188  12.0938V11H6.76562C6.94063 11 7.10742 10.9316 7.23047 10.8086L8.14102 9.89805C8.60312  10.0457 9.09805 10.125 9.60938 10.125ZM10.7031 3.125C10.9932 3.125 11.2714 3.24023 11.4765  3.44535C11.6816 3.65047 11.7969 3.92867 11.7969 4.21875C11.7969 4.50883 11.6816 4.78703  11.4765 4.99215C11.2714 5.19727 10.9932 5.3125 10.7031 5.3125C10.413 5.3125 10.1348 5.19727 9.92973 4.99215C9.72461 4.78703 9.60938 4.50883 9.60938 4.21875C9.60938 3.92867 9.72461 3.65047  9.92973 3.44535C10.1348 3.24023 10.413 3.125 10.7031 3.125Z",
+    fill: "#2563EB"
+  })), "Reset"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "account-settings-input-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "timezone"
+  }, "Timezone"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", {
+    id: "timezone",
+    name: "timezone"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "PT"
+  }, "Pacific Time (PT)")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "submit-account-settings-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "submit-account-settings"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "cancel-button",
+    onClick: function onClick(event) {
+      event.preventDefault();
+      closeModel();
+    }
+  }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "save-changes-button",
+    type: "submit"
+  }, "Save Changes"))))));
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AuthProvider);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AccountSettings);
 
 /***/ }),
 
@@ -241,13 +1826,77 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../src/styles/style.scss */ "./src/styles/style.scss");
-/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Header */ "./src/components/Header.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/development/chunk-K6AXKMTT.mjs");
+/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Header */ "./src/components/Header.js");
+/* harmony import */ var _components_dashboard_components_OverviewCards__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/dashboard-components/OverviewCards */ "./src/components/dashboard-components/OverviewCards.js");
+/* harmony import */ var _components_dashboard_components_TransactionsModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/dashboard-components/TransactionsModal */ "./src/components/dashboard-components/TransactionsModal.js");
+/* harmony import */ var _components_dashboard_components_AddExpenseModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/dashboard-components/AddExpenseModal */ "./src/components/dashboard-components/AddExpenseModal.js");
+/* harmony import */ var _components_dashboard_components_DeleteExpenseModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/dashboard-components/DeleteExpenseModal */ "./src/components/dashboard-components/DeleteExpenseModal.js");
+/* harmony import */ var _context_TransactionsContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../context/TransactionsContext */ "./src/context/TransactionsContext.js");
+/* harmony import */ var _context_AuthContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../context/AuthContext */ "./src/context/AuthContext.js");
+/* harmony import */ var _src_styles_style_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../src/styles/style.scss */ "./src/styles/style.scss");
+
+
+
+
+
+
+
 
 
 
 var Dashboard = function Dashboard() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Dashboard"));
+  var _useTransactions = (0,_context_TransactionsContext__WEBPACK_IMPORTED_MODULE_6__.useTransactions)(),
+    transactions = _useTransactions.transactions,
+    transactionsLoading = _useTransactions.transactionsLoading,
+    getTransactions = _useTransactions.getTransactions,
+    editingTransaction = _useTransactions.editingTransaction,
+    setEditingTransaction = _useTransactions.setEditingTransaction,
+    selectedExpenseId = _useTransactions.selectedExpenseId,
+    setSelectedExpenseId = _useTransactions.setSelectedExpenseId,
+    isAddExpenseOpen = _useTransactions.isAddExpenseOpen,
+    setIsAddExpenseOpen = _useTransactions.setIsAddExpenseOpen,
+    isDeleteExpenseOpen = _useTransactions.isDeleteExpenseOpen,
+    setIsDeleteExpenseOpen = _useTransactions.setIsDeleteExpenseOpen;
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_AuthContext__WEBPACK_IMPORTED_MODULE_7__.AuthContext),
+    user = _useContext.user,
+    userLoading = _useContext.userLoading;
+  if (userLoading) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "main-spinner-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "spinner"
+    }));
+  }
+  ;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_dashboard_components_OverviewCards__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_dashboard_components_TransactionsModal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    isDashboard: true,
+    onAddExpense: function onAddExpense() {
+      setEditingTransaction(null);
+      setIsAddExpenseOpen(true);
+    },
+    onEditExpense: function onEditExpense(transaction) {
+      setEditingTransaction(transaction);
+      setIsAddExpenseOpen(true);
+    },
+    onDeleteExpense: function onDeleteExpense(expenseId) {
+      setSelectedExpenseId(expenseId);
+      setIsDeleteExpenseOpen(true);
+    }
+  }), isAddExpenseOpen && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_dashboard_components_AddExpenseModal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    onClose: function onClose() {
+      return setIsAddExpenseOpen(false);
+    },
+    onExpenseAdded: getTransactions,
+    editingTransaction: editingTransaction
+  }), isDeleteExpenseOpen && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_dashboard_components_DeleteExpenseModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    expenseId: selectedExpenseId,
+    onClose: function onClose() {
+      setIsDeleteExpenseOpen(false);
+      setSelectedExpenseId(null);
+    },
+    onDeleteSuccess: getTransactions
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Outlet, null));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dashboard);
 
@@ -261,7 +1910,8 @@ var Dashboard = function Dashboard() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   userEmail: () => (/* binding */ userEmail)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -287,6 +1937,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+var userEmail = "";
 var SigninForm = function SigninForm() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       email: "",
@@ -296,7 +1947,7 @@ var SigninForm = function SigninForm() {
     formData = _useState2[0],
     setFormData = _useState2[1];
   var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_AuthContext__WEBPACK_IMPORTED_MODULE_1__.AuthContext),
-    signIn = _useContext.signIn;
+    setUser = _useContext.setUser;
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
   var handleChange = function handleChange(e) {
     var _e$target = e.target,
@@ -316,7 +1967,7 @@ var SigninForm = function SigninForm() {
   // handles form submission
   var handleSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
-      var success;
+      var response, data;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -335,18 +1986,43 @@ var SigninForm = function SigninForm() {
             alert('Please enter a valid email address!');
             return _context.abrupt("return");
           case 7:
-            _context.next = 9;
-            return signIn(formData.email, formData.password);
-          case 9:
-            success = _context.sent;
-            if (success) {
-              navigate('/protected');
+            _context.prev = 7;
+            _context.next = 10;
+            return fetch('http://localhost:3001/auth/signin', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                email: formData.email,
+                password: formData.password
+              }),
+              credentials: 'include' // Use credentials to include cookies
+            });
+          case 10:
+            response = _context.sent;
+            _context.next = 13;
+            return response.json();
+          case 13:
+            data = _context.sent;
+            if (response.ok && data.user) {
+              setUser(data.user); // Update user in AuthContext
+              navigate('/dashboard');
+            } else {
+              alert(data.message || 'Failed to sign in');
             }
-          case 11:
+            _context.next = 21;
+            break;
+          case 17:
+            _context.prev = 17;
+            _context.t0 = _context["catch"](7);
+            console.error('Error signing in:', _context.t0);
+            alert('An error occurred during sign-in.');
+          case 21:
           case "end":
             return _context.stop();
         }
-      }, _callee);
+      }, _callee, null, [[7, 17]]);
     }));
     return function handleSubmit(_x) {
       return _ref.apply(this, arguments);
@@ -369,7 +2045,7 @@ var SigninForm = function SigninForm() {
     className: "signin-container",
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "input-container"
+    className: "signup-signin-input-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "email-input"
   }, "Email address"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
@@ -381,7 +2057,7 @@ var SigninForm = function SigninForm() {
     onChange: handleChange,
     placeholder: "john@example.com"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "input-container"
+    className: "signup-signin-input-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "password-input"
   }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
@@ -398,6 +2074,7 @@ var SigninForm = function SigninForm() {
     className: "sign-in-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Don't have an account? Sign up"))));
 };
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SigninForm);
 
 /***/ }),
@@ -558,7 +2235,7 @@ var SignupForm = function SignupForm() {
     className: "create-account-container",
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "input-container"
+    className: "signup-signin-input-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "full-name-input"
   }, "Full Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
@@ -570,7 +2247,7 @@ var SignupForm = function SignupForm() {
     onChange: handleChange,
     placeholder: "John Doe"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "input-container"
+    className: "signup-signin-input-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "email-input"
   }, "Email address"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
@@ -582,7 +2259,7 @@ var SignupForm = function SignupForm() {
     onChange: handleChange,
     placeholder: "john@example.com"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "input-container"
+    className: "signup-signin-input-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "password-input"
   }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
@@ -594,7 +2271,7 @@ var SignupForm = function SignupForm() {
     onChange: handleChange,
     placeholder: "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "input-container"
+    className: "signup-signin-input-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "confirm-password-input"
   }, "Confirm Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
@@ -625,10 +2302,10 @@ var SignupForm = function SignupForm() {
 
 /***/ }),
 
-/***/ "./src/utils/ProtectedRoute.js":
-/*!*************************************!*\
-  !*** ./src/utils/ProtectedRoute.js ***!
-  \*************************************/
+/***/ "./src/pages/Transactions.js":
+/*!***********************************!*\
+  !*** ./src/pages/Transactions.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -637,24 +2314,129 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/development/chunk-K6AXKMTT.mjs");
-/* harmony import */ var _context_AuthContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../context/AuthContext */ "./src/context/AuthContext.js");
+/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Header */ "./src/components/Header.js");
+/* harmony import */ var _components_dashboard_components_AddExpenseModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/dashboard-components/AddExpenseModal */ "./src/components/dashboard-components/AddExpenseModal.js");
+/* harmony import */ var _components_dashboard_components_DeleteExpenseModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/dashboard-components/DeleteExpenseModal */ "./src/components/dashboard-components/DeleteExpenseModal.js");
+/* harmony import */ var _components_dashboard_components_TransactionsModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/dashboard-components/TransactionsModal */ "./src/components/dashboard-components/TransactionsModal.js");
+/* harmony import */ var _context_TransactionsContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../context/TransactionsContext */ "./src/context/TransactionsContext.js");
 
 
 
-var ProtectedRoute = function ProtectedRoute(_ref) {
-  var children = _ref.children;
-  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_AuthContext__WEBPACK_IMPORTED_MODULE_1__.AuthContext),
-    authToken = _useContext.authToken;
-  if (!authToken) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
-      to: "/signin",
-      replace: true
-    });
-  }
-  return children;
+
+
+
+var TransactionsPage = function TransactionsPage() {
+  var _useTransactions = (0,_context_TransactionsContext__WEBPACK_IMPORTED_MODULE_5__.useTransactions)(),
+    transactions = _useTransactions.transactions,
+    transactionsLoading = _useTransactions.transactionsLoading,
+    getTransactions = _useTransactions.getTransactions,
+    editingTransaction = _useTransactions.editingTransaction,
+    setEditingTransaction = _useTransactions.setEditingTransaction,
+    selectedExpenseId = _useTransactions.selectedExpenseId,
+    setSelectedExpenseId = _useTransactions.setSelectedExpenseId,
+    isAddExpenseOpen = _useTransactions.isAddExpenseOpen,
+    setIsAddExpenseOpen = _useTransactions.setIsAddExpenseOpen,
+    isDeleteExpenseOpen = _useTransactions.isDeleteExpenseOpen,
+    setIsDeleteExpenseOpen = _useTransactions.setIsDeleteExpenseOpen;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_dashboard_components_TransactionsModal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    isDashboard: false,
+    transactions: transactions,
+    onAddExpense: function onAddExpense() {
+      return setIsAddExpenseOpen(true);
+    },
+    onEditExpense: function onEditExpense(transaction) {
+      setEditingTransaction(transaction);
+      setIsAddExpenseOpen(true);
+    },
+    onDeleteExpense: function onDeleteExpense(expenseId) {
+      setSelectedExpenseId(expenseId);
+      setIsDeleteExpenseOpen(true);
+    }
+  }), isAddExpenseOpen && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_dashboard_components_AddExpenseModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    onClose: function onClose() {
+      return setIsAddExpenseOpen(false);
+    },
+    onExpenseAdded: getTransactions,
+    editingTransaction: editingTransaction
+  }), isDeleteExpenseOpen && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_dashboard_components_DeleteExpenseModal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    expenseId: selectedExpenseId,
+    onClose: function onClose() {
+      setIsDeleteExpenseOpen(false);
+      setSelectedExpenseId(null);
+    },
+    onDeleteSuccess: getTransactions
+  }));
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProtectedRoute);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TransactionsPage);
+
+/***/ }),
+
+/***/ "./src/utils/apiFetch.js":
+/*!*******************************!*\
+  !*** ./src/utils/apiFetch.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+var API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:3001/api";
+var apiFetch = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(endpoint) {
+    var options,
+      token,
+      response,
+      _args = arguments;
+    return _regeneratorRuntime().wrap(function _callee$(_context) {
+      while (1) switch (_context.prev = _context.next) {
+        case 0:
+          options = _args.length > 1 && _args[1] !== undefined ? _args[1] : {};
+          token = localStorage.getItem("accessToken");
+          if (token) {
+            _context.next = 5;
+            break;
+          }
+          console.error("No token found! User might not be logged in.");
+          return _context.abrupt("return", null);
+        case 5:
+          _context.next = 7;
+          return fetch("".concat(API_BASE_URL, "/").concat(endpoint), _objectSpread(_objectSpread({}, options), {}, {
+            headers: _objectSpread({
+              "Content-Type": "application/json",
+              "Authorization": "Bearer ".concat(token)
+            }, options.headers)
+          }));
+        case 7:
+          response = _context.sent;
+          if (response.ok) {
+            _context.next = 11;
+            break;
+          }
+          console.error("API error: ".concat(response.statusText));
+          return _context.abrupt("return", null);
+        case 11:
+          return _context.abrupt("return", response.json());
+        case 12:
+        case "end":
+          return _context.stop();
+      }
+    }, _callee);
+  }));
+  return function apiFetch(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (apiFetch);
 
 /***/ }),
 
@@ -38750,4 +40532,4 @@ root.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElem
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle828c8d0042e0b0acf73f.js.map
+//# sourceMappingURL=bundle61d18afb85f72d07dfc1.js.map

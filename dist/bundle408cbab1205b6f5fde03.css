@@ -1,0 +1,1086 @@
+/*!****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/style.scss ***!
+  \****************************************************************************************************************/
+.signup-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0px;
+}
+
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.signup-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 0rem;
+  padding-bottom: 0.75rem;
+}
+.signup-container h3 {
+  color: var(--text-2);
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0rem;
+  margin-bottom: 2rem;
+}
+.signup-container .signup-signin-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-bottom: 1rem;
+}
+.signup-container .signup-signin-input-container label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-3);
+  padding-bottom: 0.25rem;
+}
+.signup-container .signup-signin-input-container .input-box {
+  height: 3.125rem;
+  width: 24.0625rem;
+  border: 0.0625rem solid var(--input-box-border-1);
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+}
+.signup-container .signup-signin-input-container .input-box::placeholder {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-4);
+}
+.signup-container .signup-signin-input-container .input-box:hover {
+  border: 0.0625rem solid rgb(155, 155, 155);
+  transition: all 0.1s;
+}
+.signup-container .signup-signin-input-container .input-box:focus {
+  outline: none;
+  border: 0.0625rem solid rgb(9, 106, 196);
+}
+.signup-container .terms-container {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-3);
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+.signup-container button {
+  justify-content: center;
+  background-color: var(--blue-button-1);
+  color: white;
+  font-weight: 500;
+  width: 24.0625rem;
+  height: 2.875rem;
+  border-radius: 0.5rem;
+  border: none;
+  margin: 1.5rem 0rem;
+}
+.signup-container button:hover {
+  background-color: var(--blue-button-2);
+}
+.signup-container p {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-5);
+  margin: 0px;
+}
+
+.overlay.visible {
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.account-settings-container {
+  display: flex;
+  justify-content: flex-start;
+  position: fixed;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 31.25rem;
+  height: 38.125rem;
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+  z-index: 1000;
+}
+
+.account-settings-header-container {
+  display: flex;
+  border-bottom: 0.0625rem solid var(--border-1);
+  padding: 1.6875rem 1.5rem;
+  box-sizing: border-box;
+}
+.account-settings-header-container .account-settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.account-settings-header-container .account-settings-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-6);
+  margin: 0;
+}
+.account-settings-header-container .account-settings-header .x {
+  width: 0.6875rem;
+  height: 0.6875rem;
+  cursor: pointer;
+}
+
+.account-info-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0rem 1.5rem 1.5rem 1.5rem;
+}
+.account-info-container .profile-photo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.5rem 0rem 1.5rem 0rem;
+}
+.account-info-container .profile-photo-container img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: gray;
+  margin-right: 1rem;
+  object-fit: cover;
+}
+.account-info-container .profile-photo-container button {
+  all: unset;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--blue-button-1);
+}
+.account-info-container .profile-photo-container button:hover {
+  color: #09328b;
+  text-decoration: underline;
+}
+.account-info-container .account-settings-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+.account-info-container .account-settings-input-container .account-settings-password-reset-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.account-info-container .account-settings-input-container .account-settings-password-reset-container input {
+  width: 100%;
+}
+.account-info-container .account-settings-input-container .account-settings-password-reset-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 7.1875rem;
+  padding: 0rem;
+  margin-left: 0.625rem;
+  border: 0.0625rem solid var(--blue-button-1);
+  border-radius: 0.5rem;
+  background-color: white;
+  color: var(--blue-button-1);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.account-info-container .account-settings-input-container .account-settings-password-reset-container button:hover {
+  background-color: rgb(243, 243, 243);
+}
+.account-info-container .account-settings-input-container .account-settings-password-reset-container button svg {
+  padding-right: 0.5rem;
+}
+.account-info-container .account-settings-input-container label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-3);
+  padding-bottom: 0.25rem;
+}
+.account-info-container .account-settings-input-container input {
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid var(--input-box-border-2);
+  padding-left: 1rem;
+}
+.account-info-container .account-settings-input-container input:hover {
+  border: 0.0625rem solid rgb(155, 155, 155);
+  transition: all 0.1s;
+}
+.account-info-container .account-settings-input-container input:focus {
+  outline: none;
+  border: 0.0625rem solid rgb(9, 106, 196);
+}
+.account-info-container .account-settings-input-container input:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+}
+.account-info-container .account-settings-input-container select {
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid var(--input-box-border-2);
+  padding-left: 1rem;
+}
+.account-info-container .account-settings-input-container select:focus {
+  outline: none;
+}
+
+.submit-account-settings-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  border-top: 0.0625rem solid var(--border-1);
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
+  height: 5.625rem;
+  background-color: var(--background-color);
+}
+.submit-account-settings-container .submit-account-settings {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+.submit-account-settings-container .submit-account-settings .cancel-button {
+  font-size: 1rem;
+  font-weight: 400;
+  border: 0.0625rem solid var(--input-box-border-2);
+  height: 2.5rem;
+  width: 5.125rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: var(--text-3);
+  cursor: pointer;
+}
+.submit-account-settings-container .submit-account-settings .cancel-button:hover {
+  background-color: rgb(247, 247, 247);
+}
+.submit-account-settings-container .submit-account-settings .save-changes-button {
+  font-size: 1rem;
+  font-weight: 400;
+  border: 0.0625rem solid var(--input-box-border-2);
+  height: 2.5rem;
+  width: 8.4375rem;
+  border-radius: 0.5rem;
+  background-color: var(--blue-button-1);
+  color: white;
+  cursor: pointer;
+}
+.submit-account-settings-container .submit-account-settings .save-changes-button:hover {
+  background-color: var(--blue-button-2);
+}
+
+header {
+  background-color: white;
+  height: 4.0625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 4.0625rem;
+}
+
+.right-side {
+  display: flex;
+  align-items: center;
+  margin-right: 5.625rem;
+  gap: 1rem;
+}
+.right-side img {
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: cover;
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-left: 5.625rem;
+}
+.left-side .header-page-buttons {
+  display: flex;
+  justify-content: start;
+  gap: 0.625rem;
+}
+.left-side .header-page-buttons h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-5);
+  cursor: pointer;
+  padding: 0.3125rem 0.5rem;
+  border-radius: 3.125rem;
+}
+.left-side .header-page-buttons h3:hover {
+  color: white;
+  background-color: rgb(53, 102, 225);
+}
+.left-side h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(53, 102, 225);
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.overview-cards-container {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0rem 0rem 0rem;
+}
+.overview-cards-container .overview-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 21.875rem;
+  height: 5.625rem;
+  padding: 1.5625rem;
+  border-radius: 0.5rem;
+  margin: 0rem 1.875rem;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  gap: 0.5rem;
+  overflow: hidden;
+}
+.overview-cards-container .overview-card .overview-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 1.6875rem;
+}
+.overview-cards-container .overview-card .overview-card-heading h3 {
+  margin: 0rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #6B7280;
+}
+.overview-cards-container .overview-card .overview-card-heading svg {
+  width: 1rem;
+  height: 1rem;
+}
+.overview-cards-container .overview-card h2 {
+  font-size: 24;
+  font-weight: 700;
+  color: #1F2937;
+  margin: 0rem;
+}
+.overview-cards-container .overview-card .overview-card-bottom {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.overview-cards-container .overview-card .overview-card-bottom .arrow-svg {
+  width: 0.625rem;
+  height: 0.875rem;
+}
+.overview-cards-container .overview-card .overview-card-bottom .up-arrow {
+  padding-right: 0.125rem;
+}
+.overview-cards-container .overview-card .overview-card-bottom .down-arrow {
+  transform: rotate(180deg);
+  padding-left: 0.125rem;
+}
+.overview-cards-container .overview-card .overview-card-bottom .arrow-svg path {
+  fill: currentColor;
+}
+.overview-cards-container .overview-card .overview-card-bottom .green-arrow {
+  color: #059669;
+}
+.overview-cards-container .overview-card .overview-card-bottom .red-arrow {
+  color: #DC2626;
+}
+.overview-cards-container .overview-card .overview-card-bottom .positive-text {
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin: 0rem;
+  color: #059669;
+}
+.overview-cards-container .overview-card .overview-card-bottom .negative-text {
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin: 0rem;
+  color: #DC2626;
+}
+.overview-cards-container .overview-card .overview-card-bottom .default-text {
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin: 0rem;
+  color: #6B7280;
+}
+
+.recent-transactions-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.recent-transactions-card {
+  width: 79.375rem;
+  height: 100%;
+  padding: 1.5625rem;
+  background-color: white;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+.recent-transactions-card .recent-transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.recent-transactions-card .recent-transactions-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1F2937;
+  margin: 0rem;
+}
+.recent-transactions-card .recent-transactions-header .actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.recent-transactions-card .recent-transactions-header .actions .add-new-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7.1875rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #4F46E5;
+  color: white;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.recent-transactions-card .recent-transactions-header .actions .add-new-button:hover {
+  background-color: #4239e4;
+}
+.recent-transactions-card .recent-transactions-header .actions .date-dropdown {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.25rem;
+  background-color: #F3F4F6;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.recent-transactions-card .recent-transactions-header .actions .date-dropdown:hover {
+  background-color: #ebebeb;
+}
+.recent-transactions-card .recent-transactions-header .actions .date-dropdown .date-text {
+  font-size: 0.875rem;
+  color: #374151;
+  padding: 0rem 0rem 0rem 1rem;
+}
+.recent-transactions-card .recent-transactions-header .actions .date-dropdown .date-arrow-svg {
+  padding: 0rem 1rem 0rem 0rem;
+}
+.recent-transactions-card .recent-transactions-header .actions .date-dropdown .date-dropdown-item-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 8.75rem;
+  height: 9.375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  border-radius: 0.5rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.recent-transactions-card .recent-transactions-header .actions .date-dropdown .date-dropdown-item-container .date-dropdown-item {
+  position: relative;
+  display: flex;
+  text-align: left;
+  width: 100%;
+}
+.recent-transactions-card .recent-transactions-header .actions .date-dropdown .date-dropdown-item-container .date-dropdown-item p {
+  display: flex;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: #374151;
+  padding: 0.4375rem;
+  margin: 0;
+  width: 100%;
+}
+.recent-transactions-card .recent-transactions-header .actions .date-dropdown .date-dropdown-item-container .date-dropdown-item p:hover {
+  background-color: #f7f7f7;
+}
+.recent-transactions-card .recent-transactions-header .actions .date-dropdown .date-dropdown-item-container .date-dropdown-item svg {
+  position: absolute;
+  margin-right: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 0.875rem;
+}
+.recent-transactions-card .recent-transactions-header .actions .date-dropdown .year-dropdown-item-container {
+  width: 6.875rem;
+}
+.recent-transactions-card .recent-transactions-header .actions .month-dropdown {
+  width: 8.75rem;
+}
+.recent-transactions-card .recent-transactions-header .actions .year-dropdown {
+  width: 6.875rem;
+}
+.recent-transactions-card .transactions-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.recent-transactions-card .transactions-table .recent-transactions-table-header {
+  display: grid;
+  grid-template-columns: 1fr 7fr 7fr 7fr 7fr 12fr 1fr;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding-left: 1.5rem;
+  font-size: 0.75rem;
+  color: #6B7280;
+  font-weight: 500;
+  background-color: #f7f7f7;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 7fr 7fr 7fr 7fr 12fr 1fr;
+  width: 100%;
+  padding-left: 1.5rem;
+  border-bottom: 0.0625rem solid #E5E7EB;
+  align-items: center;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .dots-container {
+  position: relative;
+  display: inline-block;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .dots-container .dots-svg {
+  cursor: pointer;
+  position: relative;
+  visibility: hidden;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .dots-container .dots-svg .dots-bg {
+  opacity: 0;
+  pointer-events: none;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .dots-container .dots-svg:hover .dots-bg {
+  opacity: 1;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row:hover .dots-svg {
+  visibility: visible;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .transaction-dropdown-container {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 9rem;
+  height: auto;
+  z-index: 100;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .transaction-dropdown-container .transaction-dropdown-item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 0.4375rem 0rem 0.4375rem 1rem;
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .transaction-dropdown-container .transaction-dropdown-item:hover {
+  background-color: #f7f7f7;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .transaction-dropdown-container .transaction-dropdown-item svg {
+  padding-right: 0.4375rem;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .transaction-dropdown-container .transaction-dropdown-item p {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .transaction-dropdown-container .transaction-dropdown-item .edit-svg {
+  fill: #374151;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .transaction-dropdown-container .transaction-dropdown-item .edit-transaction-button {
+  color: #374151;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .transaction-dropdown-container .transaction-dropdown-item .trash-svg {
+  fill: #DC2626;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .transaction-dropdown-container .transaction-dropdown-item .delete-transaction-button {
+  color: #DC2626;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .transaction-dropdown-container .edit-transaction-dropdown-item {
+  padding: 0.75rem 0rem 0.375rem 1rem;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .transaction-dropdown-container .delete-transaction-dropdown-item {
+  padding: 0.375rem 0rem 0.75rem 1rem;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-date {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #6B7280;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-description {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #111827;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 25rem;
+  border-radius: 3.125rem;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-category.food {
+  color: #003366;
+  background-color: #D4E4FF;
+  width: 45px;
+  height: 23px;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-category.entertainment {
+  color: #A00050;
+  background-color: #FAD4E3;
+  width: 95px;
+  height: 22px;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-category.income {
+  color: #105C20;
+  background-color: #CFF2D3;
+  width: 60px;
+  height: 22px;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-category.health {
+  color: #9B2A20;
+  background-color: #FFCEC2;
+  width: 55px;
+  height: 22px;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-category.transport {
+  color: #333333;
+  background-color: #E0E0E0;
+  width: 75px;
+  height: 22px;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-category.education {
+  color: #4B0082;
+  background-color: #D4C7FF;
+  width: 75px;
+  height: 22px;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-category.programming {
+  color: #004B73;
+  background-color: #C4F1F9;
+  width: 95px;
+  height: 22px;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-category.clothing {
+  color: #6B4E15;
+  background-color: #FAF3C8;
+  width: 65px;
+  height: 22px;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-category.investment {
+  color: #1A3D5D;
+  background-color: #CDE2F0;
+  width: 78px;
+  height: 22px;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-category.gambling {
+  color: #006666;
+  background-color: #B6E3B6;
+  width: 70px;
+  height: 22px;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .negative {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #DC2626;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .positive {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #059669;
+}
+.recent-transactions-card .transactions-table .recent-transactions-row .recent-transactions-notes {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #111827;
+}
+.recent-transactions-card .view-more-transactions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.recent-transactions-card .view-more-transactions-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  width: 12.8125rem;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #4B5563;
+  background-color: #F3F4F6;
+  border: none;
+  border-radius: 0.5rem;
+  gap: 0.3125rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+}
+
+.add-expense-container {
+  display: flex;
+  justify-content: flex-start;
+  position: fixed;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28.125rem;
+  height: auto;
+  padding: 1.5rem;
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+  z-index: 1000;
+}
+.add-expense-container label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  padding-bottom: 0.375rem;
+}
+.add-expense-container input {
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid #D1D5DB;
+  padding: 0rem 0rem 0rem 1rem;
+}
+.add-expense-container input:hover {
+  border: 0.0625rem solid rgb(155, 155, 155);
+  transition: all 0.1s;
+}
+.add-expense-container input:focus {
+  outline: none;
+  border: 0.0625rem solid rgb(9, 106, 196);
+}
+
+.add-expense-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 1.5rem;
+}
+.add-expense-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+.add-expense-header svg {
+  width: 0.6875rem;
+  height: 0.6875rem;
+  cursor: pointer;
+}
+
+.add-expense-description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+
+.add-expense-amount-date-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+  gap: 1rem;
+}
+.add-expense-amount-date-container .add-expense-amount-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.add-expense-amount-date-container .add-expense-amount-container #expense-amount-label {
+  display: flex;
+  justify-content: start;
+}
+.add-expense-amount-date-container .add-expense-amount-container .amount-input-wrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.add-expense-amount-date-container .add-expense-amount-container .amount-input-wrapper .currency-symbol {
+  position: absolute;
+  padding-left: 0.75rem;
+  color: #6B7280;
+}
+.add-expense-amount-date-container .add-expense-amount-container .amount-input-wrapper #expense-amount {
+  padding: 0rem 0.625rem 0rem 1.875rem;
+}
+.add-expense-amount-date-container .add-expense-date-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.add-expense-amount-date-container .add-expense-date-container #expense-date {
+  padding-right: 1rem;
+}
+
+.add-expense-category-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+.add-expense-category-container select {
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid #D1D5DB;
+  padding: 0rem 0rem 0rem 0.625rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1f2937;
+}
+.add-expense-category-container select:hover {
+  border: 0.0625rem solid rgb(155, 155, 155);
+  transition: all 0.1s;
+}
+.add-expense-category-container select:focus {
+  outline: none;
+  border: 0.0625rem solid rgb(9, 106, 196);
+}
+
+.add-expense-notes-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1.5rem;
+}
+.add-expense-notes-container #notes-input {
+  height: 5.625rem;
+  padding: 0.75rem 1rem 0.75rem 1rem;
+  border: 0.0625rem solid #D1D5DB;
+  border-radius: 0.5rem;
+  overflow-y: auto;
+  resize: none;
+}
+.add-expense-notes-container #notes-input:hover {
+  border: 0.0625rem solid rgb(155, 155, 155);
+  transition: all 0.1s;
+}
+.add-expense-notes-container #notes-input:focus {
+  outline: none;
+  border: 0.0625rem solid rgb(9, 106, 196);
+}
+
+.add-expense-buttons-container {
+  display: flex;
+  justify-content: end;
+  gap: 0.75rem;
+}
+.add-expense-buttons-container #cancel-transaction-button {
+  width: 4.6875rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 0.875rem;
+  color: #2a313a;
+  background-color: #e7e7e7;
+  cursor: pointer;
+}
+.add-expense-buttons-container #cancel-transaction-button:hover {
+  background-color: #e0e0e0;
+}
+.add-expense-buttons-container #add-transaction-button {
+  width: auto;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0rem 0.9375rem;
+  font-size: 0.875rem;
+  color: white;
+  background-color: #4F46E5;
+  cursor: pointer;
+}
+.add-expense-buttons-container #add-transaction-button:hover {
+  background-color: #4239e4;
+}
+
+.delete-expense-container {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24.375rem;
+  height: auto;
+  padding: 2.125rem;
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+  z-index: 1000;
+}
+.delete-expense-container h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  padding-bottom: 1.125rem;
+}
+.delete-expense-container p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #6B7280;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 1.5rem;
+}
+.delete-expense-container .delete-expense-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.delete-expense-container .delete-expense-buttons #delete-expense-cancel-button {
+  width: 9.6875rem;
+  height: 2.5rem;
+  background-color: #F3F4F6;
+  color: #374151;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+.delete-expense-container .delete-expense-buttons #delete-expense-cancel-button:hover {
+  background-color: #ebebeb;
+}
+.delete-expense-container .delete-expense-buttons #delete-expense-delete-button {
+  width: 9.6875rem;
+  height: 2.5rem;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+.delete-expense-container .delete-expense-buttons #delete-expense-delete-button:hover {
+  background-color: #cc1d1d;
+}
+
+body {
+  font-family: "Inter", serif;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --white: white;
+  --background-color: #F9FAFB;
+  --text-1: #111827;
+  --text-2: #6B7280;
+  --text-3: #374151;
+  --text-4: #ADAEBC;
+  --text-5: #4B5563;
+  --text-6: #1F2937;
+  --border-1: #E5E7EB;
+  --blue-button-1: #2563EB;
+  --blue-button-2: #1e59d8;
+  --light-gray: #DBDFE2;
+  --input-box-border-1: #D1D5DB;
+  --input-box-border-2: #E5E7EB;
+}
+
+.main-spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.transactions-spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  margin: 0.625rem 0rem;
+  width: 1.875rem;
+  height: 1.875rem;
+  border: 0.1875rem solid rgba(0, 0, 0, 0.1);
+  border-left-color: rgb(98, 98, 98);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=bundle408cbab1205b6f5fde03.css.map*/
