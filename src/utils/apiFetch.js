@@ -1,3 +1,5 @@
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:3001/api"
+
 const apiFetch = async (endpoint, options = {}) => {
     const token = localStorage.getItem("accessToken");
     if (!token) {
@@ -5,7 +7,7 @@ const apiFetch = async (endpoint, options = {}) => {
         return null;
     }
 
-    const response = await fetch(`http://localhost:3001/api/${endpoint}`, {
+    const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
         ...options,
         headers: {
             "Content-Type": "application/json",

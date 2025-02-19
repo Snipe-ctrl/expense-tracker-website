@@ -9,4 +9,5 @@ yarn-error.log*
 Thumbs.db
 
 .env
-
+.env.development
+.env.production

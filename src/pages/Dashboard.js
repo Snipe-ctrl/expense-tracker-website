@@ -18,8 +18,6 @@ const Dashboard = () => {
         setEditingTransaction,
         selectedExpenseId,
         setSelectedExpenseId,
-        refreshTransactions,
-        setRefreshTransactions,
         isAddExpenseOpen,
         setIsAddExpenseOpen,
         isDeleteExpenseOpen,
@@ -68,7 +66,7 @@ const Dashboard = () => {
                         setIsDeleteExpenseOpen(false);
                         setSelectedExpenseId(null);
                     }}
-                    onDeleteSuccess={refreshTransactions}
+                    onDeleteSuccess={getTransactions}
                 />}
             <Outlet />
         </div>

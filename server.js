@@ -4,6 +4,8 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser')
 
+const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:3001"
+
 const indexRouter = require('./src/routes/otherRoutes')
 const authRouter = require('./src/routes/authRoutes')
 
@@ -11,8 +13,13 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
+const allowedOrigins = [
+    "http://localhost:3000", 
+    "https://your-frontend-app.herokuapp.com"
+];
+
 app.use(cors({
-    origin: 'http://localhost:3000', 
+    origin: allowedOrigins, 
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true, 
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -37,6 +44,10 @@ app.use((req, res, next) => {
     next();
 });
 
+console.log("Running in:", process.env.NODE_ENV);
+console.log("API Base URL:", API_BASE_URL);
+console.log("Port:", PORT);
+
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on ${process.env.NODE_ENV}`);
 });

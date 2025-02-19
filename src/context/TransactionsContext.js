@@ -19,9 +19,6 @@ export const TransactionsProvider = ({ children }) => {
     // Selected expense ID state
     const [selectedExpenseId, setSelectedExpenseId] = useState(null);
 
-    // Function to refresh transactions
-    const [refreshTransactions, setRefreshTransactions] = useState(() => () => {});
-
     // States for modals
     const [isAddExpenseOpen, setIsAddExpenseOpen] = useState(false);
     const [isDeleteExpenseOpen, setIsDeleteExpenseOpen] = useState(false);
@@ -66,8 +63,6 @@ export const TransactionsProvider = ({ children }) => {
                 setEditingTransaction,
                 selectedExpenseId,
                 setSelectedExpenseId,
-                refreshTransactions,
-                setRefreshTransactions,
                 isAddExpenseOpen,
                 setIsAddExpenseOpen,
                 isDeleteExpenseOpen,
