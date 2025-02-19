@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 
 const allowedOrigins = [
     "http://localhost:3000", 
-    "https://your-frontend-app.herokuapp.com"
+    "https://budgeting-app01-f65e95ef31b9.herokuapp.com"
 ];
 
 app.use(cors({
