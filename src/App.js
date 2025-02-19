@@ -14,7 +14,7 @@ const App = () => {
             <TransactionsProvider>
                 <Router>
                     <Routes>
-                        <Route path="/" element={<Dashboard />} />
+                        <Route path="/" element={<SigninForm />} />
                         <Route path="signup" element={<SignupForm />} />
                         <Route path="signin" element={<SigninForm />} />
                         {}
