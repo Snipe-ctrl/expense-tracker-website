@@ -3,6 +3,8 @@ import React, { createContext, useState, useEffect } from 'react';
 // Create the AuthContext
 export const AuthContext = createContext();
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:3001/api"
+
 // AuthProvider Component
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null); // User state
@@ -23,7 +25,7 @@ const AuthProvider = ({ children }) => {
         }
 
         try {
-            const response = await fetch('http://localhost:3001/auth/protected', {
+            const response = await fetch(`${API_BASE_URL}/auth/protected`, {
                 method: 'GET',
                 headers: {
                     Authorization: `Bearer ${token}`,

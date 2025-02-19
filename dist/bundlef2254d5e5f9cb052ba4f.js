@@ -1068,6 +1068,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 // Create the AuthContext
 var AuthContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();
+var API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:3001/api";
 
 // AuthProvider Component
 var AuthProvider = function AuthProvider(_ref) {
@@ -1105,7 +1106,7 @@ var AuthProvider = function AuthProvider(_ref) {
           case 6:
             _context.prev = 6;
             _context.next = 9;
-            return fetch('http://localhost:3001/auth/protected', {
+            return fetch("".concat(API_BASE_URL, "/auth/protected"), {
               method: 'GET',
               headers: {
                 Authorization: "Bearer ".concat(token),
@@ -40532,4 +40533,4 @@ root.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElem
 
 /******/ })()
 ;
-//# sourceMappingURL=bundledc6e7519c7959075f815.js.map
+//# sourceMappingURL=bundlef2254d5e5f9cb052ba4f.js.map
