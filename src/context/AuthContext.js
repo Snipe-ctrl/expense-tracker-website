@@ -3,11 +3,6 @@ import React, { createContext, useState, useEffect } from 'react';
 // Create the AuthContext
 export const AuthContext = createContext();
 
-const API_BASE_URL =
-  typeof process !== "undefined" && process.env.REACT_APP_API_BASE_URL
-    ? process.env.REACT_APP_API_BASE_URL
-    : "https://budgeting-app-backend01-239942873d43.herokuapp.com/api";
-
 // AuthProvider Component
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null); // User state
@@ -19,42 +14,51 @@ const AuthProvider = ({ children }) => {
     // Fetch the authenticated user
     const fetchUser = async () => {
         const token = getStoredToken(); // Retrieve token
-
+    
         if (!token) {
             console.warn('No token found in localStorage.');
             setUser(null);
             setUserLoading(false);
+            navigate('/signin')
             return;
         }
-
+    
+        console.log("Attempting to fetch user with token:", token);
+    
         try {
-            const response = await fetch(`${API_BASE_URL}/auth/protected`, {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/auth/protected`, {
                 method: 'GET',
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
+                credentials: "include",
             });
-
+    
+            console.log("Auth check response:", response.status);
+            const data = await response.json();
+    
             if (response.ok) {
-                const data = await response.json();
-                setUser(data.user); // Update user state
+                console.log("User authenticated:", data.user);
+                setUser(data.user);
             } else {
-                console.warn('Failed to fetch user. Status:', response.status);
+                console.warn('Authentication failed. Clearing token.');
+                localStorage.removeItem("accessToken"); // Remove invalid token
                 setUser(null);
             }
         } catch (error) {
             console.error('Error fetching user:', error);
         } finally {
-            setUserLoading(false); // Set loading to false
+            setUserLoading(false);
         }
     };
+    
 
     // Sign in using development credentials
     const devSignIn = async () => {
         try {
             const devCredentials = { email: 'test@gmail.com', password: 'test' };
-            const response = await fetch(`${API_BASE_URL}/auth/signin`, {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/auth/signin`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(devCredentials),
@@ -76,12 +80,17 @@ const AuthProvider = ({ children }) => {
 
     // Check authentication and sign in during development
     const initializeAuth = async () => {
-        await fetchUser(); // Attempt to fetch user with the existing token
-        if (!user) {
-            console.log('No user found. Attempting dev sign-in...');
-            await devSignIn();
+        const token = getStoredToken(); // Retrieve stored token
+    
+        if (!token) {
+            console.log('No token found, skipping authentication check.'); 
+            setUserLoading(false);
+            return; // Stop here if no token
         }
-    };
+    
+        console.log("Token found. Attempting to authenticate...");
+        await fetchUser(); // Fetch user only if token exists
+    };    
 
     // Run on component mount
     useEffect(() => {

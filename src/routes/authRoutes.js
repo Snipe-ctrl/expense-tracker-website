@@ -33,7 +33,11 @@ router.get('/', async (req, res) => {
 // Sign up
 router.post('/signup', async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { fullName, email, password } = req.body;
+
+        if (!fullName) {
+            return res.status(400).json({ type: 'error', message: 'Full name is required.' });
+        }
 
         const user = await findUserByEmail(email);
         if (user) {
@@ -49,7 +53,7 @@ router.post('/signup', async (req, res) => {
         }
 
         const passwordHash = await hash(password, 10);
-        await createUser(email, passwordHash);
+        await createUser(fullName, email, passwordHash);
 
         res.status(200).json({
             message: 'User created successfully! 🥳',
@@ -92,7 +96,17 @@ router.post('/signin', async (req, res) => {
         await updateRefreshToken(user.id, refreshToken);
 
         sendRefreshToken(res, refreshToken);
-        sendAccessToken(req, res, accessToken);
+
+        res.json({
+            type: 'success',
+            message: 'Sign in Successful! 🎉',
+            accesstoken: accessToken,
+            user: {
+                id: user.id,
+                fullName: user.full_name,
+                email: user.email
+            }
+        });
     } catch (error) {
         console.error('Error: ', error);
         res.status(500).json({

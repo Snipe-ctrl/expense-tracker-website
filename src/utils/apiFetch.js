@@ -1,7 +1,3 @@
-const API_BASE_URL =
-  typeof process !== "undefined" && process.env.REACT_APP_API_BASE_URL
-    ? process.env.REACT_APP_API_BASE_URL
-    : "https://budgeting-app-backend01.herokuapp.com/api";
 
 const apiFetch = async (endpoint, options = {}) => {
     const token = localStorage.getItem("accessToken");
@@ -10,7 +6,7 @@ const apiFetch = async (endpoint, options = {}) => {
         return null;
     }
 
-    const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
+    const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/${endpoint}`, {
         ...options,
         headers: {
             "Content-Type": "application/json",

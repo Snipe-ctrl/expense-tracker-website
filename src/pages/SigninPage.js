@@ -6,8 +6,6 @@ import '/src/styles/style.scss';
 let userEmail = ""
 
 const SigninForm = () => {
-    console.log("API Base URL:", process.env.REACT_APP_API_BASE_URL);
-
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -32,6 +30,7 @@ const SigninForm = () => {
     // handles form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log('Form submitted')
 
         if (!formData.email || !formData.password) {
             alert('Please fill in all the fields!');
@@ -44,9 +43,12 @@ const SigninForm = () => {
         }
 
         try {
+
             const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/auth/signin`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('accessToken') || ''}`,
+                },
                 body: JSON.stringify({ email: formData.email, password: formData.password }),
                 credentials: 'include', // Use credentials to include cookies
             });
@@ -54,8 +56,10 @@ const SigninForm = () => {
             const data = await response.json();
 
             if (response.ok && data.user) {
-                setUser(data.user); // Update user in AuthContext
+                localStorage.setItem('accessToken', data.accesstoken);
+                setUser(data.user);
                 navigate('/dashboard');
+
             } else {
                 alert(data.message || 'Failed to sign in');
             }

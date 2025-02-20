@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import '/src/styles/style.scss';
 
 const SignupForm = () => {
@@ -10,7 +11,8 @@ const SignupForm = () => {
         termsAccepted: false,
     });
 
-    
+    const navigate = useNavigate();
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData({
@@ -58,7 +60,7 @@ const SignupForm = () => {
 
         // sends POST request
         try {
-            const signupResponse = await fetch('http://localhost:3001/auth/signup', {
+            const signupResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/auth/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
@@ -69,6 +71,7 @@ const SignupForm = () => {
     
             if (data.type === 'success') {
                 alert('Account created succesfully!');
+                navigate('/dashboard')
             } else {
                 alert('Error creating account: ' + data.message);
             }

@@ -1068,7 +1068,6 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 // Create the AuthContext
 var AuthContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();
-var API_BASE_URL = typeof process !== "undefined" && "http://localhost:3001/api" ? "http://localhost:3001/api" : "https://budgeting-app-backend01-239942873d43.herokuapp.com/api";
 
 // AuthProvider Component
 var AuthProvider = function AuthProvider(_ref) {
@@ -1104,47 +1103,47 @@ var AuthProvider = function AuthProvider(_ref) {
             setUserLoading(false);
             return _context.abrupt("return");
           case 6:
-            _context.prev = 6;
-            _context.next = 9;
-            return fetch("".concat(API_BASE_URL, "/auth/protected"), {
+            console.log("Attempting to fetch user with token:", token);
+            _context.prev = 7;
+            _context.next = 10;
+            return fetch("".concat("http://localhost:3001/api", "/auth/protected"), {
               method: 'GET',
               headers: {
                 Authorization: "Bearer ".concat(token),
                 'Content-Type': 'application/json'
-              }
+              },
+              credentials: "include"
             });
-          case 9:
+          case 10:
             response = _context.sent;
-            if (!response.ok) {
-              _context.next = 17;
-              break;
-            }
-            _context.next = 13;
+            console.log("Auth check response:", response.status);
+            _context.next = 14;
             return response.json();
-          case 13:
+          case 14:
             data = _context.sent;
-            setUser(data.user); // Update user state
-            _context.next = 19;
+            if (response.ok) {
+              console.log("User authenticated:", data.user);
+              setUser(data.user);
+            } else {
+              console.warn('Authentication failed. Clearing token.');
+              localStorage.removeItem("accessToken"); // Remove invalid token
+              setUser(null);
+            }
+            _context.next = 21;
             break;
-          case 17:
-            console.warn('Failed to fetch user. Status:', response.status);
-            setUser(null);
-          case 19:
-            _context.next = 24;
-            break;
+          case 18:
+            _context.prev = 18;
+            _context.t0 = _context["catch"](7);
+            console.error('Error fetching user:', _context.t0);
           case 21:
             _context.prev = 21;
-            _context.t0 = _context["catch"](6);
-            console.error('Error fetching user:', _context.t0);
+            setUserLoading(false);
+            return _context.finish(21);
           case 24:
-            _context.prev = 24;
-            setUserLoading(false); // Set loading to false
-            return _context.finish(24);
-          case 27:
           case "end":
             return _context.stop();
         }
-      }, _callee, null, [[6, 21, 24, 27]]);
+      }, _callee, null, [[7, 18, 21, 24]]);
     }));
     return function fetchUser() {
       return _ref2.apply(this, arguments);
@@ -1164,7 +1163,7 @@ var AuthProvider = function AuthProvider(_ref) {
               password: 'test'
             };
             _context2.next = 4;
-            return fetch("".concat(API_BASE_URL, "/auth/signin"), {
+            return fetch("".concat("http://localhost:3001/api", "/auth/signin"), {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -1213,20 +1212,23 @@ var AuthProvider = function AuthProvider(_ref) {
   // Check authentication and sign in during development
   var initializeAuth = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+      var token;
       return _regeneratorRuntime().wrap(function _callee3$(_context3) {
         while (1) switch (_context3.prev = _context3.next) {
           case 0:
-            _context3.next = 2;
-            return fetchUser();
-          case 2:
-            if (user) {
-              _context3.next = 6;
+            token = getStoredToken(); // Retrieve stored token
+            if (token) {
+              _context3.next = 5;
               break;
             }
-            console.log('No user found. Attempting dev sign-in...');
-            _context3.next = 6;
-            return devSignIn();
-          case 6:
+            console.log('No token found, skipping authentication check.');
+            setUserLoading(false);
+            return _context3.abrupt("return");
+          case 5:
+            console.log("Token found. Attempting to authenticate...");
+            _context3.next = 8;
+            return fetchUser();
+          case 8:
           case "end":
             return _context3.stop();
         }
@@ -1940,7 +1942,6 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 var userEmail = "";
 var SigninForm = function SigninForm() {
-  console.log("API Base URL:", "http://localhost:3001/api");
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       email: "",
       password: ""
@@ -1974,26 +1975,35 @@ var SigninForm = function SigninForm() {
         while (1) switch (_context.prev = _context.next) {
           case 0:
             e.preventDefault();
+            console.log('Form submitted');
             if (!(!formData.email || !formData.password)) {
-              _context.next = 4;
+              _context.next = 5;
               break;
             }
             alert('Please fill in all the fields!');
             return _context.abrupt("return");
-          case 4:
+          case 5:
             if (isValidEmail(formData.email)) {
-              _context.next = 7;
+              _context.next = 8;
               break;
             }
             alert('Please enter a valid email address!');
             return _context.abrupt("return");
-          case 7:
-            _context.prev = 7;
-            _context.next = 10;
+          case 8:
+            _context.prev = 8;
+            console.log("Sending sign-in request to:", "http://localhost:3001/api" + "/auth/signin");
+            console.log("Request body:", JSON.stringify({
+              email: formData.email,
+              password: formData.password
+            }));
+            console.log("Authorization Header:", "Bearer ".concat(localStorage.getItem('accessToken')));
+            console.log("Cookies:", document.cookie);
+            _context.next = 15;
             return fetch("".concat("http://localhost:3001/api", "/auth/signin"), {
               method: 'POST',
               headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer ".concat(localStorage.getItem('accessToken') || '')
               },
               body: JSON.stringify({
                 email: formData.email,
@@ -2001,30 +2011,34 @@ var SigninForm = function SigninForm() {
               }),
               credentials: 'include' // Use credentials to include cookies
             });
-          case 10:
+          case 15:
             response = _context.sent;
-            _context.next = 13;
+            _context.next = 18;
             return response.json();
-          case 13:
+          case 18:
             data = _context.sent;
+            console.log("Raw Response:", response);
+            console.log("Response JSON:", data);
             if (response.ok && data.user) {
-              setUser(data.user); // Update user in AuthContext
+              localStorage.setItem('accessToken', data.accesstoken);
+              console.log("User Data:", data.user); // Debugging step
+              setUser(data.user);
               navigate('/dashboard');
             } else {
               alert(data.message || 'Failed to sign in');
             }
-            _context.next = 21;
+            _context.next = 28;
             break;
-          case 17:
-            _context.prev = 17;
-            _context.t0 = _context["catch"](7);
+          case 24:
+            _context.prev = 24;
+            _context.t0 = _context["catch"](8);
             console.error('Error signing in:', _context.t0);
             alert('An error occurred during sign-in.');
-          case 21:
+          case 28:
           case "end":
             return _context.stop();
         }
-      }, _callee, null, [[7, 17]]);
+      }, _callee, null, [[8, 24]]);
     }));
     return function handleSubmit(_x) {
       return _ref.apply(this, arguments);
@@ -40534,4 +40548,4 @@ root.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElem
 
 /******/ })()
 ;
-//# sourceMappingURL=bundled6753d773023cf9bd739.js.map
+//# sourceMappingURL=bundlebcd369f5c78270a560d3.js.map
