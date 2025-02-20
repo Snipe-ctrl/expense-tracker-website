@@ -6,6 +6,8 @@ import '/src/styles/style.scss';
 let userEmail = ""
 
 const SigninForm = () => {
+    console.log("API Base URL:", process.env.REACT_APP_API_BASE_URL);
+
     const [formData, setFormData] = useState({
         email: "",
         password: "",
