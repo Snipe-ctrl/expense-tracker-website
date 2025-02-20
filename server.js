@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser')
 
-const API_BASE_URL = process.env.API_BASE_URL;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const indexRouter = require('./src/routes/otherRoutes')
 const authRouter = require('./src/routes/authRoutes')
@@ -45,7 +45,7 @@ app.use((req, res, next) => {
 });
 
 console.log("Running in:", process.env.NODE_ENV);
-console.log("API Base URL:", API_BASE_URL);
+console.log("API Base URL:", process.env.REACT_APP_API_BASE_URL);
 console.log("Port:", PORT);
 
 app.listen(PORT, () => {
