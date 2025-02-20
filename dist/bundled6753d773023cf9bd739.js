@@ -34,7 +34,7 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_context_AuthContext__WEBPACK_IMPORTED_MODULE_6__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_context_TransactionsContext__WEBPACK_IMPORTED_MODULE_7__.TransactionsProvider, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "/",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"], null)
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages_SigninPage__WEBPACK_IMPORTED_MODULE_2__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     path: "signup",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages_SignupPage__WEBPACK_IMPORTED_MODULE_1__["default"], null)
@@ -1068,7 +1068,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 // Create the AuthContext
 var AuthContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();
-var API_BASE_URL = typeof process !== "undefined" && process.env.REACT_APP_API_BASE_URL ? process.env.REACT_APP_API_BASE_URL : "https://budgeting-app-backend01.herokuapp.com/api";
+var API_BASE_URL = typeof process !== "undefined" && "http://localhost:3001/api" ? "http://localhost:3001/api" : "https://budgeting-app-backend01-239942873d43.herokuapp.com/api";
 
 // AuthProvider Component
 var AuthProvider = function AuthProvider(_ref) {
@@ -1940,6 +1940,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 var userEmail = "";
 var SigninForm = function SigninForm() {
+  console.log("API Base URL:", "http://localhost:3001/api");
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       email: "",
       password: ""
@@ -1989,7 +1990,7 @@ var SigninForm = function SigninForm() {
           case 7:
             _context.prev = 7;
             _context.next = 10;
-            return fetch('http://localhost:3001/auth/signin', {
+            return fetch("".concat("http://localhost:3001/api", "/auth/signin"), {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -2391,7 +2392,7 @@ function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" 
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-var API_BASE_URL = typeof process !== "undefined" && process.env.REACT_APP_API_BASE_URL ? process.env.REACT_APP_API_BASE_URL : "https://budgeting-app-backend01.herokuapp.com/api";
+var API_BASE_URL = typeof process !== "undefined" && "http://localhost:3001/api" ? "http://localhost:3001/api" : "https://budgeting-app-backend01.herokuapp.com/api";
 var apiFetch = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(endpoint) {
     var options,
@@ -40533,4 +40534,4 @@ root.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElem
 
 /******/ })()
 ;
-//# sourceMappingURL=bundleff2da916d1befb179a7f.js.map
+//# sourceMappingURL=bundled6753d773023cf9bd739.js.map
