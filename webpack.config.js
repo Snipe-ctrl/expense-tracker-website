@@ -76,6 +76,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name][contenthash].css',
         }),
-        new Dotenv(),
+        new webpack.DefinePlugin({
+            'process.env.REACT_APP_API_BASE_URL': JSON.stringify(process.env.REACT_APP_API_BASE_URL),
+            'process.env.REACT_APP_API_URL': JSON.stringify(process.env.REACT_APP_API_URL),
+        }),
     ],
 };
