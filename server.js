@@ -35,14 +35,15 @@ app.options('*', cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+	
+app.use('/api', indexRouter)
+app.use('/api/auth', authRouter)
+
+app.use(express.static(path.resolve(__dirname, 'dist')));
 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
-	
-app.use('/api', indexRouter)
-app.use('/api/auth', authRouter)
-app.use(express.static(path.resolve(__dirname, 'dist')));
 
 app.use((req, res, next) => {
     console.log(`Incoming request: ${req.method} ${req.url}`);
