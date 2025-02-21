@@ -30,7 +30,6 @@ const SigninForm = () => {
     // handles form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted')
 
         if (!formData.email || !formData.password) {
             alert('Please fill in all the fields!');
