@@ -85,11 +85,11 @@ const OverviewCards = () => {
         // calculates income percentage and expenses percentage
         const incomePercentage = lastMonthIncome > 0 
         ? Math.round(((thisMonthIncome - lastMonthIncome) / lastMonthIncome) * 100)
-        : 0;
-
+        : (thisMonthIncome > 0 ? 100 : 0);
+    
         const totalExpensesPercentage = lastMonthExpenses > 0
         ? Math.round(((thisMonthExpenses - lastMonthExpenses) / lastMonthExpenses) * 100)
-        : 0;
+        : (thisMonthExpenses > 0 ? 100 : 0);
 
         // updates overview card variables
         setCardValues({
