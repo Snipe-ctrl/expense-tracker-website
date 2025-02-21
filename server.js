@@ -4,8 +4,6 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser')
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-
 const indexRouter = require('./src/routes/otherRoutes')
 const authRouter = require('./src/routes/authRoutes')
 
@@ -14,9 +12,16 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const allowedOrigins = [
-    "http://localhost:3000", 
+    "http://localhost:3000",
     "https://app.snipectrl.com"
 ];
+
+app.use((req, res, next) => {
+    if (req.headers["x-forwarded-proto"] !== "https") {
+        return res.redirect(`https://${req.headers.host}${req.url}`);
+    }
+    next();
+});
 
 app.use(cors({
     origin: allowedOrigins, 
@@ -32,7 +37,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 app.get('/', (req, res) => {
-	res.sendFile(path.resolve(__dirname, 'dist/index.html'));
+	res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 	
 app.use('/api', indexRouter)
@@ -43,10 +48,6 @@ app.use((req, res, next) => {
     console.log(`Incoming request: ${req.method} ${req.url}`);
     next();
 });
-
-console.log("Running in:", process.env.NODE_ENV);
-console.log("API Base URL:", process.env.REACT_APP_API_BASE_URL);
-console.log("Port:", PORT);
 
 app.listen(PORT, () => {
     console.log(`Server running on ${process.env.NODE_ENV}`);
