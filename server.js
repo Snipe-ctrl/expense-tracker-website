@@ -42,6 +42,9 @@ app.use('/api/auth', authRouter)
 app.use(express.static(path.resolve(__dirname, 'dist')));
 
 app.get('*', (req, res) => {
+    if (req.originalUrl.startsWith('/api')) {
+        return res.status(404).json({ error: 'API route not found' });
+    }
     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 
