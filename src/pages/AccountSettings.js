@@ -44,7 +44,7 @@ const AccountSettings = ({ onClose }) => {
         formData.append('userId', user.id);
         
         try {
-            const response = await fetch('http://localhost:3001/api/upload-profile-picture', {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/upload-profile-picture`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const AccountSettings = ({ onClose }) => {
     // send account setting changes to api
     const updateAccountSettings = async (userData) => {
         try {
-            const response = await fetch('http://localhost:3001/api/update-account-settings', {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/update-account-settings`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",

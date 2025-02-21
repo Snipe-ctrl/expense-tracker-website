@@ -1,3 +1,6 @@
+process.env.TZ = "America/Los_Angeles";
+console.log("Server timezone:", new Date().toString());
+
 require('dotenv').config();
 const path = require('path');
 const express = require('express');
