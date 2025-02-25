@@ -17,15 +17,21 @@ const App = () => {
                         <Route path="/" element={<SigninForm />} />
                         <Route path="signup" element={<SignupForm />} />
                         <Route path="signin" element={<SigninForm />} />
-                        {}
-                        <Route path="dashboard" element={<Dashboard />} />
-                        <Route path="transactions" element={<Transactions />} />
-                        <Route path="protected"
+                        <Route 
+                            path="dashboard" 
                             element={
                                 <ProtectedRoute>
                                     <Dashboard />
                                 </ProtectedRoute>
-                            }
+                            } 
+                        />
+                        <Route 
+                            path="transactions" 
+                            element={
+                                <ProtectedRoute>
+                                    <Transactions />
+                                </ProtectedRoute>
+                            } 
                         />
                     </Routes>
                 </Router>

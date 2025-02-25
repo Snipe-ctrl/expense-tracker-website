@@ -19,7 +19,6 @@ const AuthProvider = ({ children }) => {
             console.warn('No token found in localStorage.');
             setUser(null);
             setUserLoading(false);
-            navigate('/signin')
             return;
         }
     
@@ -67,8 +66,8 @@ const AuthProvider = ({ children }) => {
 
             if (response.ok) {
                 const data = await response.json(); // Parse JSON response
-                localStorage.setItem('accessToken', data.accesstoken); // Store token
-                console.log('Dev Sign-In Token Stored:', data.accesstoken);
+                localStorage.setItem('accessToken', data.accessToken); // Store token
+                console.log('Dev Sign-In Token Stored:', data.accessToken);
                 await fetchUser(); // Fetch the user after signing in
             } else {
                 console.error('Dev Sign-In failed. Status:', response.status);
@@ -80,6 +79,7 @@ const AuthProvider = ({ children }) => {
 
     // Check authentication and sign in during development
     const initializeAuth = async () => {
+        setUserLoading(true)
         const token = getStoredToken(); // Retrieve stored token
     
         if (!token) {

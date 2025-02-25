@@ -9,7 +9,7 @@ const fs = require('fs');
 const { protected } = require('../utils/auth-util/protected');
 const exp = require('constants');
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ storage: multer.memoryStorage() });
 
 router.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'dist/index.html'));
@@ -20,12 +20,11 @@ router.get('/test', (req, res) => {
 });
 
 router.post('/upload-profile-picture', protected, upload.single('profilePicture'), async (req, res) => {
-
     if (!req.file) {
         return res.status(400).send('No file uploaded.');
     }
 
-    const fileContent = fs.readFileSync(req.file.path);
+    const fileContent = req.file.buffer;
     const params = {
         Bucket: 'expense-tracker-bucket01',
         Key: `profile-pictures/${req.file.originalname}`,
@@ -35,11 +34,6 @@ router.post('/upload-profile-picture', protected, upload.single('profilePicture'
 
     try {
         const data = await s3.upload(params).promise();
-
-        fs.unlink(req.file.path, (err) => {
-            if (err) console.error('Error deleting temporary file:', err);
-        });        
-
         const imageUrl = data.Location;
         const userId = req.user.id;
         const query = `UPDATE users SET profile_picture_url = $1 WHERE id = $2 RETURNING *`;
@@ -77,9 +71,9 @@ router.post('/update-account-settings', protected, async (req, res) => {
     `;
 
     const values = [
-        full_name || user.full_name,
-        timezone || user.timezone,
-        profile_picture_url || user.profile_picture_url,
+        full_name || req.user.full_name,
+        timezone || req.user.timezone,
+        profile_picture_url || req.user.profile_picture_url,
         userId,
     ];
 

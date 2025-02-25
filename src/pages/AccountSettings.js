@@ -47,7 +47,6 @@ const AccountSettings = ({ onClose }) => {
             const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/upload-profile-picture`, {
                 method: 'POST',
                 headers: {
-                    "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`,
                 },
                 body: formData,
@@ -59,7 +58,6 @@ const AccountSettings = ({ onClose }) => {
             };
 
             const data = await response.json();
-            console.log('File uploaded succesfully', data.url);
 
             // updates user profile photo right away
             setUserData((prevUserData) => ({
@@ -79,7 +77,6 @@ const AccountSettings = ({ onClose }) => {
             const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/update-account-settings`, {
                 method: 'POST',
                 headers: {
-                    "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`,
                 },
                 body: JSON.stringify(userData),
@@ -145,6 +142,7 @@ const AccountSettings = ({ onClose }) => {
     useEffect(() => {
         const fetchUserData = async () => {
             if (user) {
+                console.log("🖼️ User Profile Picture URL:", user?.profile_picture_url);
                 setUserData({
                     full_name: user.full_name || '',
                     email: user.email || '',

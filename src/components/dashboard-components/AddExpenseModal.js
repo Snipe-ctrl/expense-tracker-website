@@ -48,11 +48,11 @@ const AddExpenseModal = ({ onClose, onExpenseAdded, editingTransaction }) => {
                 });
             }
             
-                    // checks if response was valid and resets new expense form
+            // checks if response was valid and resets new expense form
             if (response) {
                 console.log(`${editingTransaction ? 'Expense updated' : 'Expense added'} succesfully:`, response);
                 onClose();
-                setNewExpense({ date: '', description: '', category: 'Food', amount: '0.00', notes: '' });
+                setNewExpense({ date: '', description: '', category: 'Food', amount: '', notes: '' });
                 onExpenseAdded();
             } else {
                 console.error(`Failed to ${editingTransaction ? 'update expense' : 'add expense'}`);
@@ -93,7 +93,7 @@ const AddExpenseModal = ({ onClose, onExpenseAdded, editingTransaction }) => {
                 date: '',
                 description: '',
                 category: 'Food',
-                amount: '0.00',
+                amount: '',
                 notes: '',
             });
         }
