@@ -1,4 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { refreshAccessToken } from "../utils/refreshAccessToken"; // Import from utils
+
 
 // Create the AuthContext
 export const AuthContext = createContext();
@@ -16,7 +18,7 @@ const AuthProvider = ({ children }) => {
         let token = getStoredToken();
     
         if (!token) {
-            console.warn('No access token found.');
+            console.warn("No access token found.");
             setUser(null);
             setUserLoading(false);
             return;
@@ -24,10 +26,10 @@ const AuthProvider = ({ children }) => {
     
         try {
             const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/auth/protected`, {
-                method: 'GET',
+                method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
                 credentials: "include",
             });
@@ -37,90 +39,79 @@ const AuthProvider = ({ children }) => {
             if (response.ok) {
                 setUser(data.user);
             } else if (response.status === 401) {
-                console.warn("Access token expired. Trying to refresh...");
-    
-                const newToken = await refreshAccessToken();
+                
+                const newToken = await refreshAccessToken(); // Call utility function
     
                 if (newToken) {
-                    return fetchUser();
+                    return fetchUser(); // Retry with new token
                 } else {
                     console.warn("❌ Failed to refresh token. Logging out.");
                     setUser(null);
                     localStorage.removeItem("accessToken");
                 }
             } else {
-                console.warn('Authentication failed. Clearing token.');
+                console.warn("Authentication failed. Clearing token.");
                 localStorage.removeItem("accessToken");
                 setUser(null);
             }
         } catch (error) {
-            console.error('Error fetching user:', error);
+            console.error("Error fetching user:", error);
         } finally {
             setUserLoading(false);
         }
-    };
-    
+    };    
 
-    const refreshAccessToken = async () => {
+    const scheduleTokenRefresh = () => {
+        const token = localStorage.getItem("accessToken");
+        if (!token) return;
+
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/auth/refresh_token`, {
-                method: 'POST',
-                credentials: 'include',
-            });
-    
-            const data = await response.json();
-    
-            if (response.ok && data.accessToken) {
-                console.log("🔄 Access token refreshed!");
-                localStorage.setItem('accessToken', data.accessToken); 
-                return data.accessToken;
-            } else {
-                console.warn("❌ Refresh token invalid. Logging out.");
-                localStorage.removeItem("accessToken");
-                setUser(null);
-                return null;
+            // Decode token to get expiration time
+            const payload = JSON.parse(atob(token.split(".")[1]));
+            const expiresInMs = (payload.exp * 1000) - Date.now(); // Time left in milliseconds
+
+            if (expiresInMs > 5000) { // Schedule slightly before expiration
+                console.log(`🔄 Scheduling token refresh in ${Math.floor(expiresInMs / 1000)} seconds`);
+                
+                setTimeout(async () => {
+                    console.log("🔄 Auto-refreshing token...");
+                    const newToken = await refreshAccessToken();
+                    if (newToken) scheduleTokenRefresh(); // Reschedule if refresh is successful
+                }, expiresInMs - 5000); // Refresh 5 seconds before expiry
             }
         } catch (error) {
-            console.error("Error refreshing access token:", error);
-            return null;
-        }
-    };
-
-    // Sign in using development credentials
-    const devSignIn = async () => {
-        try {
-            const devCredentials = { email: 'test@gmail.com', password: 'test' };
-            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/auth/signin`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(devCredentials),
-                credentials: 'include', // Use cookies for persistent sessions
-            });
-
-            if (response.ok) {
-                const data = await response.json(); // Parse JSON response
-                localStorage.setItem('accessToken', data.accessToken); // Store token
-                await fetchUser(); // Fetch the user after signing in
-            } else {
-                console.error('Dev Sign-In failed. Status:', response.status);
-            }
-        } catch (error) {
-            console.error('Error during dev sign-in:', error);
+            console.error("Error decoding access token:", error);
         }
     };
 
     // Check authentication and sign in
     const initializeAuth = async () => {
-        setUserLoading(true)
-        const token = getStoredToken(); // Retrieve stored token
+        setUserLoading(true);
     
-        if (!token) {
-            console.log('No token found, skipping authentication check.'); 
-            setUserLoading(false);
-            return; // Stop here if no token
+        let token = localStorage.getItem("accessToken");
+    
+        if (token) {
+            const payload = JSON.parse(atob(token.split(".")[1]));
+            const now = Date.now() / 1000;
+    
+            if (payload.exp < now) {
+                console.warn("🔄 Access token expired. Attempting refresh...");
+                token = await refreshAccessToken();
+            }
         }
-        await fetchUser(); // Fetch user only if token exists
-    };    
+    
+        // If we have a valid token, attempt to fetch user
+        if (token) {
+            await fetchUser();
+        } else {
+            console.warn("❌ No valid access token. Logging out.");
+            setUser(null);
+            localStorage.removeItem("accessToken");
+        }
+    
+        setUserLoading(false);
+    };
+    
 
     // Run on component mount
     useEffect(() => {
