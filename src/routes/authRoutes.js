@@ -104,7 +104,8 @@ router.post('/signin', async (req, res) => {
             user: {
                 id: user.id,
                 fullName: user.full_name,
-                email: user.email
+                email: user.email,
+                profile_picture_url: user.profile_picture_url,
             }
         });
     } catch (error) {

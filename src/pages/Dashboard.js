@@ -26,14 +26,6 @@ const Dashboard = () => {
 
     const { user, userLoading } = useContext(AuthContext);
 
-    if (userLoading) {
-        return (
-            <div className='main-spinner-container'>
-                <div className='spinner'></div>
-            </div>
-        )
-    };
-
     return (
         <div>
             <Header />

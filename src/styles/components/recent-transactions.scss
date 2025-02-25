@@ -334,6 +334,11 @@ $category-styles: (
             border: none;
             border-radius: rem(8);
             gap: rem(5);
+            cursor: pointer;
+
+            &:hover {
+                background-color: #ececec;
+            }
         }
     }
 }

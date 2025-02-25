@@ -5,24 +5,22 @@ export const AuthContext = createContext();
 
 // AuthProvider Component
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null); // User state
-    const [userLoading, setUserLoading] = useState(true); // Loading state
+    const [user, setUser] = useState(null);
+    const [userLoading, setUserLoading] = useState(true);
 
     // Helper function to get the stored access token
     const getStoredToken = () => localStorage.getItem('accessToken');
 
     // Fetch the authenticated user
     const fetchUser = async () => {
-        const token = getStoredToken(); // Retrieve token
+        let token = getStoredToken();
     
         if (!token) {
-            console.warn('No token found in localStorage.');
+            console.warn('No access token found.');
             setUser(null);
             setUserLoading(false);
             return;
         }
-    
-        console.log("Attempting to fetch user with token:", token);
     
         try {
             const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/auth/protected`, {
@@ -34,15 +32,25 @@ const AuthProvider = ({ children }) => {
                 credentials: "include",
             });
     
-            console.log("Auth check response:", response.status);
             const data = await response.json();
     
             if (response.ok) {
-                console.log("User authenticated:", data.user);
                 setUser(data.user);
+            } else if (response.status === 401) {
+                console.warn("Access token expired. Trying to refresh...");
+    
+                const newToken = await refreshAccessToken();
+    
+                if (newToken) {
+                    return fetchUser();
+                } else {
+                    console.warn("❌ Failed to refresh token. Logging out.");
+                    setUser(null);
+                    localStorage.removeItem("accessToken");
+                }
             } else {
                 console.warn('Authentication failed. Clearing token.');
-                localStorage.removeItem("accessToken"); // Remove invalid token
+                localStorage.removeItem("accessToken");
                 setUser(null);
             }
         } catch (error) {
@@ -52,6 +60,31 @@ const AuthProvider = ({ children }) => {
         }
     };
     
+
+    const refreshAccessToken = async () => {
+        try {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/auth/refresh_token`, {
+                method: 'POST',
+                credentials: 'include',
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok && data.accessToken) {
+                console.log("🔄 Access token refreshed!");
+                localStorage.setItem('accessToken', data.accessToken); 
+                return data.accessToken;
+            } else {
+                console.warn("❌ Refresh token invalid. Logging out.");
+                localStorage.removeItem("accessToken");
+                setUser(null);
+                return null;
+            }
+        } catch (error) {
+            console.error("Error refreshing access token:", error);
+            return null;
+        }
+    };
 
     // Sign in using development credentials
     const devSignIn = async () => {
@@ -67,7 +100,6 @@ const AuthProvider = ({ children }) => {
             if (response.ok) {
                 const data = await response.json(); // Parse JSON response
                 localStorage.setItem('accessToken', data.accessToken); // Store token
-                console.log('Dev Sign-In Token Stored:', data.accessToken);
                 await fetchUser(); // Fetch the user after signing in
             } else {
                 console.error('Dev Sign-In failed. Status:', response.status);
@@ -77,7 +109,7 @@ const AuthProvider = ({ children }) => {
         }
     };
 
-    // Check authentication and sign in during development
+    // Check authentication and sign in
     const initializeAuth = async () => {
         setUserLoading(true)
         const token = getStoredToken(); // Retrieve stored token
@@ -87,8 +119,6 @@ const AuthProvider = ({ children }) => {
             setUserLoading(false);
             return; // Stop here if no token
         }
-    
-        console.log("Token found. Attempting to authenticate...");
         await fetchUser(); // Fetch user only if token exists
     };    
 
